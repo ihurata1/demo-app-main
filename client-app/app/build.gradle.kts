@@ -32,7 +32,6 @@ android {
     sourceSets {
         getByName("main") {
             java.srcDirs("src/main/java", "src/main/kotlin")
-            resources.srcDirs("src/main/protos")
         }
     }
     packaging {
@@ -62,13 +61,25 @@ protobuf {
     generateProtoTasks {
         all().forEach { task ->
             task.builtins {
-                create("java") { }
-                create("kotlin") { }
+                create("java") {
+                    option("lite")
+                }
+                create("kotlin") {
+                    option("lite")
+                }
             }
             task.plugins {
-                create("grpc") { }
-                create("grpckt") { }
+                create("grpc") {
+                    option("lite")
+                }
+                create("grpckt") {
+                    option("lite")
+                }
             }
+            // Add include paths for Google protobuf descriptors
+            task.generateDescriptorSet = true
+            task.descriptorSetOptions.includeSourceInfo = true
+            task.descriptorSetOptions.includeImports = true
         }
     }
 }
@@ -94,16 +105,28 @@ dependencies {
     implementation("io.netty:netty-buffer:4.1.100.Final")
 
     // gRPC
-    implementation("io.grpc:grpc-kotlin-stub:1.4.1")
-    implementation("io.grpc:grpc-protobuf:1.62.2")
-    implementation("io.grpc:grpc-okhttp:1.62.2")
-    implementation("io.grpc:grpc-netty-shaded:1.62.2")
-    implementation("io.grpc:grpc-stub:1.62.2")
+    implementation("io.grpc:grpc-kotlin-stub:1.4.1") {
+        exclude(group = "com.google.protobuf", module = "protobuf-java")
+    }
+    implementation("io.grpc:grpc-protobuf-lite:1.62.2") {
+        exclude(group = "com.google.protobuf", module = "protobuf-java")
+    }
+    implementation("io.grpc:grpc-okhttp:1.62.2") {
+        exclude(group = "com.google.protobuf", module = "protobuf-java")
+    }
+    implementation("io.grpc:grpc-netty-shaded:1.62.2") {
+        exclude(group = "com.google.protobuf", module = "protobuf-java")
+    }
+    implementation("io.grpc:grpc-stub:1.62.2") {
+        exclude(group = "com.google.protobuf", module = "protobuf-java")
+    }
     
     // Protobuf
-    implementation("com.google.protobuf:protobuf-kotlin:3.25.3")
-    implementation("com.google.protobuf:protobuf-java:3.25.3")
-    implementation("com.google.protobuf:protobuf-java-util:3.25.3")
+    implementation("com.google.protobuf:protobuf-kotlin-lite:3.25.3")
+    implementation("com.google.protobuf:protobuf-javalite:3.25.3")
+    
+    // Protobuf includes for compilation
+    compileOnly("com.google.protobuf:protobuf-java:3.25.3")
     
     // Required for gRPC
     implementation("javax.annotation:javax.annotation-api:1.3.2")
