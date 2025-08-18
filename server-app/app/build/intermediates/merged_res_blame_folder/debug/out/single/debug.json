@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/layout_item_message.xml.flat",
+        "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-37:/layout/item_message.xml"
+    },
+    {
+        "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/layout_activity_main.xml.flat",
+        "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/xml_backup_rules.xml.flat",
+        "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-37:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-37:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-37:/drawable/ic_launcher_foreground.xml"
+    }
+]
