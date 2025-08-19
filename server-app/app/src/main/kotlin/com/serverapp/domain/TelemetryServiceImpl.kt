@@ -206,7 +206,7 @@ class TelemetryServiceImpl : TelemetryServiceGrpcKt.TelemetryServiceCoroutineImp
             }
 
             awaitClose {
-                Log.d(TAG, "In-air subscription closed")
+                Log.d(TAG, "In air subscription closed")
             }
         }
     }
