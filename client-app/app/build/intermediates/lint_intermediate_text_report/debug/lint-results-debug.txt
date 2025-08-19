@@ -102,78 +102,114 @@
 
    https://developer.android.com/studio/publish/preparing#publishing-configure
 
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:73: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:68: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
             text = "Client App"
                     ~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:80: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:75: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
             text = "Bağlantı bekleniyor..."
                     ~~~~~~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:86: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:81: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
             text = "Server'a Bağlan"
                     ~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:94: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
-            text = "Mesaj Gönder:"
-                    ~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:104: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
-            text = "Gönder"
-                    ~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:110: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
-            text = "Gelen Mesajlar:"
-                    ~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:149: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:92: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "System Log:"
+                    ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:128: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
                 text = "[$timestamp] $prefix: $message"
                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:191: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
-                    statusText.text = "✅ Server'a bağlandı ($serverHost:$serverPort)"
-                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:191: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
-                    statusText.text = "✅ Server'a bağlandı ($serverHost:$serverPort)"
-                                       ~~~~~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:192: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:153: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    statusText.text = "✅ gRPC Server'a bağlanıldı ($serverHost:$grpcServerPort)"
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:153: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.text = "✅ gRPC Server'a bağlanıldı ($serverHost:$grpcServerPort)"
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:154: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     connectButton.text = "Bağlantıyı Kes"
                                           ~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:212: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:172: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     statusText.text = "❌ Bağlantı başarısız"
                                        ~~~~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:213: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:173: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     connectButton.text = "Server'a Bağlan"
                                           ~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:223: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
-                        statusText.text = "❌ Bağlantı kesildi"
-                                           ~~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:224: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
-                        connectButton.text = "Server'a Bağlan"
-                                              ~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:241: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:185: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     statusText.text = "❌ Bağlantı kesildi"
                                        ~~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:242: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:186: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                     connectButton.text = "Server'a Bağlan"
                                           ~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:313: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
-                    statusText.text = "❌ Server bağlantısı kesildi"
-                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:314: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
-                    connectButton.text = "Server'a Bağlan"
-                                          ~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:363: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:253: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
             text = "Drone Bağlantısı"
                     ~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:369: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:259: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
             text = "Bağlantı bekleniyor..."
                     ~~~~~~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:389: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:279: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 droneStatusText.text = "Drone Bağlı"
                                         ~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:390: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:280: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 droneConnectionDetails.text = "Bağlantı aktif - Veri alınıyor"
                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:394: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:284: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 droneStatusText.text = "Drone Bağlı Değil"
                                         ~~~~~~~~~~~~~~~~~
-/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:395: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:285: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
                 droneConnectionDetails.text = "Bağlantı bekleniyor..."
                                                ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:361: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "🛸 Drone Telemetri"
+                    ~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:369: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "📍 Konum: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:376: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "⬆️ Yükseklik: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:383: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "🔄 Açı: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:390: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "💨 Hız: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:397: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "✈️ Uçuş: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:443: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    positionText.text = "📍 Konum: ${String.format("%.6f", position.latitudeDeg)}, ${String.format("%.6f", position.longitudeDeg)}"
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:443: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    positionText.text = "📍 Konum: ${String.format("%.6f", position.latitudeDeg)}, ${String.format("%.6f", position.longitudeDeg)}"
+                                         ~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:456: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    altitudeText.text = "⬆️ Yükseklik: ${String.format("%.1f", altitude.altitudeAmslM)} m"
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:456: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    altitudeText.text = "⬆️ Yükseklik: ${String.format("%.1f", altitude.altitudeAmslM)} m"
+                                         ~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:469: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    attitudeText.text = "🔄 Açı: R:${String.format("%.1f", attitude.rollDeg)}° P:${String.format("%.1f", attitude.pitchDeg)}° Y:${String.format("%.1f", attitude.yawDeg)}°"
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:483: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    velocityText.text = "💨 Hız: ${String.format("%.1f", speed)} m/s"
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:496: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    inAirText.text = "✈️ Uçuş: ${if (inAir) "Havada ✅" else "Yerde ❌"}"
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:505: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        positionText.text = "📍 Konum: Bekleniyor..."
+                             ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:506: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        altitudeText.text = "⬆️ Yükseklik: Bekleniyor..."
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:507: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        attitudeText.text = "🔄 Açı: Bekleniyor..."
+                             ~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:508: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        velocityText.text = "💨 Hız: Bekleniyor..."
+                             ~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:509: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        inAirText.text = "✈️ Uçuş: Bekleniyor..."
+                          ~~~~~~~~~~~~~~~~~~~~~~
 
    Explanation for issues of type "SetTextI18n":
    When calling TextView#setText
@@ -188,4 +224,4 @@
 
    https://developer.android.com/guide/topics/resources/localization.html
 
-0 errors, 40 warnings
+0 errors, 52 warnings

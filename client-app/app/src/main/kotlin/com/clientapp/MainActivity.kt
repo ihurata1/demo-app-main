@@ -5,14 +5,8 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.clientapp.domain.CoreServiceClient
+import com.clientapp.domain.TelemetryServiceClient
 import android.util.Log
-import io.netty.bootstrap.Bootstrap
-import io.netty.channel.*
-import io.netty.channel.nio.NioEventLoopGroup
-import io.netty.channel.socket.SocketChannel
-import io.netty.channel.socket.nio.NioSocketChannel
-import io.netty.handler.codec.string.StringDecoder
-import io.netty.handler.codec.string.StringEncoder
 import kotlinx.coroutines.*
 import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
@@ -21,8 +15,6 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private lateinit var statusText: TextView
     private lateinit var connectButton: Button
-    private lateinit var messageInput: EditText
-    private lateinit var sendButton: Button
     private lateinit var messagesScrollView: ScrollView
     private lateinit var messagesContainer: LinearLayout
     private lateinit var droneStatusCard: LinearLayout
@@ -30,24 +22,31 @@ class MainActivity : AppCompatActivity() {
     private lateinit var droneStatusText: TextView
     private lateinit var droneConnectionDetails: TextView
     
-    private var client: Channel? = null
+    // Telemetry UI elements
+    private lateinit var telemetryCard: LinearLayout
+    private lateinit var positionText: TextView
+    private lateinit var altitudeText: TextView
+    private lateinit var attitudeText: TextView
+    private lateinit var velocityText: TextView
+    private lateinit var inAirText: TextView
+    
     private var isConnected = false
-    private var eventLoopGroup: NioEventLoopGroup? = null
-    private val serverHost = "10.34.34.48"
-    private val serverPort = 50051
+    private val serverHost = "10.34.34.60"
     private val grpcServerPort = 50052
     private val dateFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
     
     // Drone connection state
     private var isDroneConnected = false
     private lateinit var coreServiceClient: CoreServiceClient
+    private lateinit var telemetryServiceClient: TelemetryServiceClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupUI()
         
-        // Initialize CoreService client
+        // Initialize gRPC clients
         coreServiceClient = CoreServiceClient(serverHost, grpcServerPort)
+        telemetryServiceClient = TelemetryServiceClient(serverHost, grpcServerPort)
         
         connectButton.setOnClickListener {
             if (isConnected) {
@@ -55,10 +54,6 @@ class MainActivity : AppCompatActivity() {
             } else {
                 connectToServer()
             }
-        }
-        
-        sendButton.setOnClickListener {
-            sendMessage()
         }
     }
 
@@ -89,25 +84,12 @@ class MainActivity : AppCompatActivity() {
         // Drone Status Card
         createDroneStatusCard(layout)
         
-        // Message input section
-        val inputLabel = TextView(this).apply {
-            text = "Mesaj Gönder:"
-            setPadding(0, 24, 0, 8)
-        }
-        
-        messageInput = EditText(this).apply {
-            hint = "Mesajınızı yazın..."
-            isEnabled = false
-        }
-        
-        sendButton = Button(this).apply {
-            text = "Gönder"
-            isEnabled = false
-        }
+        // Telemetry Card
+        createTelemetryCard(layout)
         
         // Messages section
         val messagesLabel = TextView(this).apply {
-            text = "Gelen Mesajlar:"
+            text = "System Log:"
             setPadding(0, 24, 0, 8)
             textSize = 16f
         }
@@ -132,9 +114,6 @@ class MainActivity : AppCompatActivity() {
         layout.addView(headerText)
         layout.addView(statusText)
         layout.addView(connectButton)
-        layout.addView(inputLabel)
-        layout.addView(messageInput)
-        layout.addView(sendButton)
         layout.addView(messagesLabel)
         layout.addView(messagesScrollView)
         
@@ -169,38 +148,19 @@ class MainActivity : AppCompatActivity() {
     private fun connectToServer() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                eventLoopGroup = NioEventLoopGroup()
-                val bootstrap = Bootstrap()
-                bootstrap.group(eventLoopGroup)
-                    .channel(NioSocketChannel::class.java)
-                    .handler(object : ChannelInitializer<SocketChannel>() {
-                        override fun initChannel(ch: SocketChannel) {
-                            ch.pipeline().addLast(
-                                StringDecoder(),
-                                StringEncoder(),
-                                ClientHandler()
-                            )
-                        }
-                    })
-
-                val future = bootstrap.connect(serverHost, serverPort).sync()
-                client = future.channel()
-                
                 withContext(Dispatchers.Main) {
                     isConnected = true
-                    statusText.text = "✅ Server'a bağlandı ($serverHost:$serverPort)"
+                    statusText.text = "✅ gRPC Server'a bağlanıldı ($serverHost:$grpcServerPort)"
                     connectButton.text = "Bağlantıyı Kes"
-                    messageInput.isEnabled = true
-                    sendButton.isEnabled = true
-                    showToast("Server'a bağlanıldı")
-                    addMessageToUI("Bağlantı kuruldu", true)
+                    showToast("gRPC Server'a bağlanıldı")
+                    addMessageToUI("gRPC bağlantısı kuruldu", true)
                     
                     // Start drone connection subscription
                     startDroneConnectionSubscription()
+                    
+                    // Start telemetry subscriptions
+                    startTelemetrySubscriptions()
                 }
-                
-                // Keep the connection alive by waiting for it to close
-                client?.closeFuture()?.sync()
                 
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
@@ -211,21 +171,6 @@ class MainActivity : AppCompatActivity() {
                     isConnected = false
                     statusText.text = "❌ Bağlantı başarısız"
                     connectButton.text = "Server'a Bağlan"
-                    messageInput.isEnabled = false
-                    sendButton.isEnabled = false
-                }
-            } finally {
-                // Clean up when connection ends
-                eventLoopGroup?.shutdownGracefully()
-                withContext(Dispatchers.Main) {
-                    if (isConnected) {
-                        isConnected = false
-                        statusText.text = "❌ Bağlantı kesildi"
-                        connectButton.text = "Server'a Bağlan"
-                        messageInput.isEnabled = false
-                        sendButton.isEnabled = false
-                        addMessageToUI("Bağlantı kesildi", true)
-                    }
                 }
             }
         }
@@ -235,51 +180,29 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
                 isConnected = false
-                client?.close()?.sync()
                 
                 withContext(Dispatchers.Main) {
                     statusText.text = "❌ Bağlantı kesildi"
                     connectButton.text = "Server'a Bağlan"
-                    messageInput.isEnabled = false
-                    sendButton.isEnabled = false
                     showToast("Bağlantı kesildi")
-                    addMessageToUI("Bağlantı kesildi", true)
+                    addMessageToUI("gRPC bağlantısı kesildi", true)
                     
-                    // Disconnect CoreService client and reset drone status
+                    // Disconnect gRPC clients and reset drone status
                     coreServiceClient.disconnect()
+                    telemetryServiceClient.disconnect()
                     updateDroneStatus(false)
+                    resetTelemetryDisplay()
                 }
                 
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     showToast("Bağlantı kesme hatası: ${e.message}")
                 }
-            } finally {
-                eventLoopGroup?.shutdownGracefully()
             }
         }
     }
 
-    private fun sendMessage() {
-        val message = messageInput.text.toString().trim()
-        if (message.isNotEmpty() && isConnected) {
-            lifecycleScope.launch(Dispatchers.IO) {
-                try {
-                    client?.writeAndFlush(message)
-                    
-                    withContext(Dispatchers.Main) {
-                        addMessageToUI(message, false)
-                        messageInput.text.clear()
-                    }
-                    
-                } catch (e: Exception) {
-                    withContext(Dispatchers.Main) {
-                        showToast("Mesaj gönderme hatası: ${e.message}")
-                    }
-                }
-            }
-        }
-    }
+
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
@@ -287,46 +210,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        lifecycleScope.launch(Dispatchers.IO) {
-            if (isConnected) {
-                client?.close()
-            }
-            eventLoopGroup?.shutdownGracefully()
+        if (isConnected) {
+            coreServiceClient.disconnect()
+            telemetryServiceClient.disconnect()
         }
     }
 
-    inner class ClientHandler : ChannelInboundHandlerAdapter() {
-        override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {
-            val response = msg.toString()
-            addMessageToUI(response, true)
-        }
 
-        override fun channelActive(ctx: ChannelHandlerContext) {
-            // Bağlantı kurulduğunda çağrılır - extra log için
-            addMessageToUI("Kanal aktif oldu", true)
-        }
-
-        override fun channelInactive(ctx: ChannelHandlerContext) {
-            runOnUiThread {
-                if (isConnected) {
-                    isConnected = false
-                    statusText.text = "❌ Server bağlantısı kesildi"
-                    connectButton.text = "Server'a Bağlan"
-                    messageInput.isEnabled = false
-                    sendButton.isEnabled = false
-                    addMessageToUI("Server bağlantısı kesildi", true)
-                }
-            }
-        }
-
-        override fun exceptionCaught(ctx: ChannelHandlerContext, cause: Throwable) {
-            runOnUiThread {
-                showToast("İletişim hatası: ${cause.message}")
-                addMessageToUI("Hata: ${cause.message}", true)
-            }
-            ctx.close()
-        }
-    }
 
     private fun createDroneStatusCard(parentLayout: LinearLayout) {
         // Drone Status Card Container
@@ -450,5 +340,172 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun createTelemetryCard(parentLayout: LinearLayout) {
+        // Telemetry Card Container
+        telemetryCard = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(16, 16, 16, 16)
+            setBackgroundColor(0xFFF0F8FF.toInt())
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply {
+                setMargins(0, 16, 0, 16)
+            }
+        }
+
+        // Telemetry Header
+        val telemetryHeader = TextView(this).apply {
+            text = "🛸 Drone Telemetri"
+            textSize = 18f
+            setTextColor(0xFF1976D2.toInt())
+            setPadding(0, 0, 0, 12)
+        }
+
+        // Position
+        positionText = TextView(this).apply {
+            text = "📍 Konum: Bekleniyor..."
+            textSize = 14f
+            setPadding(0, 4, 0, 4)
+        }
+
+        // Altitude
+        altitudeText = TextView(this).apply {
+            text = "⬆️ Yükseklik: Bekleniyor..."
+            textSize = 14f
+            setPadding(0, 4, 0, 4)
+        }
+
+        // Attitude
+        attitudeText = TextView(this).apply {
+            text = "🔄 Açı: Bekleniyor..."
+            textSize = 14f
+            setPadding(0, 4, 0, 4)
+        }
+
+        // Velocity
+        velocityText = TextView(this).apply {
+            text = "💨 Hız: Bekleniyor..."
+            textSize = 14f
+            setPadding(0, 4, 0, 4)
+        }
+
+        // In Air
+        inAirText = TextView(this).apply {
+            text = "✈️ Uçuş: Bekleniyor..."
+            textSize = 14f
+            setPadding(0, 4, 0, 4)
+        }
+
+        telemetryCard.addView(telemetryHeader)
+        telemetryCard.addView(positionText)
+        telemetryCard.addView(altitudeText)
+        telemetryCard.addView(attitudeText)
+        telemetryCard.addView(velocityText)
+        telemetryCard.addView(inAirText)
+
+        parentLayout.addView(telemetryCard)
+    }
+
+    private fun startTelemetrySubscriptions() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                // Connect telemetry client
+                telemetryServiceClient.connect()
+                
+                withContext(Dispatchers.Main) {
+                    addMessageToUI("Telemetri servisi bağlandı", true)
+                }
+                
+                // Start all telemetry subscriptions in parallel
+                launch { subscribeToPosition() }
+                launch { subscribeToAltitude() }
+                launch { subscribeToAttitude() }
+                launch { subscribeToVelocity() }
+                launch { subscribeToInAir() }
+                
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Error starting telemetry subscriptions", e)
+                withContext(Dispatchers.Main) {
+                    addMessageToUI("Telemetri bağlantı hatası: ${e.message}", true)
+                }
+            }
+        }
+    }
+
+    private suspend fun subscribeToPosition() {
+        try {
+            telemetryServiceClient.subscribeToPosition().collect { response ->
+                val position = response.position
+                withContext(Dispatchers.Main) {
+                    positionText.text = "📍 Konum: ${String.format("%.6f", position.latitudeDeg)}, ${String.format("%.6f", position.longitudeDeg)}"
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Position subscription error", e)
+        }
+    }
+
+    private suspend fun subscribeToAltitude() {
+        try {
+            telemetryServiceClient.subscribeToAltitude().collect { response ->
+                val altitude = response.altitude
+                withContext(Dispatchers.Main) {
+                    altitudeText.text = "⬆️ Yükseklik: ${String.format("%.1f", altitude.altitudeAmslM)} m"
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Altitude subscription error", e)
+        }
+    }
+
+    private suspend fun subscribeToAttitude() {
+        try {
+            telemetryServiceClient.subscribeToAttitude().collect { response ->
+                val attitude = response.attitudeEuler
+                withContext(Dispatchers.Main) {
+                    attitudeText.text = "🔄 Açı: R:${String.format("%.1f", attitude.rollDeg)}° P:${String.format("%.1f", attitude.pitchDeg)}° Y:${String.format("%.1f", attitude.yawDeg)}°"
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Attitude subscription error", e)
+        }
+    }
+
+    private suspend fun subscribeToVelocity() {
+        try {
+            telemetryServiceClient.subscribeToVelocity().collect { response ->
+                val velocity = response.velocityNed
+                val speed = kotlin.math.sqrt((velocity.northMS * velocity.northMS + velocity.eastMS * velocity.eastMS).toDouble())
+                withContext(Dispatchers.Main) {
+                    velocityText.text = "💨 Hız: ${String.format("%.1f", speed)} m/s"
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Velocity subscription error", e)
+        }
+    }
+
+    private suspend fun subscribeToInAir() {
+        try {
+            telemetryServiceClient.subscribeToInAir().collect { response ->
+                val inAir = response.isInAir
+                withContext(Dispatchers.Main) {
+                    inAirText.text = "✈️ Uçuş: ${if (inAir) "Havada ✅" else "Yerde ❌"}"
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("MainActivity", "InAir subscription error", e)
+        }
+    }
+
+    private fun resetTelemetryDisplay() {
+        positionText.text = "📍 Konum: Bekleniyor..."
+        altitudeText.text = "⬆️ Yükseklik: Bekleniyor..."
+        attitudeText.text = "🔄 Açı: Bekleniyor..."
+        velocityText.text = "💨 Hız: Bekleniyor..."
+        inAirText.text = "✈️ Uçuş: Bekleniyor..."
     }
 } 

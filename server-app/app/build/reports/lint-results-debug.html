@@ -177,9 +177,9 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 37 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 33 warnings</span>
       <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Mon Aug 18 17:49:20 TRT 2025 by AGP (8.2.2)</nav>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Tue Aug 19 11:23:53 TRT 2025 by AGP (8.2.2)</nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -191,7 +191,7 @@ document.getElementById(id).style.display = 'none';
       <a class="mdl-navigation__link" href="#GradleDependency"><i class="material-icons warning-icon">warning</i>Obsolete Gradle Dependency (10)</a>
       <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (3)</a>
       <a class="mdl-navigation__link" href="#MissingApplicationIcon"><i class="material-icons warning-icon">warning</i>Missing application icon (1)</a>
-      <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (21)</a>
+      <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (17)</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
@@ -228,7 +228,7 @@ document.getElementById(id).style.display = 'none';
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization">Internationalization</a>
 </td></tr>
 <tr>
-<td class="countColumn">21</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">17</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#SetTextI18n">SetTextI18n</a>: TextView Internationalization</td></tr>
 <tr><td></td><td class="categoryColumn"><a href="#ExtraIssues">Included Additional Checks (23)</a>
 </td></tr>
@@ -606,213 +606,175 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:65</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno">  62 </span>
+<span class="lineno">  63 </span>        <span class="comment">// Header</span>
+<span class="lineno">  64 </span>        <span class="keyword">val</span> headerText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno">  65 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server App</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  66 </span>            textSize = <span class="number">24f</span>
+<span class="lineno">  67 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">24</span>)
+<span class="lineno">  68 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:72</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno">  69 </span>        
+<span class="lineno">  70 </span>        <span class="comment">// Status</span>
+<span class="lineno">  71 </span>        statusText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno">  72 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server hazır</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  73 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">16</span>)
+<span class="lineno">  74 </span>        }
+<span class="lineno">  75 </span>        
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:78</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno">  75 </span>        
+<span class="lineno">  76 </span>        <span class="comment">// Server control button</span>
+<span class="lineno">  77 </span>        serverButton = Button(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno">  78 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  79 </span>        }
+<span class="lineno">  80 </span>        
+<span class="lineno">  81 </span>        <span class="comment">// Drone connection section</span></pre>
+
 <span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:83</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno">  80 </span>
-<span class="lineno">  81 </span>        <span class="comment">// Header</span>
-<span class="lineno">  82 </span>        <span class="keyword">val</span> headerText = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno">  83 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server App</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  84 </span>            textSize = <span class="number">24f</span>
-<span class="lineno">  85 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">24</span>)
+<span class="lineno">  80 </span>        
+<span class="lineno">  81 </span>        <span class="comment">// Drone connection section</span>
+<span class="lineno">  82 </span>        <span class="keyword">val</span> droneLabel = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno">  83 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone Bağlantısı:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  84 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno">  85 </span>            textSize = <span class="number">16f</span>
 <span class="lineno">  86 </span>        }
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:90</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:89</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno">  86 </span>        }
 <span class="lineno">  87 </span>        
-<span class="lineno">  88 </span>        <span class="comment">// Status</span>
-<span class="lineno">  89 </span>        statusText = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno">  90 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server hazır</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  91 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">16</span>)
+<span class="lineno">  88 </span>        droneStatusText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno">  89 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı değil</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  90 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno">  91 </span>            setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno">  92 </span>        }
+</pre>
+
+<button class="mdl-button mdl-js-button mdl-button--primary" id="SetTextI18nDivLink" onclick="reveal('SetTextI18nDiv');" />+ 12 More Occurrences...</button>
+<div id="SetTextI18nDiv" style="display: none">
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:95</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
 <span class="lineno">  92 </span>        }
 <span class="lineno">  93 </span>        
-</pre>
-
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:96</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno">  93 </span>        
-<span class="lineno">  94 </span>        <span class="comment">// Server control button</span>
-<span class="lineno">  95 </span>        serverButton = Button(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno">  96 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  94 </span>        droneConnectionButton = Button(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno">  95 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone'a Bağlan</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  96 </span>            setPadding(<span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">8</span>)
 <span class="lineno">  97 </span>        }
 <span class="lineno">  98 </span>        
-<span class="lineno">  99 </span>        <span class="comment">// Drone connection section</span></pre>
-
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:101</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno">  98 </span>        
-<span class="lineno">  99 </span>        <span class="comment">// Drone connection section</span>
-<span class="lineno"> 100 </span>        <span class="keyword">val</span> droneLabel = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno"> 101 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone Bağlantısı:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 102 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
-<span class="lineno"> 103 </span>            textSize = <span class="number">16f</span>
-<span class="lineno"> 104 </span>        }
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:107</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 104 </span>        }
-<span class="lineno"> 105 </span>        
-<span class="lineno"> 106 </span>        droneStatusText = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno"> 107 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı değil</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 108 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">8</span>)
-<span class="lineno"> 109 </span>            setTextColor(resources.getColor(android.R.color.holo_red_dark))
-<span class="lineno"> 110 </span>        }
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:103</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 100 </span>        
+<span class="lineno"> 101 </span>        <span class="comment">// Messages log section</span>
+<span class="lineno"> 102 </span>        <span class="keyword">val</span> logLabel = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 103 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server Log:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 104 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 105 </span>            textSize = <span class="number">16f</span>
+<span class="lineno"> 106 </span>        }
 </pre>
 
-<button class="mdl-button mdl-js-button mdl-button--primary" id="SetTextI18nDivLink" onclick="reveal('SetTextI18nDiv');" />+ 16 More Occurrences...</button>
-<div id="SetTextI18nDiv" style="display: none">
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:113</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 110 </span>        }
-<span class="lineno"> 111 </span>        
-<span class="lineno"> 112 </span>        droneConnectionButton = Button(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno"> 113 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone'a Bağlan</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 114 </span>            setPadding(<span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">8</span>)
-<span class="lineno"> 115 </span>        }
-<span class="lineno"> 116 </span>        
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:150</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 147 </span>                    <span class="string">"SUCCESS"</span> -> <span class="string">"✅"</span>
+<span class="lineno"> 148 </span>                    <span class="keyword">else</span> -> <span class="string">"ℹ️"</span>
+<span class="lineno"> 149 </span>                }
+<span class="caretline"><span class="lineno"> 150 </span>                text = <span class="warning"><span class="string">"[$timestamp] $emoji $message"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 151 </span>                setPadding(<span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>)
+<span class="lineno"> 152 </span>                setBackgroundColor(<span class="keyword">when</span> (type) {
+<span class="lineno"> 153 </span>                    <span class="string">"SERVER"</span> -> <span class="number">0xFFE8F5E8.</span>toInt()
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:119</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 116 </span>        
-<span class="lineno"> 117 </span>        <span class="comment">// Client selection section</span>
-<span class="lineno"> 118 </span>        <span class="keyword">val</span> clientsLabel = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno"> 119 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Bağlı Client'lar:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 120 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
-<span class="lineno"> 121 </span>        }
-<span class="lineno"> 122 </span>        
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:187</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 184 </span>           
+<span class="lineno"> 185 </span>           withContext(Dispatchers.Main) {
+<span class="lineno"> 186 </span>               isServerRunning = <span class="keyword">true</span>
+<span class="caretline"><span class="lineno"> 187 </span>               statusText.text = <span class="warning"><span class="string">"gRPC Server çalışıyor (Port: $grpcPort)"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 188 </span>               serverButton.text = <span class="string">"Server Durdur"</span>
+<span class="lineno"> 189 </span>               showToast(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>)
+<span class="lineno"> 190 </span>               addLogMessage(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>, <span class="string">"SERVER"</span>)
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:133</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 130 </span>        
-<span class="lineno"> 131 </span>        <span class="comment">// Message sending section</span>
-<span class="lineno"> 132 </span>        <span class="keyword">val</span> messageLabel = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno"> 133 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Client'a Mesaj Gönder:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 134 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
-<span class="lineno"> 135 </span>        }
-<span class="lineno"> 136 </span>        
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:187</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 184 </span>           
+<span class="lineno"> 185 </span>           withContext(Dispatchers.Main) {
+<span class="lineno"> 186 </span>               isServerRunning = <span class="keyword">true</span>
+<span class="caretline"><span class="lineno"> 187 </span>               statusText.text = <span class="string">"</span><span class="warning"><span class="string">gRPC Server çalışıyor (Port: </span></span><span class="string">$grpcPort)"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 188 </span>               serverButton.text = <span class="string">"Server Durdur"</span>
+<span class="lineno"> 189 </span>               showToast(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>)
+<span class="lineno"> 190 </span>               addLogMessage(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>, <span class="string">"SERVER"</span>)
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:143</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 140 </span>        }
-<span class="lineno"> 141 </span>        
-<span class="lineno"> 142 </span>        sendToClientButton = Button(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno"> 143 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Mesaj Gönder</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 144 </span>            isEnabled = <span class="keyword">false</span>
-<span class="lineno"> 145 </span>        }
-<span class="lineno"> 146 </span>        
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:188</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 185 </span>           withContext(Dispatchers.Main) {
+<span class="lineno"> 186 </span>               isServerRunning = <span class="keyword">true</span>
+<span class="lineno"> 187 </span>               statusText.text = <span class="string">"gRPC Server çalışıyor (Port: $grpcPort)"</span>
+<span class="caretline"><span class="lineno"> 188 </span>               serverButton.text = <span class="string">"</span><span class="warning"><span class="string">Server Durdur</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 189 </span>               showToast(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>)
+<span class="lineno"> 190 </span>               addLogMessage(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>, <span class="string">"SERVER"</span>)
+<span class="lineno"> 191 </span>           }
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:149</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 146 </span>        
-<span class="lineno"> 147 </span>        <span class="comment">// Messages log section</span>
-<span class="lineno"> 148 </span>        <span class="keyword">val</span> logLabel = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno"> 149 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server Log:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 150 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
-<span class="lineno"> 151 </span>            textSize = <span class="number">16f</span>
-<span class="lineno"> 152 </span>        }
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:210</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 207 </span>                
+<span class="lineno"> 208 </span>                withContext(Dispatchers.Main) {
+<span class="lineno"> 209 </span>                    isServerRunning = <span class="keyword">false</span>
+<span class="caretline"><span class="lineno"> 210 </span>                    statusText.text = <span class="string">"</span><span class="warning"><span class="string">Server durduruldu</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 211 </span>                    serverButton.text = <span class="string">"Server Başlat"</span>
+<span class="lineno"> 212 </span>                    showToast(<span class="string">"Server durduruldu"</span>)
+<span class="lineno"> 213 </span>                    addLogMessage(<span class="string">"Server durduruldu"</span>, <span class="string">"SERVER"</span>)
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:201</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
-<span class="lineno"> 198 </span>                    <span class="string">"SUCCESS"</span> -> <span class="string">"✅"</span>
-<span class="lineno"> 199 </span>                    <span class="keyword">else</span> -> <span class="string">"ℹ️"</span>
-<span class="lineno"> 200 </span>                }
-<span class="caretline"><span class="lineno"> 201 </span>                text = <span class="warning"><span class="string">"[$timestamp] $emoji $message"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 202 </span>                setPadding(<span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>)
-<span class="lineno"> 203 </span>                setBackgroundColor(<span class="keyword">when</span> (type) {
-<span class="lineno"> 204 </span>                    <span class="string">"SERVER"</span> -> <span class="number">0xFFE8F5E8.</span>toInt()
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:211</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 208 </span>                withContext(Dispatchers.Main) {
+<span class="lineno"> 209 </span>                    isServerRunning = <span class="keyword">false</span>
+<span class="lineno"> 210 </span>                    statusText.text = <span class="string">"Server durduruldu"</span>
+<span class="caretline"><span class="lineno"> 211 </span>                    serverButton.text = <span class="string">"</span><span class="warning"><span class="string">Server Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 212 </span>                    showToast(<span class="string">"Server durduruldu"</span>)
+<span class="lineno"> 213 </span>                    addLogMessage(<span class="string">"Server durduruldu"</span>, <span class="string">"SERVER"</span>)
+<span class="lineno"> 214 </span>                }
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:273</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
-<span class="lineno"> 270 </span>    
-<span class="lineno"> 271 </span>    withContext(Dispatchers.Main) {
-<span class="lineno"> 272 </span>        isServerRunning = <span class="keyword">true</span>
-<span class="caretline"><span class="lineno"> 273 </span>        statusText.text = <span class="warning"><span class="string">"Server çalışıyor (TCP: $port, gRPC: $grpcPort)"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 274 </span>        serverButton.text = <span class="string">"Server Durdur"</span>
-<span class="lineno"> 275 </span>        showToast(<span class="string">"Server başlatıldı - TCP: $port, gRPC: $grpcPort"</span>)
-<span class="lineno"> 276 </span>        addLogMessage(<span class="string">"Server başlatıldı - TCP: $port, gRPC: $grpcPort"</span>, <span class="string">"SERVER"</span>)
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:253</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 250 </span>  
+<span class="lineno"> 251 </span>  runOnUiThread {
+<span class="lineno"> 252 </span>      <span class="keyword">if</span> (isDroneConnected) {
+<span class="caretline"><span class="lineno"> 253 </span>          droneStatusText.text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı - Telemetri aktif</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 254 </span>          droneStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+<span class="lineno"> 255 </span>          droneConnectionButton.text = <span class="string">"Drone Bağlantısını Kes"</span>
+<span class="lineno"> 256 </span>          addLogMessage(<span class="string">"Drone bağlantısı kuruldu - Telemetri simülasyonu başlatıldı"</span>, <span class="string">"DRONE"</span>)
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:273</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 270 </span>    
-<span class="lineno"> 271 </span>    withContext(Dispatchers.Main) {
-<span class="lineno"> 272 </span>        isServerRunning = <span class="keyword">true</span>
-<span class="caretline"><span class="lineno"> 273 </span>        statusText.text = <span class="string">"</span><span class="warning"><span class="string">Server çalışıyor (TCP: </span></span><span class="string">$port, gRPC: $grpcPort)"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 274 </span>        serverButton.text = <span class="string">"Server Durdur"</span>
-<span class="lineno"> 275 </span>        showToast(<span class="string">"Server başlatıldı - TCP: $port, gRPC: $grpcPort"</span>)
-<span class="lineno"> 276 </span>        addLogMessage(<span class="string">"Server başlatıldı - TCP: $port, gRPC: $grpcPort"</span>, <span class="string">"SERVER"</span>)
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:255</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 252 </span>  <span class="keyword">if</span> (isDroneConnected) {
+<span class="lineno"> 253 </span>      droneStatusText.text = <span class="string">"Drone bağlı - Telemetri aktif"</span>
+<span class="lineno"> 254 </span>      droneStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+<span class="caretline"><span class="lineno"> 255 </span>      droneConnectionButton.text = <span class="string">"</span><span class="warning"><span class="string">Drone Bağlantısını Kes</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 256 </span>      addLogMessage(<span class="string">"Drone bağlantısı kuruldu - Telemetri simülasyonu başlatıldı"</span>, <span class="string">"DRONE"</span>)
+<span class="lineno"> 257 </span>      showToast(<span class="string">"Drone'a bağlanıldı - Telemetri aktif"</span>)
+<span class="lineno"> 258 </span>  } <span class="keyword">else</span> {
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:273</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 270 </span>    
-<span class="lineno"> 271 </span>    withContext(Dispatchers.Main) {
-<span class="lineno"> 272 </span>        isServerRunning = <span class="keyword">true</span>
-<span class="caretline"><span class="lineno"> 273 </span>        statusText.text = <span class="string">"Server çalışıyor (TCP: $port</span><span class="warning"><span class="string">, gRPC: </span></span><span class="string">$grpcPort)"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 274 </span>        serverButton.text = <span class="string">"Server Durdur"</span>
-<span class="lineno"> 275 </span>        showToast(<span class="string">"Server başlatıldı - TCP: $port, gRPC: $grpcPort"</span>)
-<span class="lineno"> 276 </span>        addLogMessage(<span class="string">"Server başlatıldı - TCP: $port, gRPC: $grpcPort"</span>, <span class="string">"SERVER"</span>)
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:259</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 256 </span>      addLogMessage(<span class="string">"Drone bağlantısı kuruldu - Telemetri simülasyonu başlatıldı"</span>, <span class="string">"DRONE"</span>)
+<span class="lineno"> 257 </span>      showToast(<span class="string">"Drone'a bağlanıldı - Telemetri aktif"</span>)
+<span class="lineno"> 258 </span>  } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 259 </span>      droneStatusText.text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı değil</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 260 </span>      droneStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno"> 261 </span>      droneConnectionButton.text = <span class="string">"Drone'a Bağlan"</span>
+<span class="lineno"> 262 </span>      addLogMessage(<span class="string">"Drone bağlantısı kesildi - Telemetri simülasyonu durduruldu"</span>, <span class="string">"DRONE"</span>)
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:274</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 271 </span>    withContext(Dispatchers.Main) {
-<span class="lineno"> 272 </span>        isServerRunning = <span class="keyword">true</span>
-<span class="lineno"> 273 </span>        statusText.text = <span class="string">"Server çalışıyor (TCP: $port, gRPC: $grpcPort)"</span>
-<span class="caretline"><span class="lineno"> 274 </span>        serverButton.text = <span class="string">"</span><span class="warning"><span class="string">Server Durdur</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 275 </span>        showToast(<span class="string">"Server başlatıldı - TCP: $port, gRPC: $grpcPort"</span>)
-<span class="lineno"> 276 </span>        addLogMessage(<span class="string">"Server başlatıldı - TCP: $port, gRPC: $grpcPort"</span>, <span class="string">"SERVER"</span>)
-<span class="lineno"> 277 </span>    }
-</pre>
-
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:304</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 301 </span>                
-<span class="lineno"> 302 </span>                withContext(Dispatchers.Main) {
-<span class="lineno"> 303 </span>                    isServerRunning = <span class="keyword">false</span>
-<span class="caretline"><span class="lineno"> 304 </span>                    statusText.text = <span class="string">"</span><span class="warning"><span class="string">Server durduruldu</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 305 </span>                    serverButton.text = <span class="string">"Server Başlat"</span>
-<span class="lineno"> 306 </span>                    messageInput.isEnabled = <span class="keyword">false</span>
-<span class="lineno"> 307 </span>                    sendToClientButton.isEnabled = <span class="keyword">false</span></pre>
-
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:305</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 302 </span>                withContext(Dispatchers.Main) {
-<span class="lineno"> 303 </span>                    isServerRunning = <span class="keyword">false</span>
-<span class="lineno"> 304 </span>                    statusText.text = <span class="string">"Server durduruldu"</span>
-<span class="caretline"><span class="lineno"> 305 </span>                    serverButton.text = <span class="string">"</span><span class="warning"><span class="string">Server Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 306 </span>                    messageInput.isEnabled = <span class="keyword">false</span>
-<span class="lineno"> 307 </span>                    sendToClientButton.isEnabled = <span class="keyword">false</span>
-<span class="lineno"> 308 </span>                    clientsSpinner.isEnabled = <span class="keyword">false</span></pre>
-
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:440</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 437 </span>  
-<span class="lineno"> 438 </span>  runOnUiThread {
-<span class="lineno"> 439 </span>      <span class="keyword">if</span> (isDroneConnected) {
-<span class="caretline"><span class="lineno"> 440 </span>          droneStatusText.text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 441 </span>          droneStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
-<span class="lineno"> 442 </span>          droneConnectionButton.text = <span class="string">"Drone Bağlantısını Kes"</span>
-<span class="lineno"> 443 </span>          addLogMessage(<span class="string">"Drone bağlantısı kuruldu"</span>, <span class="string">"DRONE"</span>)
-</pre>
-
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:442</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 439 </span>  <span class="keyword">if</span> (isDroneConnected) {
-<span class="lineno"> 440 </span>      droneStatusText.text = <span class="string">"Drone bağlı"</span>
-<span class="lineno"> 441 </span>      droneStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
-<span class="caretline"><span class="lineno"> 442 </span>      droneConnectionButton.text = <span class="string">"</span><span class="warning"><span class="string">Drone Bağlantısını Kes</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 443 </span>      addLogMessage(<span class="string">"Drone bağlantısı kuruldu"</span>, <span class="string">"DRONE"</span>)
-<span class="lineno"> 444 </span>      showToast(<span class="string">"Drone'a bağlanıldı"</span>)
-<span class="lineno"> 445 </span>  } <span class="keyword">else</span> {
-</pre>
-
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:446</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 443 </span>       addLogMessage(<span class="string">"Drone bağlantısı kuruldu"</span>, <span class="string">"DRONE"</span>)
-<span class="lineno"> 444 </span>       showToast(<span class="string">"Drone'a bağlanıldı"</span>)
-<span class="lineno"> 445 </span>   } <span class="keyword">else</span> {
-<span class="caretline"><span class="lineno"> 446 </span>       droneStatusText.text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı değil</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 447 </span>       droneStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
-<span class="lineno"> 448 </span>       droneConnectionButton.text = <span class="string">"Drone'a Bağlan"</span>
-<span class="lineno"> 449 </span>       addLogMessage(<span class="string">"Drone bağlantısı kesildi"</span>, <span class="string">"DRONE"</span>)
-</pre>
-
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:448</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 445 </span>   } <span class="keyword">else</span> {
-<span class="lineno"> 446 </span>       droneStatusText.text = <span class="string">"Drone bağlı değil"</span>
-<span class="lineno"> 447 </span>       droneStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
-<span class="caretline"><span class="lineno"> 448 </span>       droneConnectionButton.text = <span class="string">"</span><span class="warning"><span class="string">Drone'a Bağlan</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 449 </span>       addLogMessage(<span class="string">"Drone bağlantısı kesildi"</span>, <span class="string">"DRONE"</span>)
-<span class="lineno"> 450 </span>       showToast(<span class="string">"Drone bağlantısı kesildi"</span>)
-<span class="lineno"> 451 </span>   }
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:261</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 258 </span>  } <span class="keyword">else</span> {
+<span class="lineno"> 259 </span>      droneStatusText.text = <span class="string">"Drone bağlı değil"</span>
+<span class="lineno"> 260 </span>      droneStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="caretline"><span class="lineno"> 261 </span>      droneConnectionButton.text = <span class="string">"</span><span class="warning"><span class="string">Drone'a Bağlan</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 262 </span>      addLogMessage(<span class="string">"Drone bağlantısı kesildi - Telemetri simülasyonu durduruldu"</span>, <span class="string">"DRONE"</span>)
+<span class="lineno"> 263 </span>      showToast(<span class="string">"Drone bağlantısı kesildi"</span>)
+<span class="lineno"> 264 </span>  }
 </pre>
 
 </div>

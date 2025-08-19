@@ -275,7 +275,7 @@
         errorLine2="                    ~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="73"
+            line="68"
             column="21"/>
     </issue>
 
@@ -293,7 +293,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="80"
+            line="75"
             column="21"/>
     </issue>
 
@@ -311,7 +311,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="86"
+            line="81"
             column="21"/>
     </issue>
 
@@ -325,47 +325,11 @@
         explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
         url="https://developer.android.com/guide/topics/resources/localization.html"
         urls="https://developer.android.com/guide/topics/resources/localization.html"
-        errorLine1="            text = &quot;Mesaj Gönder:&quot;"
-        errorLine2="                    ~~~~~~~~~~~~~">
+        errorLine1="            text = &quot;System Log:&quot;"
+        errorLine2="                    ~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="94"
-            column="21"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        severity="Warning"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        category="Internationalization"
-        priority="6"
-        summary="TextView Internationalization"
-        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
-        url="https://developer.android.com/guide/topics/resources/localization.html"
-        urls="https://developer.android.com/guide/topics/resources/localization.html"
-        errorLine1="            text = &quot;Gönder&quot;"
-        errorLine2="                    ~~~~~~">
-        <location
-            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="104"
-            column="21"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        severity="Warning"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        category="Internationalization"
-        priority="6"
-        summary="TextView Internationalization"
-        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
-        url="https://developer.android.com/guide/topics/resources/localization.html"
-        urls="https://developer.android.com/guide/topics/resources/localization.html"
-        errorLine1="            text = &quot;Gelen Mesajlar:&quot;"
-        errorLine2="                    ~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="110"
+            line="92"
             column="21"/>
     </issue>
 
@@ -383,7 +347,7 @@
         errorLine2="                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="149"
+            line="128"
             column="24"/>
     </issue>
 
@@ -397,11 +361,11 @@
         explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
         url="https://developer.android.com/guide/topics/resources/localization.html"
         urls="https://developer.android.com/guide/topics/resources/localization.html"
-        errorLine1="                    statusText.text = &quot;✅ Server&apos;a bağlandı ($serverHost:$serverPort)&quot;"
-        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="                    statusText.text = &quot;✅ gRPC Server&apos;a bağlanıldı ($serverHost:$grpcServerPort)&quot;"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="191"
+            line="153"
             column="39"/>
     </issue>
 
@@ -415,11 +379,11 @@
         explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
         url="https://developer.android.com/guide/topics/resources/localization.html"
         urls="https://developer.android.com/guide/topics/resources/localization.html"
-        errorLine1="                    statusText.text = &quot;✅ Server&apos;a bağlandı ($serverHost:$serverPort)&quot;"
-        errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~~">
+        errorLine1="                    statusText.text = &quot;✅ gRPC Server&apos;a bağlanıldı ($serverHost:$grpcServerPort)&quot;"
+        errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="191"
+            line="153"
             column="40"/>
     </issue>
 
@@ -437,7 +401,7 @@
         errorLine2="                                          ~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="192"
+            line="154"
             column="43"/>
     </issue>
 
@@ -455,7 +419,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="212"
+            line="172"
             column="40"/>
     </issue>
 
@@ -473,44 +437,8 @@
         errorLine2="                                          ~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="213"
+            line="173"
             column="43"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        severity="Warning"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        category="Internationalization"
-        priority="6"
-        summary="TextView Internationalization"
-        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
-        url="https://developer.android.com/guide/topics/resources/localization.html"
-        urls="https://developer.android.com/guide/topics/resources/localization.html"
-        errorLine1="                        statusText.text = &quot;❌ Bağlantı kesildi&quot;"
-        errorLine2="                                           ~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="223"
-            column="44"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        severity="Warning"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        category="Internationalization"
-        priority="6"
-        summary="TextView Internationalization"
-        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
-        url="https://developer.android.com/guide/topics/resources/localization.html"
-        urls="https://developer.android.com/guide/topics/resources/localization.html"
-        errorLine1="                        connectButton.text = &quot;Server&apos;a Bağlan&quot;"
-        errorLine2="                                              ~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="224"
-            column="47"/>
     </issue>
 
     <issue
@@ -527,7 +455,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="241"
+            line="185"
             column="40"/>
     </issue>
 
@@ -545,43 +473,7 @@
         errorLine2="                                          ~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="242"
-            column="43"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        severity="Warning"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        category="Internationalization"
-        priority="6"
-        summary="TextView Internationalization"
-        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
-        url="https://developer.android.com/guide/topics/resources/localization.html"
-        urls="https://developer.android.com/guide/topics/resources/localization.html"
-        errorLine1="                    statusText.text = &quot;❌ Server bağlantısı kesildi&quot;"
-        errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="313"
-            column="40"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        severity="Warning"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        category="Internationalization"
-        priority="6"
-        summary="TextView Internationalization"
-        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
-        url="https://developer.android.com/guide/topics/resources/localization.html"
-        urls="https://developer.android.com/guide/topics/resources/localization.html"
-        errorLine1="                    connectButton.text = &quot;Server&apos;a Bağlan&quot;"
-        errorLine2="                                          ~~~~~~~~~~~~~~~">
-        <location
-            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="314"
+            line="186"
             column="43"/>
     </issue>
 
@@ -599,7 +491,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="363"
+            line="253"
             column="21"/>
     </issue>
 
@@ -617,7 +509,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="369"
+            line="259"
             column="21"/>
     </issue>
 
@@ -635,7 +527,7 @@
         errorLine2="                                        ~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="389"
+            line="279"
             column="41"/>
     </issue>
 
@@ -653,7 +545,7 @@
         errorLine2="                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="390"
+            line="280"
             column="48"/>
     </issue>
 
@@ -671,7 +563,7 @@
         errorLine2="                                        ~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="394"
+            line="284"
             column="41"/>
     </issue>
 
@@ -689,8 +581,332 @@
         errorLine2="                                               ~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
-            line="395"
+            line="285"
             column="48"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;🛸 Drone Telemetri&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="361"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;📍 Konum: Bekleniyor...&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="369"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;⬆️ Yükseklik: Bekleniyor...&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="376"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;🔄 Açı: Bekleniyor...&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="383"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;💨 Hız: Bekleniyor...&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="390"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;✈️ Uçuş: Bekleniyor...&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="397"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                    positionText.text = &quot;📍 Konum: ${String.format(&quot;%.6f&quot;, position.latitudeDeg)}, ${String.format(&quot;%.6f&quot;, position.longitudeDeg)}&quot;"
+        errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="443"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                    positionText.text = &quot;📍 Konum: ${String.format(&quot;%.6f&quot;, position.latitudeDeg)}, ${String.format(&quot;%.6f&quot;, position.longitudeDeg)}&quot;"
+        errorLine2="                                         ~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="443"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                    altitudeText.text = &quot;⬆️ Yükseklik: ${String.format(&quot;%.1f&quot;, altitude.altitudeAmslM)} m&quot;"
+        errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="456"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                    altitudeText.text = &quot;⬆️ Yükseklik: ${String.format(&quot;%.1f&quot;, altitude.altitudeAmslM)} m&quot;"
+        errorLine2="                                         ~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="456"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                    attitudeText.text = &quot;🔄 Açı: R:${String.format(&quot;%.1f&quot;, attitude.rollDeg)}° P:${String.format(&quot;%.1f&quot;, attitude.pitchDeg)}° Y:${String.format(&quot;%.1f&quot;, attitude.yawDeg)}°&quot;"
+        errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="469"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                    velocityText.text = &quot;💨 Hız: ${String.format(&quot;%.1f&quot;, speed)} m/s&quot;"
+        errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="483"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                    inAirText.text = &quot;✈️ Uçuş: ${if (inAir) &quot;Havada ✅&quot; else &quot;Yerde ❌&quot;}&quot;"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="496"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        positionText.text = &quot;📍 Konum: Bekleniyor...&quot;"
+        errorLine2="                             ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="505"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        altitudeText.text = &quot;⬆️ Yükseklik: Bekleniyor...&quot;"
+        errorLine2="                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="506"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        attitudeText.text = &quot;🔄 Açı: Bekleniyor...&quot;"
+        errorLine2="                             ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="507"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        velocityText.text = &quot;💨 Hız: Bekleniyor...&quot;"
+        errorLine2="                             ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="508"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        inAirText.text = &quot;✈️ Uçuş: Bekleniyor...&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt"
+            line="509"
+            column="27"/>
     </issue>
 
 </issues>
