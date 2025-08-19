@@ -3828,6 +3828,7 @@ com.clientapp:attr/barrierDirection = 0x7f030065
 com.clientapp:attr/sliderStyle = 0x7f0303d0
 com.clientapp:attr/titleTextColor = 0x7f030491
 com.clientapp:attr/textBackground = 0x7f030450
+com.clientapp:xml/network_security_config = 0x7f110002
 com.clientapp:attr/sizePercent = 0x7f0303cf
 com.clientapp:id/counterclockwise = 0x7f080083
 com.clientapp:color/design_dark_default_color_background = 0x7f050032

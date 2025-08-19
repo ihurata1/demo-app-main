@@ -1,0 +1,191 @@
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:14: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk = 34
+        ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/AndroidManifest.xml:22: Warning: Redundant label can be removed [RedundantLabel]
+            android:label="@string/app_name"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RedundantLabel":
+   When an activity does not have a label attribute, it will use the one from
+   the application tag. Since the application has already specified the same
+   label, the label on this activity can be omitted.
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:88: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.17.0 [GradleDependency]
+    implementation("androidx.core:core-ktx:1.12.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:89: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation("androidx.appcompat:appcompat:1.6.1")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:90: Warning: A newer version of com.google.android.material:material than 1.11.0 is available: 1.12.0 [GradleDependency]
+    implementation("com.google.android.material:material:1.11.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:91: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1 [GradleDependency]
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:92: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.2 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:93: Warning: A newer version of androidx.lifecycle:lifecycle-process than 2.7.0 is available: 2.9.2 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:94: Warning: A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.9.2 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:95: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.9.2 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:96: Warning: A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.8.1 [GradleDependency]
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:129: Warning: A newer version of com.google.protobuf:protobuf-java than 3.25.3 is available: 4.28.1 [GradleDependency]
+    compileOnly("com.google.protobuf:protobuf-java:3.25.3")
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/res/values/colors.xml:3: Warning: The resource R.color.ic_launcher_background appears to be unused [UnusedResources]
+    <color name="ic_launcher_background">#FFFFFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/res/values/colors.xml:4: Warning: The resource R.color.purple_200 appears to be unused [UnusedResources]
+    <color name="purple_200">#FFBB86FC</color>
+           ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/res/drawable/ic_launcher_foreground.xml:1: Warning: The resource R.drawable.ic_launcher_foreground appears to be unused [UnusedResources]
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+^
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/AndroidManifest.xml:9: Warning: Should explicitly set android:icon, there is no default [MissingApplicationIcon]
+    <application
+     ~~~~~~~~~~~
+
+   Explanation for issues of type "MissingApplicationIcon":
+   You should set an icon for the application as whole because there is no
+   default. This attribute must be set as a reference to a drawable resource
+   containing the image (for example @drawable/icon).
+
+   https://developer.android.com/studio/publish/preparing#publishing-configure
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:73: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Client App"
+                    ~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:80: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Bağlantı bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:86: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Server'a Bağlan"
+                    ~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:94: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Mesaj Gönder:"
+                    ~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:104: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Gönder"
+                    ~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:110: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Gelen Mesajlar:"
+                    ~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:149: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                text = "[$timestamp] $prefix: $message"
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:191: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    statusText.text = "✅ Server'a bağlandı ($serverHost:$serverPort)"
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:191: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.text = "✅ Server'a bağlandı ($serverHost:$serverPort)"
+                                       ~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:192: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    connectButton.text = "Bağlantıyı Kes"
+                                          ~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:212: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.text = "❌ Bağlantı başarısız"
+                                       ~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:213: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    connectButton.text = "Server'a Bağlan"
+                                          ~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:223: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                        statusText.text = "❌ Bağlantı kesildi"
+                                           ~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:224: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                        connectButton.text = "Server'a Bağlan"
+                                              ~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:241: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.text = "❌ Bağlantı kesildi"
+                                       ~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:242: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    connectButton.text = "Server'a Bağlan"
+                                          ~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:313: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    statusText.text = "❌ Server bağlantısı kesildi"
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:314: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    connectButton.text = "Server'a Bağlan"
+                                          ~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:363: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Drone Bağlantısı"
+                    ~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:369: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Bağlantı bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:389: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                droneStatusText.text = "Drone Bağlı"
+                                        ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:390: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                droneConnectionDetails.text = "Bağlantı aktif - Veri alınıyor"
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:394: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                droneStatusText.text = "Drone Bağlı Değil"
+                                        ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:395: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                droneConnectionDetails.text = "Bağlantı bekleniyor..."
+                                               ~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+0 errors, 40 warnings

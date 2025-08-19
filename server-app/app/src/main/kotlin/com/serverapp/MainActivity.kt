@@ -1,9 +1,13 @@
 package com.serverapp
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.serverapp.domain.CoreServiceImpl
+import io.grpc.Grpc
+import io.grpc.InsecureServerCredentials
 import io.netty.bootstrap.ServerBootstrap
 import io.netty.channel.*
 import io.netty.channel.nio.NioEventLoopGroup
@@ -25,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var clientsSpinner: Spinner
     private lateinit var messagesScrollView: ScrollView
     private lateinit var messagesContainer: LinearLayout
+    private lateinit var droneConnectionButton: Button
+    private lateinit var droneStatusText: TextView
     
     private var server: ChannelFuture? = null
     private var isServerRunning = false
@@ -35,10 +41,19 @@ class MainActivity : AppCompatActivity() {
     private val connectedClients = ConcurrentHashMap<String, Channel>()
     private lateinit var clientsAdapter: ArrayAdapter<String>
     private val clientsList = mutableListOf<String>()
+    
+    // Drone connection management
+    private lateinit var coreService: CoreServiceImpl
+    private var isDroneConnected = false
+    private var grpcServer: io.grpc.Server? = null
+    private val grpcPort = 50052
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupUI()
+        
+        // Initialize CoreService
+        coreService = CoreServiceImpl()
         
         serverButton.setOnClickListener {
             if (isServerRunning) {
@@ -50,6 +65,10 @@ class MainActivity : AppCompatActivity() {
         
         sendToClientButton.setOnClickListener {
             sendMessageToClient()
+        }
+        
+        droneConnectionButton.setOnClickListener {
+            toggleDroneConnection()
         }
     }
 
@@ -75,6 +94,24 @@ class MainActivity : AppCompatActivity() {
         // Server control button
         serverButton = Button(this).apply {
             text = "Server Başlat"
+        }
+        
+        // Drone connection section
+        val droneLabel = TextView(this).apply {
+            text = "Drone Bağlantısı:"
+            setPadding(0, 24, 0, 8)
+            textSize = 16f
+        }
+        
+        droneStatusText = TextView(this).apply {
+            text = "Drone bağlı değil"
+            setPadding(0, 0, 0, 8)
+            setTextColor(resources.getColor(android.R.color.holo_red_dark))
+        }
+        
+        droneConnectionButton = Button(this).apply {
+            text = "Drone'a Bağlan"
+            setPadding(0, 8, 0, 8)
         }
         
         // Client selection section
@@ -134,6 +171,9 @@ class MainActivity : AppCompatActivity() {
         layout.addView(headerText)
         layout.addView(statusText)
         layout.addView(serverButton)
+        layout.addView(droneLabel)
+        layout.addView(droneStatusText)
+        layout.addView(droneConnectionButton)
         layout.addView(clientsLabel)
         layout.addView(clientsSpinner)
         layout.addView(messageLabel)
@@ -225,12 +265,15 @@ class MainActivity : AppCompatActivity() {
                 
                 server = bootstrap.bind(InetSocketAddress("0.0.0.0", port)).sync()
                 
+                // Start gRPC server
+                startGrpcServer()
+                
                 withContext(Dispatchers.Main) {
                     isServerRunning = true
-                    statusText.text = "Server çalışıyor (Port: $port)"
+                    statusText.text = "Server çalışıyor (TCP: $port, gRPC: $grpcPort)"
                     serverButton.text = "Server Durdur"
-                    showToast("Server başlatıldı - Port: $port")
-                    addLogMessage("Server başlatıldı - Port: $port", "SERVER")
+                    showToast("Server başlatıldı - TCP: $port, gRPC: $grpcPort")
+                    addLogMessage("Server başlatıldı - TCP: $port, gRPC: $grpcPort", "SERVER")
                 }
                 
                 server?.channel()?.closeFuture()?.sync()
@@ -252,6 +295,9 @@ class MainActivity : AppCompatActivity() {
                 connectedClients.clear()
                 
                 server?.channel()?.close()?.sync()
+                
+                // Stop gRPC server
+                stopGrpcServer()
                 
                 withContext(Dispatchers.Main) {
                     isServerRunning = false
@@ -382,6 +428,65 @@ class MainActivity : AppCompatActivity() {
             val clientAddress = ctx.channel().remoteAddress().toString()
             addLogMessage("Client hatası ($clientAddress): ${cause.message}", "ERROR")
             ctx.close()
+        }
+    }
+
+    private fun toggleDroneConnection() {
+        isDroneConnected = !isDroneConnected
+        coreService.setConnectionState(isDroneConnected)
+        
+        runOnUiThread {
+            if (isDroneConnected) {
+                droneStatusText.text = "Drone bağlı"
+                droneStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+                droneConnectionButton.text = "Drone Bağlantısını Kes"
+                addLogMessage("Drone bağlantısı kuruldu", "DRONE")
+                showToast("Drone'a bağlanıldı")
+            } else {
+                droneStatusText.text = "Drone bağlı değil"
+                droneStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+                droneConnectionButton.text = "Drone'a Bağlan"
+                addLogMessage("Drone bağlantısı kesildi", "DRONE")
+                showToast("Drone bağlantısı kesildi")
+            }
+        }
+    }
+
+    private fun startGrpcServer() {
+        try {
+            grpcServer = Grpc.newServerBuilderForPort(grpcPort, InsecureServerCredentials.create())
+                .addService(coreService)
+                .keepAliveTime(30, java.util.concurrent.TimeUnit.SECONDS)
+                .keepAliveTimeout(5, java.util.concurrent.TimeUnit.SECONDS)
+                .permitKeepAliveWithoutCalls(true)
+                .maxInboundMessageSize(4 * 1024 * 1024)
+                .build()
+                .start()
+            
+            Log.d("MainActivity", "gRPC Server started on port $grpcPort")
+            addLogMessage("gRPC Server başlatıldı - Port: $grpcPort", "GRPC")
+            
+            // Add shutdown hook
+            Runtime.getRuntime().addShutdownHook(Thread {
+                Log.d("MainActivity", "Shutting down gRPC server")
+                grpcServer?.shutdown()
+            })
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Failed to start gRPC server", e)
+            addLogMessage("gRPC Server başlatılamadı: ${e.message}", "ERROR")
+            throw e
+        }
+    }
+
+    private fun stopGrpcServer() {
+        try {
+            grpcServer?.shutdown()
+            grpcServer = null
+            Log.d("MainActivity", "gRPC Server stopped")
+            addLogMessage("gRPC Server durduruldu", "GRPC")
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Error stopping gRPC server", e)
+            addLogMessage("gRPC Server durdurma hatası: ${e.message}", "ERROR")
         }
     }
 } 

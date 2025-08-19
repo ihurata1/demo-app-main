@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.clientapp.domain.CoreServiceClient
+import android.util.Log
 import io.netty.bootstrap.Bootstrap
 import io.netty.channel.*
 import io.netty.channel.nio.NioEventLoopGroup
@@ -12,6 +14,7 @@ import io.netty.channel.socket.nio.NioSocketChannel
 import io.netty.handler.codec.string.StringDecoder
 import io.netty.handler.codec.string.StringEncoder
 import kotlinx.coroutines.*
+import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -22,17 +25,29 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sendButton: Button
     private lateinit var messagesScrollView: ScrollView
     private lateinit var messagesContainer: LinearLayout
+    private lateinit var droneStatusCard: LinearLayout
+    private lateinit var droneStatusIcon: TextView
+    private lateinit var droneStatusText: TextView
+    private lateinit var droneConnectionDetails: TextView
     
     private var client: Channel? = null
     private var isConnected = false
     private var eventLoopGroup: NioEventLoopGroup? = null
     private val serverHost = "10.34.34.48"
     private val serverPort = 50051
+    private val grpcServerPort = 50052
     private val dateFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+    
+    // Drone connection state
+    private var isDroneConnected = false
+    private lateinit var coreServiceClient: CoreServiceClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupUI()
+        
+        // Initialize CoreService client
+        coreServiceClient = CoreServiceClient(serverHost, grpcServerPort)
         
         connectButton.setOnClickListener {
             if (isConnected) {
@@ -70,6 +85,9 @@ class MainActivity : AppCompatActivity() {
         connectButton = Button(this).apply {
             text = "Server'a Bağlan"
         }
+        
+        // Drone Status Card
+        createDroneStatusCard(layout)
         
         // Message input section
         val inputLabel = TextView(this).apply {
@@ -176,6 +194,9 @@ class MainActivity : AppCompatActivity() {
                     sendButton.isEnabled = true
                     showToast("Server'a bağlanıldı")
                     addMessageToUI("Bağlantı kuruldu", true)
+                    
+                    // Start drone connection subscription
+                    startDroneConnectionSubscription()
                 }
                 
                 // Keep the connection alive by waiting for it to close
@@ -223,6 +244,10 @@ class MainActivity : AppCompatActivity() {
                     sendButton.isEnabled = false
                     showToast("Bağlantı kesildi")
                     addMessageToUI("Bağlantı kesildi", true)
+                    
+                    // Disconnect CoreService client and reset drone status
+                    coreServiceClient.disconnect()
+                    updateDroneStatus(false)
                 }
                 
             } catch (e: Exception) {
@@ -300,6 +325,130 @@ class MainActivity : AppCompatActivity() {
                 addMessageToUI("Hata: ${cause.message}", true)
             }
             ctx.close()
+        }
+    }
+
+    private fun createDroneStatusCard(parentLayout: LinearLayout) {
+        // Drone Status Card Container
+        droneStatusCard = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            setPadding(24, 16, 24, 16)
+            setBackgroundColor(0xFFF8F9FA.toInt())
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply {
+                setMargins(0, 16, 0, 16)
+            }
+        }
+
+        // Status Icon
+        droneStatusIcon = TextView(this).apply {
+            text = "🔴"
+            textSize = 24f
+            setPadding(0, 0, 16, 0)
+        }
+
+        // Status Text Container
+        val statusTextContainer = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            layoutParams = LinearLayout.LayoutParams(
+                0,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                1f
+            )
+        }
+
+        droneStatusText = TextView(this).apply {
+            text = "Drone Bağlantısı"
+            textSize = 16f
+            setTextColor(0xFF212529.toInt())
+        }
+
+        droneConnectionDetails = TextView(this).apply {
+            text = "Bağlantı bekleniyor..."
+            textSize = 14f
+            setTextColor(0xFF6C757D.toInt())
+            setPadding(0, 4, 0, 0)
+        }
+
+        statusTextContainer.addView(droneStatusText)
+        statusTextContainer.addView(droneConnectionDetails)
+
+        droneStatusCard.addView(droneStatusIcon)
+        droneStatusCard.addView(statusTextContainer)
+
+        parentLayout.addView(droneStatusCard)
+    }
+
+    private fun updateDroneStatus(isConnected: Boolean) {
+        runOnUiThread {
+            isDroneConnected = isConnected
+            if (isConnected) {
+                droneStatusIcon.text = "🟢"
+                droneStatusText.text = "Drone Bağlı"
+                droneConnectionDetails.text = "Bağlantı aktif - Veri alınıyor"
+                droneStatusCard.setBackgroundColor(0xFFE8F5E8.toInt())
+            } else {
+                droneStatusIcon.text = "🔴"
+                droneStatusText.text = "Drone Bağlı Değil"
+                droneConnectionDetails.text = "Bağlantı bekleniyor..."
+                droneStatusCard.setBackgroundColor(0xFFFFF5F5.toInt())
+            }
+        }
+    }
+
+    private fun startDroneConnectionSubscription() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            var retryCount = 0
+            val maxRetries = 5
+            
+            while (retryCount < maxRetries) {
+                try {
+                    Log.d("MainActivity", "Attempting to connect to gRPC server (attempt ${retryCount + 1}/$maxRetries)")
+                    Log.d("MainActivity", "Connecting to gRPC server at $serverHost:$grpcServerPort")
+                    
+                    // Connect CoreService client
+                    coreServiceClient.connect()
+                    
+                    withContext(Dispatchers.Main) {
+                        addMessageToUI("gRPC server'a bağlanıldı", true)
+                    }
+                    
+                    // Subscribe to connection state
+                    coreServiceClient.subscribeToConnectionState().collect { response ->
+                        val connectionState = response.connectionState
+                        val isConnected = connectionState.isConnected
+                        
+                        Log.d("MainActivity", "Received drone connection state: $isConnected")
+                        
+                        withContext(Dispatchers.Main) {
+                            updateDroneStatus(isConnected)
+                            addMessageToUI("Drone durumu güncellendi: ${if (isConnected) "Bağlı" else "Bağlı değil"}", true)
+                        }
+                    }
+                    
+                    // If we reach here, connection was successful
+                    break
+                    
+                } catch (e: Exception) {
+                    retryCount++
+                    Log.e("MainActivity", "Error in drone connection subscription (attempt $retryCount)", e)
+                    
+                    withContext(Dispatchers.Main) {
+                        updateDroneStatus(false)
+                        if (retryCount < maxRetries) {
+                            addMessageToUI("gRPC bağlantı hatası (deneme $retryCount/$maxRetries): ${e.message}", true)
+                        } else {
+                            addMessageToUI("gRPC bağlantısı kurulamadı. Server'ın çalıştığından emin olun.", true)
+                        }
+                    }
+                    
+                    if (retryCount < maxRetries) {
+                        delay(2000) // Wait 2 seconds before retry
+                    }
+                }
+            }
         }
     }
 } 

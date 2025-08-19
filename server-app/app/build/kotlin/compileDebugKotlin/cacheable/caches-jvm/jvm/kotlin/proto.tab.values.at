@@ -1,4 +1,12 @@
-KtSetPitchAndYawRequestKtKtSetPitchAndYawResponseKtKt!SetPitchRateAndYawRateRequestKtKt"SetPitchRateAndYawRateResponseKtKtSetRoiLocationRequestKtKtSetRoiLocationResponseKtKtSubscribeAttitudeRequestKtKtSubscribeControlRequestKtKtTakeControlRequestKtKtTakeControlResponseKtKt
+
+io.mavsdk.ftpAreFilesIdenticalRequestKtKtAreFilesIdenticalResponseKtKtCreateDirectoryRequestKtKtCreateDirectoryResponseKtKtDownloadResponseKtKtFtpResultKtKtListDirectoryRequestKtKtListDirectoryResponseKtKtProgressDataKtKtRemoveDirectoryRequestKtKtRemoveDirectoryResponseKtKtRemoveFileRequestKtKtRemoveFileResponseKtKtRenameRequestKtKtRenameResponseKtKtSetTargetCompidRequestKtKtSetTargetCompidResponseKtKtSubscribeDownloadRequestKtKtSubscribeUploadRequestKtKtUploadResponseKtKt
+Z
+io.mavsdk.ftp_serverFtpServerResultKtKtSetRootDirRequestKtKtSetRootDirResponseKtKt
+Ê
+io.mavsdk.geofence
+CircleKtKtClearGeofenceRequestKtKtClearGeofenceResponseKtKtGeofenceDataKtKtGeofenceResultKtKt	PointKtKtPolygonKtKtUploadGeofenceRequestKtKtUploadGeofenceResponseKtKt
+×
+io.mavsdk.gimbalAngularVelocityBodyKtKtAttitudeKtKtAttitudeResponseKtKtControlResponseKtKtControlStatusKtKtEulerAngleKtKtGimbalResultKtKtQuaternionKtKtReleaseControlRequestKtKtReleaseControlResponseKtKtSetAnglesRequestKtKtSetAnglesResponseKtKtSetModeRequestKtKtSetModeResponseKtKtSetPitchAndYawRequestKtKtSetPitchAndYawResponseKtKt!SetPitchRateAndYawRateRequestKtKt"SetPitchRateAndYawRateResponseKtKtSetRoiLocationRequestKtKtSetRoiLocationResponseKtKtSubscribeAttitudeRequestKtKtSubscribeControlRequestKtKtTakeControlRequestKtKtTakeControlResponseKtKt
 r
 io.mavsdk.gripperGrabRequestKtKtGrabResponseKtKtGripperResultKtKtReleaseRequestKtKtReleaseResponseKtKt
 ¹
