@@ -1,9 +1,20 @@
 package com.clientapp
 
+import android.Manifest
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothManager
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.clientapp.domain.BLEManager
 import com.clientapp.domain.CoreServiceClient
 import com.clientapp.domain.TelemetryServiceClient
 import android.util.Log
@@ -39,6 +50,25 @@ class MainActivity : AppCompatActivity() {
     private var isDroneConnected = false
     private lateinit var coreServiceClient: CoreServiceClient
     private lateinit var telemetryServiceClient: TelemetryServiceClient
+    
+    // BLE management
+    private lateinit var bleManager: BLEManager
+    private var isBLEScanning = false
+    private val ENABLE_BLUETOOTH_REQUEST_CODE = 1001
+    private val BLUETOOTH_PERMISSIONS_REQUEST_CODE = 1002
+    
+    // BLE UI elements
+    private lateinit var bleStatusText: TextView
+    private lateinit var bleButton: Button
+    private lateinit var bleDeviceInfoText: TextView
+    
+    // Bluetooth adapter
+    private val bluetoothManager: BluetoothManager by lazy {
+        getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+    }
+    private val bluetoothAdapter: BluetoothAdapter by lazy {
+        bluetoothManager.adapter
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +83,18 @@ class MainActivity : AppCompatActivity() {
                 disconnectFromServer()
             } else {
                 connectToServer()
+            }
+        }
+        
+        // Initialize BLE Manager
+        bleManager = BLEManager(this)
+        bleManager.setCallback(bleCallback)
+        
+        bleButton.setOnClickListener {
+            if (isBLEScanning) {
+                stopBLEScanning()
+            } else {
+                startBLEScanning()
             }
         }
     }
@@ -79,6 +121,40 @@ class MainActivity : AppCompatActivity() {
         // Connect button
         connectButton = Button(this).apply {
             text = "Server'a Bağlan"
+        }
+        
+        // BLE section
+        val bleLabel = TextView(this).apply {
+            text = "BLE Scanning:"
+            setPadding(0, 24, 0, 8)
+            textSize = 16f
+        }
+        
+        bleStatusText = TextView(this).apply {
+            text = "BLE kapalı"
+            setPadding(0, 0, 0, 8)
+            setTextColor(resources.getColor(android.R.color.holo_red_dark))
+        }
+        
+        bleButton = Button(this).apply {
+            text = "BLE Taramayı Başlat"
+            setPadding(0, 8, 0, 8)
+        }
+        
+        bleDeviceInfoText = TextView(this).apply {
+            text = "Henüz cihaz bulunamadı"
+            setPadding(0, 0, 0, 8)
+            setTextColor(resources.getColor(android.R.color.holo_blue_dark))
+        }
+        
+        // BLE Demo button
+        val bleDemoButton = Button(this).apply {
+            text = "BLE Demo'yu Aç"
+            setPadding(0, 8, 0, 8)
+            setOnClickListener {
+                val intent = Intent(this@MainActivity, BLEDemoActivity::class.java)
+                startActivity(intent)
+            }
         }
         
         // Drone Status Card
@@ -114,6 +190,11 @@ class MainActivity : AppCompatActivity() {
         layout.addView(headerText)
         layout.addView(statusText)
         layout.addView(connectButton)
+        layout.addView(bleLabel)
+        layout.addView(bleStatusText)
+        layout.addView(bleButton)
+        layout.addView(bleDeviceInfoText)
+        layout.addView(bleDemoButton)
         layout.addView(messagesLabel)
         layout.addView(messagesScrollView)
         
@@ -208,13 +289,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (isConnected) {
-            coreServiceClient.disconnect()
-            telemetryServiceClient.disconnect()
-        }
-    }
+
 
 
 
@@ -507,5 +582,154 @@ class MainActivity : AppCompatActivity() {
         attitudeText.text = "🔄 Açı: Bekleniyor..."
         velocityText.text = "💨 Hız: Bekleniyor..."
         inAirText.text = "✈️ Uçuş: Bekleniyor..."
+    }
+    
+    // BLE Methods
+    private fun startBLEScanning() {
+        if (!hasBluetoothPermissions()) {
+            requestBluetoothPermissions()
+            return
+        }
+        
+        if (!bluetoothAdapter.isEnabled) {
+            val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+            startActivityForResult(enableBtIntent, ENABLE_BLUETOOTH_REQUEST_CODE)
+            return
+        }
+        
+        bleManager.startScanning()
+        addMessageToUI("BLE taraması başlatılıyor...", false)
+    }
+    
+    private fun stopBLEScanning() {
+        bleManager.stopScanning()
+        addMessageToUI("BLE taraması durduruluyor...", false)
+    }
+    
+    private fun hasBluetoothPermissions(): Boolean {
+        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            arrayOf(
+                Manifest.permission.BLUETOOTH_SCAN,
+                Manifest.permission.BLUETOOTH_CONNECT
+            )
+        } else {
+            arrayOf(
+                Manifest.permission.BLUETOOTH,
+                Manifest.permission.BLUETOOTH_ADMIN
+            )
+        }
+        
+        return permissions.all { permission ->
+            ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
+        }
+    }
+    
+    private fun requestBluetoothPermissions() {
+        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            arrayOf(
+                Manifest.permission.BLUETOOTH_SCAN,
+                Manifest.permission.BLUETOOTH_CONNECT,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+        } else {
+            arrayOf(
+                Manifest.permission.BLUETOOTH,
+                Manifest.permission.BLUETOOTH_ADMIN,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+        }
+        
+        ActivityCompat.requestPermissions(this, permissions, BLUETOOTH_PERMISSIONS_REQUEST_CODE)
+    }
+    
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        
+        when (requestCode) {
+            ENABLE_BLUETOOTH_REQUEST_CODE -> {
+                if (resultCode == RESULT_OK) {
+                    addMessageToUI("Bluetooth etkinleştirildi", false)
+                    startBLEScanning()
+                } else {
+                    addMessageToUI("Bluetooth etkinleştirilmedi", false)
+                    showToast("Bluetooth etkinleştirilmedi")
+                }
+            }
+        }
+    }
+    
+    private val bleCallback = object : BLEManager.BLECallback {
+        override fun onDeviceDiscovered(device: BluetoothDevice, droneInfo: BLEManager.DroneInfo?) {
+            val deviceName = device.name ?: "Unknown Device"
+            val info = droneInfo?.let { " - ${it.brand} ${it.serialNumber}" } ?: ""
+            addMessageToUI("BLE cihaz bulundu: $deviceName$info", false)
+            bleDeviceInfoText.text = "Bulunan: $deviceName$info"
+        }
+        
+        override fun onDeviceConnected(device: BluetoothDevice) {
+            val deviceName = device.name ?: "Unknown Device"
+            addMessageToUI("BLE cihaza bağlanıldı: $deviceName", false)
+            bleStatusText.text = "BLE bağlı - $deviceName"
+            bleStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+        }
+        
+        override fun onDeviceDisconnected(device: BluetoothDevice) {
+            val deviceName = device.name ?: "Unknown Device"
+            addMessageToUI("BLE cihaz bağlantısı kesildi: $deviceName", false)
+            bleStatusText.text = "BLE kapalı"
+            bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+        }
+        
+        override fun onFullDeviceInfoReceived(device: BluetoothDevice, droneInfo: BLEManager.DroneInfo) {
+            val deviceName = device.name ?: "Unknown Device"
+            addMessageToUI("Drone bilgisi alındı: ${droneInfo.brand} ${droneInfo.model} - ${droneInfo.serialNumber}", false)
+            bleDeviceInfoText.text = "Drone: ${droneInfo.brand} ${droneInfo.model} | Serial: ${droneInfo.serialNumber}"
+        }
+        
+        override fun onScanStarted() {
+            runOnUiThread {
+                isBLEScanning = true
+                bleStatusText.text = "BLE aktif - Tarama"
+                bleStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+                bleButton.text = "BLE Taramayı Durdur"
+                addMessageToUI("BLE taraması başlatıldı", false)
+            }
+        }
+        
+        override fun onScanStopped() {
+            runOnUiThread {
+                isBLEScanning = false
+                bleStatusText.text = "BLE kapalı"
+                bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+                bleButton.text = "BLE Taramayı Başlat"
+                addMessageToUI("BLE taraması durduruldu", false)
+            }
+        }
+        
+        override fun onScanFailed(errorCode: Int, message: String) {
+            runOnUiThread {
+                isBLEScanning = false
+                bleStatusText.text = "BLE hatası: $message"
+                bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+                bleButton.text = "BLE Taramayı Başlat"
+                addMessageToUI("BLE tarama hatası: $message", false)
+            }
+        }
+        
+        override fun onConnectionFailed(device: BluetoothDevice, error: String) {
+            val deviceName = device.name ?: "Unknown Device"
+            addMessageToUI("BLE bağlantı hatası: $deviceName - $error", false)
+            bleStatusText.text = "BLE bağlantı hatası"
+            bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+        }
+    }
+    
+    override fun onDestroy() {
+        super.onDestroy()
+        if (isConnected) {
+            coreServiceClient.disconnect()
+            telemetryServiceClient.disconnect()
+        }
+        bleManager.cleanup()
     }
 } 

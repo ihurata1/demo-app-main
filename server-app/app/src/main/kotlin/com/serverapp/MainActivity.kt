@@ -1,10 +1,21 @@
 package com.serverapp
 
+import android.Manifest
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothManager
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.serverapp.domain.BLEManager
 import com.serverapp.domain.CoreServiceImpl
 import com.serverapp.domain.TelemetryServiceImpl
 import io.grpc.Grpc
@@ -21,6 +32,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var messagesScrollView: ScrollView
     private lateinit var messagesContainer: LinearLayout
     
+    // BLE UI elements
+    private lateinit var bleStatusText: TextView
+    private lateinit var bleButton: Button
+    private lateinit var bleDeviceInfoText: TextView
+    
     private var isServerRunning = false
     private val dateFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
     
@@ -32,6 +48,20 @@ class MainActivity : AppCompatActivity() {
     private var isDroneConnected = false
     private var grpcServer: io.grpc.Server? = null
     private val grpcPort = 50052
+    
+    // BLE management
+    private lateinit var bleManager: BLEManager
+    private var isBLEAdvertising = false
+    private val ENABLE_BLUETOOTH_REQUEST_CODE = 1001
+    private val BLUETOOTH_PERMISSIONS_REQUEST_CODE = 1002
+    
+    // Bluetooth adapter
+    private val bluetoothManager: BluetoothManager by lazy {
+        getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+    }
+    private val bluetoothAdapter: BluetoothAdapter by lazy {
+        bluetoothManager.adapter
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +70,13 @@ class MainActivity : AppCompatActivity() {
         // Initialize Services
         coreService = CoreServiceImpl()
         telemetryService = TelemetryServiceImpl()
+        
+        // Initialize BLE Manager
+        bleManager = BLEManager(this)
+        bleManager.setCallback(bleCallback)
+        
+        // Set up mock drone info
+        updateMockDroneInfo()
         
         serverButton.setOnClickListener {
             if (isServerRunning) {
@@ -51,6 +88,24 @@ class MainActivity : AppCompatActivity() {
         
         droneConnectionButton.setOnClickListener {
             toggleDroneConnection()
+        }
+        
+        bleButton.setOnClickListener {
+            if (isBLEAdvertising) {
+                stopBLEAdvertising()
+            } else {
+                startBLEAdvertising()
+            }
+        }
+        
+        // Add BLE Demo button
+        val bleDemoButton = Button(this).apply {
+            text = "BLE Demo'yu Aç"
+            setPadding(0, 8, 0, 8)
+            setOnClickListener {
+                val intent = Intent(this@MainActivity, BLEDemoActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
@@ -96,7 +151,39 @@ class MainActivity : AppCompatActivity() {
             setPadding(0, 8, 0, 8)
         }
         
-
+        // BLE section
+        val bleLabel = TextView(this).apply {
+            text = "BLE Advertising:"
+            setPadding(0, 24, 0, 8)
+            textSize = 16f
+        }
+        
+        bleStatusText = TextView(this).apply {
+            text = "BLE kapalı"
+            setPadding(0, 0, 0, 8)
+            setTextColor(resources.getColor(android.R.color.holo_red_dark))
+        }
+        
+        bleButton = Button(this).apply {
+            text = "BLE Başlat"
+            setPadding(0, 8, 0, 8)
+        }
+        
+        bleDeviceInfoText = TextView(this).apply {
+            text = "Drone: DJI Mavic 3 | Serial: 1234567890"
+            setPadding(0, 0, 0, 8)
+            setTextColor(resources.getColor(android.R.color.holo_blue_dark))
+        }
+        
+        // BLE Demo button
+        val bleDemoButton = Button(this).apply {
+            text = "BLE Demo'yu Aç"
+            setPadding(0, 8, 0, 8)
+            setOnClickListener {
+                val intent = Intent(this@MainActivity, BLEDemoActivity::class.java)
+                startActivity(intent)
+            }
+        }
         
         // Messages log section
         val logLabel = TextView(this).apply {
@@ -128,6 +215,11 @@ class MainActivity : AppCompatActivity() {
         layout.addView(droneLabel)
         layout.addView(droneStatusText)
         layout.addView(droneConnectionButton)
+        layout.addView(bleLabel)
+        layout.addView(bleStatusText)
+        layout.addView(bleButton)
+        layout.addView(bleDeviceInfoText)
+        layout.addView(bleDemoButton)
         layout.addView(logLabel)
         layout.addView(messagesScrollView)
         
@@ -228,12 +320,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (isServerRunning) {
-            stopServer()
-        }
-    }
+
 
 
 
@@ -302,5 +389,137 @@ class MainActivity : AppCompatActivity() {
             Log.e("MainActivity", "Error stopping gRPC server", e)
             addLogMessage("gRPC Server durdurma hatası: ${e.message}", "ERROR")
         }
+    }
+    
+    // BLE Methods
+    private fun startBLEAdvertising() {
+        if (!hasBluetoothPermissions()) {
+            requestBluetoothPermissions()
+            return
+        }
+        
+        if (!bluetoothAdapter.isEnabled) {
+            val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+            startActivityForResult(enableBtIntent, ENABLE_BLUETOOTH_REQUEST_CODE)
+            return
+        }
+        
+        bleManager.startAdvertising()
+        addLogMessage("BLE advertising başlatılıyor...", "BLE")
+    }
+    
+    private fun stopBLEAdvertising() {
+        bleManager.stopAdvertising()
+        addLogMessage("BLE advertising durduruluyor...", "BLE")
+    }
+    
+    private fun updateMockDroneInfo() {
+        val mockDroneInfo = BLEManager.DroneInfo(
+            brand = "DJI",
+            model = "Mavic 3",
+            serialNumber = "1234567890"
+        )
+        bleManager.updateDroneInfo(mockDroneInfo)
+        bleDeviceInfoText.text = "Drone: ${mockDroneInfo.brand} ${mockDroneInfo.model} | Serial: ${mockDroneInfo.serialNumber}"
+    }
+    
+    private fun hasBluetoothPermissions(): Boolean {
+        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            arrayOf(
+                Manifest.permission.BLUETOOTH_ADVERTISE,
+                Manifest.permission.BLUETOOTH_CONNECT
+            )
+        } else {
+            arrayOf(
+                Manifest.permission.BLUETOOTH,
+                Manifest.permission.BLUETOOTH_ADMIN
+            )
+        }
+        
+        return permissions.all { permission ->
+            ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
+        }
+    }
+    
+    private fun requestBluetoothPermissions() {
+        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            arrayOf(
+                Manifest.permission.BLUETOOTH_ADVERTISE,
+                Manifest.permission.BLUETOOTH_CONNECT,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+        } else {
+            arrayOf(
+                Manifest.permission.BLUETOOTH,
+                Manifest.permission.BLUETOOTH_ADMIN,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+        }
+        
+        ActivityCompat.requestPermissions(this, permissions, BLUETOOTH_PERMISSIONS_REQUEST_CODE)
+    }
+    
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        
+        when (requestCode) {
+            ENABLE_BLUETOOTH_REQUEST_CODE -> {
+                if (resultCode == RESULT_OK) {
+                    addLogMessage("Bluetooth etkinleştirildi", "BLE")
+                    startBLEAdvertising()
+                } else {
+                    addLogMessage("Bluetooth etkinleştirilmedi", "ERROR")
+                    showToast("Bluetooth etkinleştirilmedi")
+                }
+            }
+        }
+    }
+    
+    private val bleCallback = object : BLEManager.BLECallback {
+        override fun onAdvertisingStarted() {
+            runOnUiThread {
+                isBLEAdvertising = true
+                bleStatusText.text = "BLE aktif - Advertising"
+                bleStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+                bleButton.text = "BLE Durdur"
+                addLogMessage("BLE advertising başlatıldı", "BLE")
+                showToast("BLE advertising başlatıldı")
+            }
+        }
+        
+        override fun onAdvertisingFailed(errorCode: Int, message: String) {
+            runOnUiThread {
+                isBLEAdvertising = false
+                bleStatusText.text = "BLE hatası: $message"
+                bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+                bleButton.text = "BLE Başlat"
+                addLogMessage("BLE advertising hatası: $message", "ERROR")
+                showToast("BLE hatası: $message")
+            }
+        }
+        
+        override fun onAdvertisingStopped() {
+            runOnUiThread {
+                isBLEAdvertising = false
+                bleStatusText.text = "BLE kapalı"
+                bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+                bleButton.text = "BLE Başlat"
+                addLogMessage("BLE advertising durduruldu", "BLE")
+                showToast("BLE advertising durduruldu")
+            }
+        }
+        
+        override fun onConnectionStateChanged(device: BluetoothDevice, isConnected: Boolean) {
+            val status = if (isConnected) "bağlandı" else "bağlantısı kesildi"
+            addLogMessage("BLE cihaz ${device.address} $status", "BLE")
+        }
+    }
+    
+    override fun onDestroy() {
+        super.onDestroy()
+        if (isServerRunning) {
+            stopServer()
+        }
+        bleManager.cleanup()
     }
 } 
