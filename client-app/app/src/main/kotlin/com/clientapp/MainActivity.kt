@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     
     private var isConnected = false
     private var serverHost = "192.168.1.100" // Default IP, will be updated from user input
-    private val grpcServerPort = 50052
+    private val grpcServerPort = 50051
     private val dateFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
     
     // SharedPreferences for storing server IP

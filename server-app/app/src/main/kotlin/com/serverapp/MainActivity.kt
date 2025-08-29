@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var telemetryService: TelemetryServiceImpl
     private var isDroneConnected = false
     private var grpcServer: io.grpc.Server? = null
-    private val grpcPort = 50052
+    private val grpcPort = 50051
     
     // BLE management
     private lateinit var bleManager: BLEManager
