@@ -6,10 +6,12 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -42,9 +44,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var inAirText: TextView
     
     private var isConnected = false
-    private val serverHost = "10.34.34.52"
+    private var serverHost = "192.168.1.100" // Default IP, will be updated from user input
     private val grpcServerPort = 50052
     private val dateFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+    
+    // SharedPreferences for storing server IP
+    private lateinit var sharedPreferences: SharedPreferences
+    private val PREFS_NAME = "ClientAppPrefs"
+    private val KEY_SERVER_IP = "server_ip"
     
     // Drone connection state
     private var isDroneConnected = false
@@ -72,11 +79,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        
+        // Load saved server IP or show dialog for first time
+        loadOrRequestServerIP()
+        
         setupUI()
         
-        // Initialize gRPC clients
-        coreServiceClient = CoreServiceClient(serverHost, grpcServerPort)
-        telemetryServiceClient = TelemetryServiceClient(serverHost, grpcServerPort)
+        // Initialize gRPC clients with current IP
+        initializeGrpcClients()
         
         connectButton.setOnClickListener {
             if (isConnected) {
@@ -114,13 +127,22 @@ class MainActivity : AppCompatActivity() {
         
         // Status
         statusText = TextView(this).apply {
-            text = "Bağlantı bekleniyor..."
+            text = "Server IP: $serverHost | Bağlantı bekleniyor..."
             setPadding(0, 0, 0, 16)
         }
         
         // Connect button
         connectButton = Button(this).apply {
             text = "Server'a Bağlan"
+        }
+        
+        // IP Change button
+        val ipChangeButton = Button(this).apply {
+            text = "Server IP Değiştir"
+            setPadding(0, 8, 0, 8)
+            setOnClickListener {
+                showChangeIPDialog()
+            }
         }
         
         // BLE section
@@ -190,6 +212,7 @@ class MainActivity : AppCompatActivity() {
         layout.addView(headerText)
         layout.addView(statusText)
         layout.addView(connectButton)
+        layout.addView(ipChangeButton)
         layout.addView(bleLabel)
         layout.addView(bleStatusText)
         layout.addView(bleButton)
@@ -231,10 +254,12 @@ class MainActivity : AppCompatActivity() {
             try {
                 withContext(Dispatchers.Main) {
                     isConnected = true
-                    statusText.text = "✅ gRPC Server'a bağlanıldı ($serverHost:$grpcServerPort)"
                     connectButton.text = "Bağlantıyı Kes"
                     showToast("gRPC Server'a bağlanıldı")
                     addMessageToUI("gRPC bağlantısı kuruldu", true)
+                    
+                    // Update status text
+                    updateStatusText()
                     
                     // Start drone connection subscription
                     startDroneConnectionSubscription()
@@ -250,8 +275,10 @@ class MainActivity : AppCompatActivity() {
                     
                     // Reset UI state on connection failure
                     isConnected = false
-                    statusText.text = "❌ Bağlantı başarısız"
                     connectButton.text = "Server'a Bağlan"
+                    
+                    // Update status text
+                    updateStatusText()
                 }
             }
         }
@@ -263,10 +290,12 @@ class MainActivity : AppCompatActivity() {
                 isConnected = false
                 
                 withContext(Dispatchers.Main) {
-                    statusText.text = "❌ Bağlantı kesildi"
                     connectButton.text = "Server'a Bağlan"
                     showToast("Bağlantı kesildi")
                     addMessageToUI("gRPC bağlantısı kesildi", true)
+                    
+                    // Update status text
+                    updateStatusText()
                     
                     // Disconnect gRPC clients and reset drone status
                     coreServiceClient.disconnect()
@@ -287,6 +316,120 @@ class MainActivity : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+    
+    // IP Management Methods
+    private fun loadOrRequestServerIP() {
+        val savedIP = sharedPreferences.getString(KEY_SERVER_IP, null)
+        if (savedIP != null) {
+            serverHost = savedIP
+            Log.d("MainActivity", "Loaded saved server IP: $serverHost")
+        } else {
+            // First time - show dialog to input server IP
+            showServerIPDialog()
+        }
+    }
+    
+    private fun showServerIPDialog() {
+        val input = EditText(this).apply {
+            hint = "Server IP adresini girin (örn: 192.168.1.100)"
+            setText(serverHost)
+        }
+        
+        AlertDialog.Builder(this)
+            .setTitle("Server IP Adresi")
+            .setMessage("Bağlanmak istediğiniz server'ın IP adresini girin:")
+            .setView(input)
+            .setPositiveButton("Bağlan") { _, _ ->
+                val newIP = input.text.toString().trim()
+                if (isValidIPAddress(newIP)) {
+                    serverHost = newIP
+                    sharedPreferences.edit().putString(KEY_SERVER_IP, newIP).apply()
+                    Log.d("MainActivity", "Server IP updated to: $serverHost")
+                    showToast("Server IP güncellendi: $serverHost")
+                    
+                    // Reinitialize gRPC clients with new IP
+                    initializeGrpcClients()
+                    
+                    // Update status text
+                    updateStatusText()
+                } else {
+                    showToast("Geçersiz IP adresi! Tekrar deneyin.")
+                    showServerIPDialog() // Show dialog again
+                }
+            }
+            .setNegativeButton("İptal") { _, _ ->
+                // Use default IP if user cancels
+                serverHost = "192.168.1.100"
+                sharedPreferences.edit().putString(KEY_SERVER_IP, serverHost).apply()
+                Log.d("MainActivity", "Using default IP: $serverHost")
+            }
+            .setCancelable(false) // User must make a choice
+            .show()
+    }
+    
+    private fun showChangeIPDialog() {
+        val input = EditText(this).apply {
+            hint = "Server IP adresini girin (örn: 192.168.1.100)"
+            setText(serverHost)
+        }
+        
+        AlertDialog.Builder(this)
+            .setTitle("Server IP Değiştir")
+            .setMessage("Yeni server IP adresini girin:")
+            .setView(input)
+            .setPositiveButton("Güncelle") { _, _ ->
+                val newIP = input.text.toString().trim()
+                if (isValidIPAddress(newIP)) {
+                    // Disconnect if currently connected
+                    if (isConnected) {
+                        disconnectFromServer()
+                    }
+                    
+                    serverHost = newIP
+                    sharedPreferences.edit().putString(KEY_SERVER_IP, newIP).apply()
+                    Log.d("MainActivity", "Server IP updated to: $serverHost")
+                    showToast("Server IP güncellendi: $serverHost")
+                    
+                    // Reinitialize gRPC clients with new IP
+                    initializeGrpcClients()
+                    
+                    // Update status text
+                    updateStatusText()
+                } else {
+                    showToast("Geçersiz IP adresi! Tekrar deneyin.")
+                }
+            }
+            .setNegativeButton("İptal", null)
+            .show()
+    }
+    
+    private fun isValidIPAddress(ip: String): Boolean {
+        val parts = ip.split(".")
+        if (parts.size != 4) return false
+        
+        return parts.all { part ->
+            try {
+                val num = part.toInt()
+                num in 0..255
+            } catch (e: NumberFormatException) {
+                false
+            }
+        }
+    }
+    
+    private fun initializeGrpcClients() {
+        coreServiceClient = CoreServiceClient(serverHost, grpcServerPort)
+        telemetryServiceClient = TelemetryServiceClient(serverHost, grpcServerPort)
+        Log.d("MainActivity", "gRPC clients initialized with IP: $serverHost:$grpcServerPort")
+        
+        // Update status text to show current IP
+        updateStatusText()
+    }
+    
+    private fun updateStatusText() {
+        val currentStatus = if (isConnected) "✅ gRPC Server'a bağlanıldı" else "Bağlantı bekleniyor..."
+        statusText.text = "Server IP: $serverHost | $currentStatus"
     }
 
 
