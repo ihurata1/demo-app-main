@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var inAirText: TextView
     
     private var isConnected = false
-    private val serverHost = "10.34.34.60"
+    private val serverHost = "10.34.34.52"
     private val grpcServerPort = 50052
     private val dateFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
     
