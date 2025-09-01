@@ -19,11 +19,13 @@ import androidx.lifecycle.lifecycleScope
 import com.clientapp.domain.BLEManager
 import com.clientapp.domain.CoreServiceClient
 import com.clientapp.domain.TelemetryServiceClient
+import com.clientapp.domain.InfoServiceClient
 import android.util.Log
 import kotlinx.coroutines.*
 import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
 import java.util.*
+import io.mavsdk.info.InfoProto
 
 class MainActivity : AppCompatActivity() {
     private lateinit var statusText: TextView
@@ -57,6 +59,7 @@ class MainActivity : AppCompatActivity() {
     private var isDroneConnected = false
     private lateinit var coreServiceClient: CoreServiceClient
     private lateinit var telemetryServiceClient: TelemetryServiceClient
+    private lateinit var infoServiceClient: InfoServiceClient
     
     // BLE management
     private lateinit var bleManager: BLEManager
@@ -185,6 +188,9 @@ class MainActivity : AppCompatActivity() {
         // Telemetry Card
         createTelemetryCard(layout)
         
+        // Drone Info Card
+        createDroneInfoCard(layout)
+        
         // Messages section
         val messagesLabel = TextView(this).apply {
             text = "System Log:"
@@ -266,6 +272,9 @@ class MainActivity : AppCompatActivity() {
                     
                     // Start telemetry subscriptions
                     startTelemetrySubscriptions()
+                    
+                    // Start info service subscriptions
+                    startInfoServiceSubscriptions()
                 }
                 
             } catch (e: Exception) {
@@ -300,6 +309,7 @@ class MainActivity : AppCompatActivity() {
                     // Disconnect gRPC clients and reset drone status
                     coreServiceClient.disconnect()
                     telemetryServiceClient.disconnect()
+                    infoServiceClient.disconnect()
                     updateDroneStatus(false)
                     resetTelemetryDisplay()
                 }
@@ -421,6 +431,7 @@ class MainActivity : AppCompatActivity() {
     private fun initializeGrpcClients() {
         coreServiceClient = CoreServiceClient(serverHost, grpcServerPort)
         telemetryServiceClient = TelemetryServiceClient(serverHost, grpcServerPort)
+        infoServiceClient = InfoServiceClient(serverHost, grpcServerPort)
         Log.d("MainActivity", "gRPC clients initialized with IP: $serverHost:$grpcServerPort")
         
         // Update status text to show current IP
@@ -627,6 +638,140 @@ class MainActivity : AppCompatActivity() {
         parentLayout.addView(telemetryCard)
     }
 
+    private fun createDroneInfoCard(parentLayout: LinearLayout) {
+        // Drone Info Card Container
+        val droneInfoCard = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(16, 16, 16, 16)
+            setBackgroundColor(0xFFE8F5E8.toInt())
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply {
+                setMargins(0, 16, 0, 16)
+            }
+        }
+
+        // Drone Info Header
+        val droneInfoHeader = TextView(this).apply {
+            text = "ℹ️ Drone Bilgileri"
+            textSize = 18f
+            setTextColor(0xFF2E7D32.toInt())
+            setPadding(0, 0, 0, 12)
+        }
+
+        // Product Info
+        val productText = TextView(this).apply {
+            text = "📱 Model: Bekleniyor..."
+            textSize = 14f
+            setPadding(0, 4, 0, 4)
+        }
+
+        // Serial Number
+        val serialText = TextView(this).apply {
+            text = "🔢 Seri No: Bekleniyor..."
+            textSize = 14f
+            setPadding(0, 4, 0, 4)
+        }
+
+        // Flight Time
+        val flightTimeText = TextView(this).apply {
+            text = "⏱️ Uçuş Süresi: Bekleniyor..."
+            textSize = 14f
+            setPadding(0, 4, 0, 4)
+        }
+
+        // Version Info
+        val versionText = TextView(this).apply {
+            text = "📋 Versiyon: Bekleniyor..."
+            textSize = 14f
+            setPadding(0, 4, 0, 4)
+        }
+
+        // Refresh Button
+        val refreshButton = Button(this).apply {
+            text = "🔄 Bilgileri Yenile"
+            setOnClickListener {
+                refreshDroneInfo()
+            }
+        }
+
+        droneInfoCard.addView(droneInfoHeader)
+        droneInfoCard.addView(productText)
+        droneInfoCard.addView(serialText)
+        droneInfoCard.addView(flightTimeText)
+        droneInfoCard.addView(versionText)
+        droneInfoCard.addView(refreshButton)
+
+        parentLayout.addView(droneInfoCard)
+    }
+
+    private fun refreshDroneInfo() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                // Connect to InfoService if not already connected
+                if (!infoServiceClient.isConnected()) {
+                    infoServiceClient.connect()
+                }
+
+                // Get all drone information
+                val productResponse = infoServiceClient.getProduct()
+                val identificationResponse = infoServiceClient.getIdentification()
+                val flightInfoResponse = infoServiceClient.getFlightInformation()
+                val versionResponse = infoServiceClient.getVersion()
+
+                withContext(Dispatchers.Main) {
+                    // Update UI with drone information
+                    updateDroneInfoDisplay(
+                        productResponse.product,
+                        identificationResponse.identification,
+                        flightInfoResponse.flightInfo,
+                        versionResponse.version
+                    )
+                    addMessageToUI("Drone bilgileri güncellendi", true)
+                }
+
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Error refreshing drone info", e)
+                withContext(Dispatchers.Main) {
+                    addMessageToUI("Drone bilgileri alınamadı: ${e.message}", true)
+                }
+            }
+        }
+    }
+
+    private fun updateDroneInfoDisplay(
+        product: InfoProto.Product,
+        identification: InfoProto.Identification,
+        flightInfo: InfoProto.FlightInfo,
+        version: InfoProto.Version
+    ) {
+        // Find the TextViews in the drone info card and update them
+        val droneInfoCard = findViewById<LinearLayout>(android.R.id.content)
+            .findViewById<LinearLayout>(android.R.id.content)
+            .getChildAt(0) as? LinearLayout
+        
+        droneInfoCard?.let { card ->
+            // Update product info
+            val productText = card.getChildAt(1) as? TextView
+            productText?.text = "📱 Model: ${product.vendorName} ${product.productName}"
+            
+            // Update serial number
+            val serialText = card.getChildAt(2) as? TextView
+            serialText?.text = "🔢 Seri No: ${identification.hardwareUid}"
+            
+            // Update flight time
+            val flightTimeText = card.getChildAt(3) as? TextView
+            val flightTimeMinutes = flightInfo.durationSinceArmingMs / 1000 / 60
+            val flightTimeSeconds = (flightInfo.durationSinceArmingMs / 1000) % 60
+            flightTimeText?.text = "⏱️ Uçuş Süresi: ${flightTimeMinutes}:${String.format("%02d", flightTimeSeconds)}"
+            
+            // Update version info
+            val versionText = card.getChildAt(4) as? TextView
+            versionText?.text = "📋 Versiyon: ${version.flightSwMajor}.${version.flightSwMinor}.${version.flightSwPatch}"
+        }
+    }
+
     private fun startTelemetrySubscriptions() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
@@ -650,6 +795,57 @@ class MainActivity : AppCompatActivity() {
                     addMessageToUI("Telemetri bağlantı hatası: ${e.message}", true)
                 }
             }
+        }
+    }
+
+    private fun startInfoServiceSubscriptions() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                // Connect InfoService client
+                infoServiceClient.connect()
+                
+                withContext(Dispatchers.Main) {
+                    addMessageToUI("Info servisi bağlandı", true)
+                }
+                
+                // Start flight information subscription
+                launch { subscribeToFlightInformation() }
+                
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Error starting info service subscriptions", e)
+                withContext(Dispatchers.Main) {
+                    addMessageToUI("Info servisi bağlantı hatası: ${e.message}", true)
+                }
+            }
+        }
+    }
+
+    private suspend fun subscribeToFlightInformation() {
+        try {
+            infoServiceClient.subscribeFlightInformation().collect { response ->
+                val flightInfo = response.flightInfo
+                withContext(Dispatchers.Main) {
+                    // Update flight time display
+                    updateFlightTimeDisplay(flightInfo.durationSinceArmingMs)
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Flight information subscription error", e)
+        }
+    }
+
+    private fun updateFlightTimeDisplay(durationMs: Int) {
+        val flightTimeMinutes = durationMs / 1000 / 60
+        val flightTimeSeconds = (durationMs / 1000) % 60
+        
+        // Find and update the flight time text in the drone info card
+        val droneInfoCard = findViewById<LinearLayout>(android.R.id.content)
+            .findViewById<LinearLayout>(android.R.id.content)
+            .getChildAt(0) as? LinearLayout
+        
+        droneInfoCard?.let { card ->
+            val flightTimeText = card.getChildAt(3) as? TextView
+            flightTimeText?.text = "⏱️ Uçuş Süresi: ${flightTimeMinutes}:${String.format("%02d", flightTimeSeconds)}"
         }
     }
 

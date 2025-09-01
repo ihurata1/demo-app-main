@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/xml_network_security_config.xml.flat",
+        "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-36:/xml/network_security_config.xml"
+    },
+    {
         "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/xml_backup_rules.xml.flat",
         "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-36:/xml/backup_rules.xml"
     },

@@ -177,21 +177,22 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 33 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 15 errors and 65 warnings</span>
       <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Tue Aug 19 11:23:53 TRT 2025 by AGP (8.2.2)</nav>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Fri Aug 29 16:45:34 TRT 2025 by AGP (8.2.2)</nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Issue Types</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
+      <a class="mdl-navigation__link" href="#MissingPermission"><i class="material-icons error-icon">error</i>Missing Permissions (15)</a>
       <a class="mdl-navigation__link" href="#OldTargetApi"><i class="material-icons warning-icon">warning</i>Target SDK attribute is not targeting latest version (1)</a>
       <a class="mdl-navigation__link" href="#RedundantLabel"><i class="material-icons warning-icon">warning</i>Redundant label on activity (1)</a>
       <a class="mdl-navigation__link" href="#GradleDependency"><i class="material-icons warning-icon">warning</i>Obsolete Gradle Dependency (10)</a>
       <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (3)</a>
       <a class="mdl-navigation__link" href="#MissingApplicationIcon"><i class="material-icons warning-icon">warning</i>Missing application icon (1)</a>
-      <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (17)</a>
+      <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (49)</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
@@ -206,6 +207,9 @@ document.getElementById(id).style.display = 'none';
 <table class="overview">
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
 </td></tr>
+<tr>
+<td class="countColumn">15</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
+<a href="#MissingPermission">MissingPermission</a>: Missing Permissions</td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#OldTargetApi">OldTargetApi</a>: Target SDK attribute is not targeting latest version</td></tr>
@@ -228,7 +232,7 @@ document.getElementById(id).style.display = 'none';
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization">Internationalization</a>
 </td></tr>
 <tr>
-<td class="countColumn">17</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">49</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#SetTextI18n">SetTextI18n</a>: TextView Internationalization</td></tr>
 <tr><td></td><td class="categoryColumn"><a href="#ExtraIssues">Included Additional Checks (23)</a>
 </td></tr>
@@ -242,7 +246,198 @@ Dismiss</button>            </div>
             </div>
           </section>
 <a name="Correctness"></a>
-<a name="OldTargetApi"></a>
+<a name="MissingPermission"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="MissingPermissionCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Missing Permissions</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:179</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 176 </span>        
+<span class="lineno"> 177 </span>        <span class="keyword">if</span> (!bluetoothAdapter.isEnabled) {
+<span class="lineno"> 178 </span>            <span class="keyword">val</span> enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+<span class="caretline"><span class="lineno"> 179 </span>            startActivityForResult(<span class="error">enableBtIntent</span>, ENABLE_BLUETOOTH_REQUEST_CODE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 180 </span>            <span class="keyword">return</span>
+<span class="lineno"> 181 </span>        }
+<span class="lineno"> 182 </span>        
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:172</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 169 </span>        
+<span class="lineno"> 170 </span>        <span class="keyword">if</span> (isAdvertising) {
+<span class="lineno"> 171 </span>            isAdvertising = <span class="keyword">false</span>
+<span class="caretline"><span class="lineno"> 172 </span>            <span class="error">bleAdvertiser.stopAdvertising(simpleAdvertiseCallback)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 173 </span>            stopGattServer()
+<span class="lineno"> 174 </span>            callback?.onAdvertisingStopped()
+<span class="lineno"> 175 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:198</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 195 </span>      Log.d(TAG, <span class="string">"Starting TLV advertising (Service UUID: $SERVICE_UUID, Manufacturer ID: $MANUFACTURER_ID)..."</span>)
+<span class="lineno"> 196 </span>      
+<span class="lineno"> 197 </span>      startGattServer()
+<span class="caretline"><span class="lineno"> 198 </span>      <span class="error">bleAdvertiser.startAdvertising(advertiseSettings, advertiseData, simpleAdvertiseCallback)</span></span>
+<span class="lineno"> 199 </span>      isAdvertising = <span class="keyword">true</span>
+<span class="lineno"> 200 </span>      
+<span class="lineno"> 201 </span>  } catch (e: Exception) {
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:373</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 370 </span>    
+<span class="lineno"> 371 </span>    private <span class="keyword">fun</span> startGattServer() {
+<span class="lineno"> 372 </span>        <span class="keyword">try</span> {
+<span class="caretline"><span class="lineno"> 373 </span>            gattServer = <span class="error">bluetoothManager.openGattServer(context, gattServerCallback)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 374 </span>            
+<span class="lineno"> 375 </span>            <span class="keyword">val</span> service = BluetoothGattService(
+<span class="lineno"> 376 </span>                UUID.fromString(SERVICE_UUID),
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:409</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 406 </span>            service.addCharacteristic(charForWrite)
+<span class="lineno"> 407 </span>            service.addCharacteristic(charForIndicate)
+<span class="lineno"> 408 </span>            
+<span class="caretline"><span class="lineno"> 409 </span>            <span class="error">gattServer?.addService(service)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 410 </span>            
+<span class="lineno"> 411 </span>            Log.d(TAG, <span class="string">"GATT server started successfully"</span>)
+<span class="lineno"> 412 </span>            
+</pre>
+
+<button class="mdl-button mdl-js-button mdl-button--primary" id="MissingPermissionDivLink" onclick="reveal('MissingPermissionDiv');" />+ 10 More Occurrences...</button>
+<div id="MissingPermissionDiv" style="display: none">
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:419</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 416 </span>    }
+<span class="lineno"> 417 </span>    
+<span class="lineno"> 418 </span>    private <span class="keyword">fun</span> stopGattServer() {
+<span class="caretline"><span class="lineno"> 419 </span>        <span class="error">gattServer?.close()</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 420 </span>        gattServer = <span class="keyword">null</span>
+<span class="lineno"> 421 </span>        subscribedDevices.clear()
+<span class="lineno"> 422 </span>        Log.d(TAG, <span class="string">"GATT server stopped"</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:494</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 491 </span>                        ByteArray(<span class="number">0</span>)
+<span class="lineno"> 492 </span>                    }
+<span class="lineno"> 493 </span>                    
+<span class="caretline"><span class="lineno"> 494 </span>                    <span class="error">gattServer?.sendResponse(</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 495 </span>                        device,
+<span class="lineno"> 496 </span>                        requestId,
+<span class="lineno"> 497 </span>                        BluetoothGatt.GATT_SUCCESS,
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:525</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 522 </span>          }
+<span class="lineno"> 523 </span>      }
+<span class="lineno"> 524 </span>      <span class="keyword">else</span> -> {
+<span class="caretline"><span class="lineno"> 525 </span>          <span class="error">gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_FAILURE, <span class="number">0</span>, <span class="keyword">null</span>)</span></span>
+<span class="lineno"> 526 </span>          Log.w(TAG, <span class="string">"Unknown characteristic read request: ${</span>characteristic.uuid<span class="string">}"</span>)
+<span class="lineno"> 527 </span>      }
+<span class="lineno"> 528 </span>  }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:546</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 543 </span>                    Log.d(TAG, <span class="string">"Write request received: $receivedData"</span>)
+<span class="lineno"> 544 </span>                    
+<span class="lineno"> 545 </span>                    <span class="keyword">if</span> (responseNeeded) {
+<span class="caretline"><span class="lineno"> 546 </span>                        <span class="error">gattServer?.sendResponse(</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 547 </span>                            device,
+<span class="lineno"> 548 </span>                            requestId,
+<span class="lineno"> 549 </span>                            BluetoothGatt.GATT_SUCCESS,
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:557</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 554 </span>  }
+<span class="lineno"> 555 </span>  <span class="keyword">else</span> -> {
+<span class="lineno"> 556 </span>      <span class="keyword">if</span> (responseNeeded) {
+<span class="caretline"><span class="lineno"> 557 </span>          <span class="error">gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_FAILURE, <span class="number">0</span>, <span class="keyword">null</span>)</span></span>
+<span class="lineno"> 558 </span>      }
+<span class="lineno"> 559 </span>      Log.w(TAG, <span class="string">"Unknown characteristic write request: ${</span>characteristic.uuid<span class="string">}"</span>)
+<span class="lineno"> 560 </span>  }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:577</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 574 </span>      } <span class="keyword">else</span> {
+<span class="lineno"> 575 </span>          BluetoothGattDescriptor.DISABLE_NOTIFICATION_VALUE
+<span class="lineno"> 576 </span>      }
+<span class="caretline"><span class="lineno"> 577 </span>      <span class="error">gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, <span class="number">0</span>, returnValue)</span></span>
+<span class="lineno"> 578 </span>  }
+<span class="lineno"> 579 </span>  <span class="keyword">else</span> -> {
+<span class="lineno"> 580 </span>      gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_FAILURE, <span class="number">0</span>, <span class="keyword">null</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:580</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 577 </span>              gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, <span class="number">0</span>, returnValue)
+<span class="lineno"> 578 </span>          }
+<span class="lineno"> 579 </span>          <span class="keyword">else</span> -> {
+<span class="caretline"><span class="lineno"> 580 </span>              <span class="error">gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_FAILURE, <span class="number">0</span>, <span class="keyword">null</span>)</span></span>
+<span class="lineno"> 581 </span>          }
+<span class="lineno"> 582 </span>      }
+<span class="lineno"> 583 </span>  }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:614</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 611 </span>                  }
+<span class="lineno"> 612 </span>                  
+<span class="lineno"> 613 </span>                  <span class="keyword">if</span> (responseNeeded) {
+<span class="caretline"><span class="lineno"> 614 </span>                      <span class="error">gattServer?.sendResponse(device, requestId, status, <span class="number">0</span>, <span class="keyword">null</span>)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 615 </span>                  }
+<span class="lineno"> 616 </span>              }
+<span class="lineno"> 617 </span>              <span class="keyword">else</span> -> {
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/domain/BLEManager.kt">../../src/main/kotlin/com/serverapp/domain/BLEManager.kt</a>:619</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 616 </span>      }
+<span class="lineno"> 617 </span>      <span class="keyword">else</span> -> {
+<span class="lineno"> 618 </span>          <span class="keyword">if</span> (responseNeeded) {
+<span class="caretline"><span class="lineno"> 619 </span>              <span class="error">gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_FAILURE, <span class="number">0</span>, <span class="keyword">null</span>)</span></span>
+<span class="lineno"> 620 </span>          }
+<span class="lineno"> 621 </span>      }
+<span class="lineno"> 622 </span>  }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:407</span>: <span class="message">Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with <code>checkPermission</code>) or explicitly handle a potential <code>SecurityException</code></span><br /><pre class="errorlines">
+<span class="lineno"> 404 </span>        
+<span class="lineno"> 405 </span>        <span class="keyword">if</span> (!bluetoothAdapter.isEnabled) {
+<span class="lineno"> 406 </span>            <span class="keyword">val</span> enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+<span class="caretline"><span class="lineno"> 407 </span>            startActivityForResult(<span class="error">enableBtIntent</span>, ENABLE_BLUETOOTH_REQUEST_CODE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 408 </span>            <span class="keyword">return</span>
+<span class="lineno"> 409 </span>        }
+<span class="lineno"> 410 </span>        
+</pre>
+
+</div>
+</div>
+<div class="metadata"><div class="explanation" id="explanationMissingPermission" style="display: none;">
+This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.<br/>
+<br/>
+Furthermore, for permissions that are revocable (with <code>targetSdkVersion</code> 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "MissingPermission" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">MissingPermission</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Error</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 9/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationMissingPermissionLink" onclick="reveal('explanationMissingPermission');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="MissingPermissionCardLink" onclick="hideid('MissingPermissionCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="OldTargetApi"></a>
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="OldTargetApiCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
@@ -302,14 +497,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:22</span>: <span class="message">Redundant label can be removed</span><br /><pre class="errorlines">
-<span class="lineno"> 19 </span>        <span class="tag">&lt;activity</span><span class="attribute">
-</span><span class="lineno"> 20 </span><span class="attribute">            </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">".MainActivity"</span>
-<span class="lineno"> 21 </span>            <span class="prefix">android:</span><span class="attribute">exported</span>=<span class="value">"true"</span>
-<span class="caretline"><span class="lineno"> 22 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">label</span>=<span class="value">"@string/app_name"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 23 </span>            <span class="prefix">android:</span><span class="attribute">theme</span>=<span class="value">"@style/Theme.ServerApp"</span>>
-<span class="lineno"> 24 </span>            <span class="tag">&lt;intent-filter></span>
-<span class="lineno"> 25 </span>                <span class="tag">&lt;action</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.intent.action.MAIN"</span> />
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:34</span>: <span class="message">Redundant label can be removed</span><br /><pre class="errorlines">
+<span class="lineno"> 31 </span>        <span class="tag">&lt;activity</span><span class="attribute">
+</span><span class="lineno"> 32 </span><span class="attribute">            </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">".MainActivity"</span>
+<span class="lineno"> 33 </span>            <span class="prefix">android:</span><span class="attribute">exported</span>=<span class="value">"true"</span>
+<span class="caretline"><span class="lineno"> 34 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">label</span>=<span class="value">"@string/app_name"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 35 </span>            <span class="prefix">android:</span><span class="attribute">theme</span>=<span class="value">"@style/Theme.ServerApp"</span>>
+<span class="lineno"> 36 </span>            <span class="tag">&lt;intent-filter></span>
+<span class="lineno"> 37 </span>                <span class="tag">&lt;action</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.intent.action.MAIN"</span> />
 </pre>
 
 </div>
@@ -347,106 +542,106 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:88</span>: <span class="message">A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.17.0</span><br /><pre class="errorlines">
-<span class="lineno">  85 </span>}
-<span class="lineno">  86 </span>
-<span class="lineno">  87 </span>dependencies {
-<span class="caretline"><span class="lineno">  88 </span>    implementation("<span class="warning">androidx.core:core-ktx:1.12.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  89 </span>    implementation("androidx.appcompat:appcompat:1.6.1")
-<span class="lineno">  90 </span>    implementation("com.google.android.material:material:1.11.0")
-<span class="lineno">  91 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:92</span>: <span class="message">A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.17.0</span><br /><pre class="errorlines">
+<span class="lineno">  89 </span>}
+<span class="lineno">  90 </span>
+<span class="lineno">  91 </span>dependencies {
+<span class="caretline"><span class="lineno">  92 </span>    implementation("<span class="warning">androidx.core:core-ktx:1.12.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  93 </span>    implementation("androidx.appcompat:appcompat:1.6.1")
+<span class="lineno">  94 </span>    implementation("com.google.android.material:material:1.11.0")
+<span class="lineno">  95 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:89</span>: <span class="message">A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1</span><br /><pre class="errorlines">
-<span class="lineno">  86 </span>
-<span class="lineno">  87 </span>dependencies {
-<span class="lineno">  88 </span>    implementation("androidx.core:core-ktx:1.12.0")
-<span class="caretline"><span class="lineno">  89 </span>    implementation("<span class="warning">androidx.appcompat:appcompat:1.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  90 </span>    implementation("com.google.android.material:material:1.11.0")
-<span class="lineno">  91 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-<span class="lineno">  92 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:93</span>: <span class="message">A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1</span><br /><pre class="errorlines">
+<span class="lineno">  90 </span>
+<span class="lineno">  91 </span>dependencies {
+<span class="lineno">  92 </span>    implementation("androidx.core:core-ktx:1.12.0")
+<span class="caretline"><span class="lineno">  93 </span>    implementation("<span class="warning">androidx.appcompat:appcompat:1.6.1</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  94 </span>    implementation("com.google.android.material:material:1.11.0")
+<span class="lineno">  95 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+<span class="lineno">  96 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:90</span>: <span class="message">A newer version of com.google.android.material:material than 1.11.0 is available: 1.12.0</span><br /><pre class="errorlines">
-<span class="lineno">  87 </span>dependencies {
-<span class="lineno">  88 </span>    implementation("androidx.core:core-ktx:1.12.0")
-<span class="lineno">  89 </span>    implementation("androidx.appcompat:appcompat:1.6.1")
-<span class="caretline"><span class="lineno">  90 </span>    implementation("<span class="warning">com.google.android.material:material:1.11.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  91 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-<span class="lineno">  92 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-<span class="lineno">  93 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:94</span>: <span class="message">A newer version of com.google.android.material:material than 1.11.0 is available: 1.12.0</span><br /><pre class="errorlines">
+<span class="lineno">  91 </span>dependencies {
+<span class="lineno">  92 </span>    implementation("androidx.core:core-ktx:1.12.0")
+<span class="lineno">  93 </span>    implementation("androidx.appcompat:appcompat:1.6.1")
+<span class="caretline"><span class="lineno">  94 </span>    implementation("<span class="warning">com.google.android.material:material:1.11.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  95 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+<span class="lineno">  96 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+<span class="lineno">  97 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:91</span>: <span class="message">A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1</span><br /><pre class="errorlines">
-<span class="lineno">  88 </span>    implementation("androidx.core:core-ktx:1.12.0")
-<span class="lineno">  89 </span>    implementation("androidx.appcompat:appcompat:1.6.1")
-<span class="lineno">  90 </span>    implementation("com.google.android.material:material:1.11.0")
-<span class="caretline"><span class="lineno">  91 </span>    implementation("<span class="warning">androidx.constraintlayout:constraintlayout:2.1.4</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  92 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-<span class="lineno">  93 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
-<span class="lineno">  94 </span>    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:95</span>: <span class="message">A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1</span><br /><pre class="errorlines">
+<span class="lineno">  92 </span>    implementation("androidx.core:core-ktx:1.12.0")
+<span class="lineno">  93 </span>    implementation("androidx.appcompat:appcompat:1.6.1")
+<span class="lineno">  94 </span>    implementation("com.google.android.material:material:1.11.0")
+<span class="caretline"><span class="lineno">  95 </span>    implementation("<span class="warning">androidx.constraintlayout:constraintlayout:2.1.4</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  96 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+<span class="lineno">  97 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
+<span class="lineno">  98 </span>    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:92</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.2</span><br /><pre class="errorlines">
-<span class="lineno">  89 </span>    implementation("androidx.appcompat:appcompat:1.6.1")
-<span class="lineno">  90 </span>    implementation("com.google.android.material:material:1.11.0")
-<span class="lineno">  91 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-<span class="caretline"><span class="lineno">  92 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-runtime-ktx:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  93 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
-<span class="lineno">  94 </span>    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
-<span class="lineno">  95 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:96</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.3</span><br /><pre class="errorlines">
+<span class="lineno">  93 </span>    implementation("androidx.appcompat:appcompat:1.6.1")
+<span class="lineno">  94 </span>    implementation("com.google.android.material:material:1.11.0")
+<span class="lineno">  95 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+<span class="caretline"><span class="lineno">  96 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-runtime-ktx:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  97 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
+<span class="lineno">  98 </span>    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+<span class="lineno">  99 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
 </pre>
 
 <button class="mdl-button mdl-js-button mdl-button--primary" id="GradleDependencyDivLink" onclick="reveal('GradleDependencyDiv');" />+ 5 More Occurrences...</button>
 <div id="GradleDependencyDiv" style="display: none">
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:93</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-process than 2.7.0 is available: 2.9.2</span><br /><pre class="errorlines">
-<span class="lineno">  90 </span>    implementation("com.google.android.material:material:1.11.0")
-<span class="lineno">  91 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-<span class="lineno">  92 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-<span class="caretline"><span class="lineno">  93 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-process:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  94 </span>    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
-<span class="lineno">  95 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-<span class="lineno">  96 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:97</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-process than 2.7.0 is available: 2.9.3</span><br /><pre class="errorlines">
+<span class="lineno">  94 </span>    implementation("com.google.android.material:material:1.11.0")
+<span class="lineno">  95 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+<span class="lineno">  96 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+<span class="caretline"><span class="lineno">  97 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-process:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  98 </span>    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+<span class="lineno">  99 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+<span class="lineno"> 100 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:94</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.9.2</span><br /><pre class="errorlines">
-<span class="lineno">  91 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-<span class="lineno">  92 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-<span class="lineno">  93 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
-<span class="caretline"><span class="lineno">  94 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-livedata-ktx:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  95 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-<span class="lineno">  96 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-<span class="lineno">  97 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:98</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.9.3</span><br /><pre class="errorlines">
+<span class="lineno">  95 </span>    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+<span class="lineno">  96 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+<span class="lineno">  97 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
+<span class="caretline"><span class="lineno">  98 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-livedata-ktx:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  99 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+<span class="lineno"> 100 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+<span class="lineno"> 101 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:95</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.9.2</span><br /><pre class="errorlines">
-<span class="lineno">  92 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-<span class="lineno">  93 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
-<span class="lineno">  94 </span>    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
-<span class="caretline"><span class="lineno">  95 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  96 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-<span class="lineno">  97 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-<span class="lineno">  98 </span>    implementation("io.reactivex.rxjava3:rxjava:3.1.3")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:99</span>: <span class="message">A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.9.3</span><br /><pre class="errorlines">
+<span class="lineno">  96 </span>    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+<span class="lineno">  97 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
+<span class="lineno">  98 </span>    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+<span class="caretline"><span class="lineno">  99 </span>    implementation("<span class="warning">androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 100 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+<span class="lineno"> 101 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+<span class="lineno"> 102 </span>    implementation("io.reactivex.rxjava3:rxjava:3.1.3")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:96</span>: <span class="message">A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.8.1</span><br /><pre class="errorlines">
-<span class="lineno">  93 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
-<span class="lineno">  94 </span>    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
-<span class="lineno">  95 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-<span class="caretline"><span class="lineno">  96 </span>    implementation("<span class="warning">org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  97 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-<span class="lineno">  98 </span>    implementation("io.reactivex.rxjava3:rxjava:3.1.3")
-<span class="lineno">  99 </span>    implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:100</span>: <span class="message">A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.8.1</span><br /><pre class="errorlines">
+<span class="lineno">  97 </span>    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
+<span class="lineno">  98 </span>    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+<span class="lineno">  99 </span>    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+<span class="caretline"><span class="lineno"> 100 </span>    implementation("<span class="warning">org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 101 </span>    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+<span class="lineno"> 102 </span>    implementation("io.reactivex.rxjava3:rxjava:3.1.3")
+<span class="lineno"> 103 </span>    implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
 </pre>
 
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:129</span>: <span class="message">A newer version of com.google.protobuf:protobuf-java than 3.25.3 is available: 4.28.1</span><br /><pre class="errorlines">
-<span class="lineno"> 126 </span>    implementation("com.google.protobuf:protobuf-javalite:3.25.3")
-<span class="lineno"> 127 </span>    
-<span class="lineno"> 128 </span>    // Protobuf includes for compilation
-<span class="caretline"><span class="lineno"> 129 </span>    compileOnly("<span class="warning">com.google.protobuf:protobuf-java:3.25.3</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 130 </span>    
-<span class="lineno"> 131 </span>    // Required for gRPC
-<span class="lineno"> 132 </span>    implementation("javax.annotation:javax.annotation-api:1.3.2")
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:133</span>: <span class="message">A newer version of com.google.protobuf:protobuf-java than 3.25.3 is available: 4.28.1</span><br /><pre class="errorlines">
+<span class="lineno"> 130 </span>    implementation("com.google.protobuf:protobuf-javalite:3.25.3")
+<span class="lineno"> 131 </span>    
+<span class="lineno"> 132 </span>    // Protobuf includes for compilation
+<span class="caretline"><span class="lineno"> 133 </span>    compileOnly("<span class="warning">com.google.protobuf:protobuf-java:3.25.3</span>")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 134 </span>    
+<span class="lineno"> 135 </span>    // Required for gRPC
+<span class="lineno"> 136 </span>    implementation("javax.annotation:javax.annotation-api:1.3.2")
 </pre>
 
 </div>
@@ -555,14 +750,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:9</span>: <span class="message">Should explicitly set <code>android:icon</code>, there is no default</span><br /><pre class="errorlines">
-<span class="lineno">  6 </span>    <span class="tag">&lt;uses-permission</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.ACCESS_NETWORK_STATE"</span> />
-<span class="lineno">  7 </span>    <span class="tag">&lt;uses-permission</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.permission.ACCESS_WIFI_STATE"</span> />
-<span class="lineno">  8 </span>
-<span class="caretline"><span class="lineno">  9 </span>    <span class="tag">&lt;</span><span class="warning"><span class="tag">application</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="attribute">
-</span><span class="lineno"> 10 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">allowBackup</span>=<span class="value">"true"</span>
-<span class="lineno"> 11 </span>        <span class="prefix">android:</span><span class="attribute">dataExtractionRules</span>=<span class="value">"@xml/data_extraction_rules"</span>
-<span class="lineno"> 12 </span>        <span class="prefix">android:</span><span class="attribute">fullBackupContent</span>=<span class="value">"@xml/backup_rules"</span></pre>
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:21</span>: <span class="message">Should explicitly set <code>android:icon</code>, there is no default</span><br /><pre class="errorlines">
+<span class="lineno"> 18 </span>    <span class="tag">&lt;uses-feature</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.hardware.bluetooth_le"</span> <span class="prefix">android:</span><span class="attribute">required</span>=<span class="value">"true"</span> />
+<span class="lineno"> 19 </span>    <span class="tag">&lt;uses-feature</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.hardware.bluetooth"</span> <span class="prefix">android:</span><span class="attribute">required</span>=<span class="value">"true"</span> />
+<span class="lineno"> 20 </span>
+<span class="caretline"><span class="lineno"> 21 </span>    <span class="tag">&lt;</span><span class="warning"><span class="tag">application</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="attribute">
+</span><span class="lineno"> 22 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">allowBackup</span>=<span class="value">"true"</span>
+<span class="lineno"> 23 </span>        <span class="prefix">android:</span><span class="attribute">dataExtractionRules</span>=<span class="value">"@xml/data_extraction_rules"</span>
+<span class="lineno"> 24 </span>        <span class="prefix">android:</span><span class="attribute">fullBackupContent</span>=<span class="value">"@xml/backup_rules"</span></pre>
 
 </div>
 <div class="metadata"><div class="explanation" id="explanationMissingApplicationIcon" style="display: none;">
@@ -606,175 +801,492 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:65</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno">  62 </span>
-<span class="lineno">  63 </span>        <span class="comment">// Header</span>
-<span class="lineno">  64 </span>        <span class="keyword">val</span> headerText = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno">  65 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server App</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  66 </span>            textSize = <span class="number">24f</span>
-<span class="lineno">  67 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">24</span>)
-<span class="lineno">  68 </span>        }
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:75</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno">  72 </span>        
+<span class="lineno">  73 </span>        <span class="comment">// Header</span>
+<span class="lineno">  74 </span>        <span class="keyword">val</span> headerText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno">  75 </span>            text = <span class="string">"</span><span class="warning"><span class="string">BLE Demo - Server (Peripheral)</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  76 </span>            textSize = <span class="number">24f</span>
+<span class="lineno">  77 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">24</span>)
+<span class="lineno">  78 </span>        }
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:72</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno">  69 </span>        
-<span class="lineno">  70 </span>        <span class="comment">// Status</span>
-<span class="lineno">  71 </span>        statusText = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno">  72 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server hazır</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  73 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">16</span>)
-<span class="lineno">  74 </span>        }
-<span class="lineno">  75 </span>        
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:82</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno">  79 </span>        
+<span class="lineno">  80 </span>        <span class="comment">// Status</span>
+<span class="lineno">  81 </span>        statusText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno">  82 </span>            text = <span class="string">"</span><span class="warning"><span class="string">BLE hazır</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  83 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">16</span>)
+<span class="lineno">  84 </span>        }
+<span class="lineno">  85 </span>        
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:78</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno">  75 </span>        
-<span class="lineno">  76 </span>        <span class="comment">// Server control button</span>
-<span class="lineno">  77 </span>        serverButton = Button(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno">  78 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  79 </span>        }
-<span class="lineno">  80 </span>        
-<span class="lineno">  81 </span>        <span class="comment">// Drone connection section</span></pre>
-
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:83</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno">  80 </span>        
-<span class="lineno">  81 </span>        <span class="comment">// Drone connection section</span>
-<span class="lineno">  82 </span>        <span class="keyword">val</span> droneLabel = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno">  83 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone Bağlantısı:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  84 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
-<span class="lineno">  85 </span>            textSize = <span class="number">16f</span>
-<span class="lineno">  86 </span>        }
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:88</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno">  85 </span>        
+<span class="lineno">  86 </span>        <span class="comment">// BLE Button</span>
+<span class="lineno">  87 </span>        bleButton = Button(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno">  88 </span>            text = <span class="string">"</span><span class="warning"><span class="string">BLE Advertising Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  89 </span>            setPadding(<span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno">  90 </span>        }
+<span class="lineno">  91 </span>        
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:89</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno">  86 </span>        }
-<span class="lineno">  87 </span>        
-<span class="lineno">  88 </span>        droneStatusText = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno">  89 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı değil</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  90 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">8</span>)
-<span class="lineno">  91 </span>            setTextColor(resources.getColor(android.R.color.holo_red_dark))
-<span class="lineno">  92 </span>        }
-</pre>
-
-<button class="mdl-button mdl-js-button mdl-button--primary" id="SetTextI18nDivLink" onclick="reveal('SetTextI18nDiv');" />+ 12 More Occurrences...</button>
-<div id="SetTextI18nDiv" style="display: none">
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:95</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno">  92 </span>        }
-<span class="lineno">  93 </span>        
-<span class="lineno">  94 </span>        droneConnectionButton = Button(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno">  95 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone'a Bağlan</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  96 </span>            setPadding(<span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:94</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno">  91 </span>        
+<span class="lineno">  92 </span>        <span class="comment">// Device Info</span>
+<span class="lineno">  93 </span>        deviceInfoText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno">  94 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone: DJI Mavic 3 | Serial: 1234567890</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  95 </span>            setPadding(<span class="number">0</span>, <span class="number">16</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno">  96 </span>            setTextColor(resources.getColor(android.R.color.holo_blue_dark))
 <span class="lineno">  97 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:101</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
 <span class="lineno">  98 </span>        
+<span class="lineno">  99 </span>        <span class="comment">// Log section</span>
+<span class="lineno"> 100 </span>        <span class="keyword">val</span> logLabel = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 101 </span>            text = <span class="string">"</span><span class="warning"><span class="string">BLE Log:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 102 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 103 </span>            textSize = <span class="number">16f</span>
+<span class="lineno"> 104 </span>        }
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:103</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 100 </span>        
-<span class="lineno"> 101 </span>        <span class="comment">// Messages log section</span>
-<span class="lineno"> 102 </span>        <span class="keyword">val</span> logLabel = TextView(<span class="keyword">this</span>).apply {
-<span class="caretline"><span class="lineno"> 103 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server Log:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 104 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
-<span class="lineno"> 105 </span>            textSize = <span class="number">16f</span>
-<span class="lineno"> 106 </span>        }
+<button class="mdl-button mdl-js-button mdl-button--primary" id="SetTextI18nDivLink" onclick="reveal('SetTextI18nDiv');" />+ 44 More Occurrences...</button>
+<div id="SetTextI18nDiv" style="display: none">
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:144</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 141 </span>                    <span class="string">"SUCCESS"</span> -> <span class="string">"✅"</span>
+<span class="lineno"> 142 </span>                    <span class="keyword">else</span> -> <span class="string">"ℹ️"</span>
+<span class="lineno"> 143 </span>                }
+<span class="caretline"><span class="lineno"> 144 </span>                text = <span class="warning"><span class="string">"[$timestamp] $emoji $message"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 145 </span>                setPadding(<span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>)
+<span class="lineno"> 146 </span>                setBackgroundColor(<span class="keyword">when</span> (type) {
+<span class="lineno"> 147 </span>                    <span class="string">"BLE"</span> -> <span class="number">0xFFE8F5E8.</span>toInt()
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:150</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
-<span class="lineno"> 147 </span>                    <span class="string">"SUCCESS"</span> -> <span class="string">"✅"</span>
-<span class="lineno"> 148 </span>                    <span class="keyword">else</span> -> <span class="string">"ℹ️"</span>
-<span class="lineno"> 149 </span>                }
-<span class="caretline"><span class="lineno"> 150 </span>                text = <span class="warning"><span class="string">"[$timestamp] $emoji $message"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 151 </span>                setPadding(<span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>)
-<span class="lineno"> 152 </span>                setBackgroundColor(<span class="keyword">when</span> (type) {
-<span class="lineno"> 153 </span>                    <span class="string">"SERVER"</span> -> <span class="number">0xFFE8F5E8.</span>toInt()
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:199</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 196 </span>          serialNumber = <span class="string">"1234567890"</span>
+<span class="lineno"> 197 </span>      )
+<span class="lineno"> 198 </span>      bleManager.updateDroneInfo(mockDroneInfo)
+<span class="caretline"><span class="lineno"> 199 </span>      deviceInfoText.text = <span class="warning"><span class="string">"Drone: ${</span>mockDroneInfo.brand<span class="string">} ${</span>mockDroneInfo.model<span class="string">} | Serial: ${</span>mockDroneInfo.serialNumber<span class="string">}"</span></span></span>
+<span class="lineno"> 200 </span>  }
+<span class="lineno"> 201 </span>  
+<span class="lineno"> 202 </span>  private <span class="keyword">fun</span> hasBluetoothPermissions(): Boolean {
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:187</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
-<span class="lineno"> 184 </span>           
-<span class="lineno"> 185 </span>           withContext(Dispatchers.Main) {
-<span class="lineno"> 186 </span>               isServerRunning = <span class="keyword">true</span>
-<span class="caretline"><span class="lineno"> 187 </span>               statusText.text = <span class="warning"><span class="string">"gRPC Server çalışıyor (Port: $grpcPort)"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 188 </span>               serverButton.text = <span class="string">"Server Durdur"</span>
-<span class="lineno"> 189 </span>               showToast(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>)
-<span class="lineno"> 190 </span>               addLogMessage(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>, <span class="string">"SERVER"</span>)
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:199</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 196 </span>          serialNumber = <span class="string">"1234567890"</span>
+<span class="lineno"> 197 </span>      )
+<span class="lineno"> 198 </span>      bleManager.updateDroneInfo(mockDroneInfo)
+<span class="caretline"><span class="lineno"> 199 </span>      deviceInfoText.text = <span class="string">"</span><span class="warning"><span class="string">Drone: </span></span><span class="string">${</span>mockDroneInfo.brand<span class="string">} ${</span>mockDroneInfo.model<span class="string">} | Serial: ${</span>mockDroneInfo.serialNumber<span class="string">}"</span></span>
+<span class="lineno"> 200 </span>  }
+<span class="lineno"> 201 </span>  
+<span class="lineno"> 202 </span>  private <span class="keyword">fun</span> hasBluetoothPermissions(): Boolean {
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:187</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 184 </span>           
-<span class="lineno"> 185 </span>           withContext(Dispatchers.Main) {
-<span class="lineno"> 186 </span>               isServerRunning = <span class="keyword">true</span>
-<span class="caretline"><span class="lineno"> 187 </span>               statusText.text = <span class="string">"</span><span class="warning"><span class="string">gRPC Server çalışıyor (Port: </span></span><span class="string">$grpcPort)"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 188 </span>               serverButton.text = <span class="string">"Server Durdur"</span>
-<span class="lineno"> 189 </span>               showToast(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>)
-<span class="lineno"> 190 </span>               addLogMessage(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>, <span class="string">"SERVER"</span>)
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:199</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 196 </span>          serialNumber = <span class="string">"1234567890"</span>
+<span class="lineno"> 197 </span>      )
+<span class="lineno"> 198 </span>      bleManager.updateDroneInfo(mockDroneInfo)
+<span class="caretline"><span class="lineno"> 199 </span>      deviceInfoText.text = <span class="string">"Drone: ${</span>mockDroneInfo.brand<span class="string">} ${</span>mockDroneInfo.model<span class="string">}</span><span class="warning"><span class="string"> | Serial: </span></span><span class="string">${</span>mockDroneInfo.serialNumber<span class="string">}"</span></span>
+<span class="lineno"> 200 </span>  }
+<span class="lineno"> 201 </span>  
+<span class="lineno"> 202 </span>  private <span class="keyword">fun</span> hasBluetoothPermissions(): Boolean {
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:188</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 185 </span>           withContext(Dispatchers.Main) {
-<span class="lineno"> 186 </span>               isServerRunning = <span class="keyword">true</span>
-<span class="lineno"> 187 </span>               statusText.text = <span class="string">"gRPC Server çalışıyor (Port: $grpcPort)"</span>
-<span class="caretline"><span class="lineno"> 188 </span>               serverButton.text = <span class="string">"</span><span class="warning"><span class="string">Server Durdur</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 189 </span>               showToast(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>)
-<span class="lineno"> 190 </span>               addLogMessage(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>, <span class="string">"SERVER"</span>)
-<span class="lineno"> 191 </span>           }
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:258</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 255 </span>      override <span class="keyword">fun</span> onAdvertisingStarted() {
+<span class="lineno"> 256 </span>          runOnUiThread {
+<span class="lineno"> 257 </span>              isBLEAdvertising = <span class="keyword">true</span>
+<span class="caretline"><span class="lineno"> 258 </span>              statusText.text = <span class="string">"</span><span class="warning"><span class="string">BLE aktif - Advertising</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 259 </span>              statusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+<span class="lineno"> 260 </span>              bleButton.text = <span class="string">"BLE Advertising Durdur"</span>
+<span class="lineno"> 261 </span>              addLogMessage(<span class="string">"BLE advertising başlatıldı"</span>, <span class="string">"SUCCESS"</span>)
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:210</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 207 </span>                
-<span class="lineno"> 208 </span>                withContext(Dispatchers.Main) {
-<span class="lineno"> 209 </span>                    isServerRunning = <span class="keyword">false</span>
-<span class="caretline"><span class="lineno"> 210 </span>                    statusText.text = <span class="string">"</span><span class="warning"><span class="string">Server durduruldu</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 211 </span>                    serverButton.text = <span class="string">"Server Başlat"</span>
-<span class="lineno"> 212 </span>                    showToast(<span class="string">"Server durduruldu"</span>)
-<span class="lineno"> 213 </span>                    addLogMessage(<span class="string">"Server durduruldu"</span>, <span class="string">"SERVER"</span>)
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:260</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 257 </span>          isBLEAdvertising = <span class="keyword">true</span>
+<span class="lineno"> 258 </span>          statusText.text = <span class="string">"BLE aktif - Advertising"</span>
+<span class="lineno"> 259 </span>          statusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+<span class="caretline"><span class="lineno"> 260 </span>          bleButton.text = <span class="string">"</span><span class="warning"><span class="string">BLE Advertising Durdur</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 261 </span>          addLogMessage(<span class="string">"BLE advertising başlatıldı"</span>, <span class="string">"SUCCESS"</span>)
+<span class="lineno"> 262 </span>          showToast(<span class="string">"BLE advertising başlatıldı"</span>)
+<span class="lineno"> 263 </span>      }
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:211</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 208 </span>                withContext(Dispatchers.Main) {
-<span class="lineno"> 209 </span>                    isServerRunning = <span class="keyword">false</span>
-<span class="lineno"> 210 </span>                    statusText.text = <span class="string">"Server durduruldu"</span>
-<span class="caretline"><span class="lineno"> 211 </span>                    serverButton.text = <span class="string">"</span><span class="warning"><span class="string">Server Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 212 </span>                    showToast(<span class="string">"Server durduruldu"</span>)
-<span class="lineno"> 213 </span>                    addLogMessage(<span class="string">"Server durduruldu"</span>, <span class="string">"SERVER"</span>)
-<span class="lineno"> 214 </span>                }
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:269</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 266 </span>        override <span class="keyword">fun</span> onAdvertisingFailed(errorCode: Int, message: String) {
+<span class="lineno"> 267 </span>            runOnUiThread {
+<span class="lineno"> 268 </span>                isBLEAdvertising = <span class="keyword">false</span>
+<span class="caretline"><span class="lineno"> 269 </span>                statusText.text = <span class="warning"><span class="string">"BLE hatası: $message"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 270 </span>                statusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno"> 271 </span>                bleButton.text = <span class="string">"BLE Advertising Başlat"</span>
+<span class="lineno"> 272 </span>                addLogMessage(<span class="string">"BLE advertising hatası: $message"</span>, <span class="string">"ERROR"</span>)
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:253</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 250 </span>  
-<span class="lineno"> 251 </span>  runOnUiThread {
-<span class="lineno"> 252 </span>      <span class="keyword">if</span> (isDroneConnected) {
-<span class="caretline"><span class="lineno"> 253 </span>          droneStatusText.text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı - Telemetri aktif</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 254 </span>          droneStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
-<span class="lineno"> 255 </span>          droneConnectionButton.text = <span class="string">"Drone Bağlantısını Kes"</span>
-<span class="lineno"> 256 </span>          addLogMessage(<span class="string">"Drone bağlantısı kuruldu - Telemetri simülasyonu başlatıldı"</span>, <span class="string">"DRONE"</span>)
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:269</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 266 </span>        override <span class="keyword">fun</span> onAdvertisingFailed(errorCode: Int, message: String) {
+<span class="lineno"> 267 </span>            runOnUiThread {
+<span class="lineno"> 268 </span>                isBLEAdvertising = <span class="keyword">false</span>
+<span class="caretline"><span class="lineno"> 269 </span>                statusText.text = <span class="string">"</span><span class="warning"><span class="string">BLE hatası: </span></span><span class="string">$message"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 270 </span>                statusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno"> 271 </span>                bleButton.text = <span class="string">"BLE Advertising Başlat"</span>
+<span class="lineno"> 272 </span>                addLogMessage(<span class="string">"BLE advertising hatası: $message"</span>, <span class="string">"ERROR"</span>)
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:255</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 252 </span>  <span class="keyword">if</span> (isDroneConnected) {
-<span class="lineno"> 253 </span>      droneStatusText.text = <span class="string">"Drone bağlı - Telemetri aktif"</span>
-<span class="lineno"> 254 </span>      droneStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
-<span class="caretline"><span class="lineno"> 255 </span>      droneConnectionButton.text = <span class="string">"</span><span class="warning"><span class="string">Drone Bağlantısını Kes</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 256 </span>      addLogMessage(<span class="string">"Drone bağlantısı kuruldu - Telemetri simülasyonu başlatıldı"</span>, <span class="string">"DRONE"</span>)
-<span class="lineno"> 257 </span>      showToast(<span class="string">"Drone'a bağlanıldı - Telemetri aktif"</span>)
-<span class="lineno"> 258 </span>  } <span class="keyword">else</span> {
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:271</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 268 </span>            isBLEAdvertising = <span class="keyword">false</span>
+<span class="lineno"> 269 </span>            statusText.text = <span class="string">"BLE hatası: $message"</span>
+<span class="lineno"> 270 </span>            statusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="caretline"><span class="lineno"> 271 </span>            bleButton.text = <span class="string">"</span><span class="warning"><span class="string">BLE Advertising Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 272 </span>            addLogMessage(<span class="string">"BLE advertising hatası: $message"</span>, <span class="string">"ERROR"</span>)
+<span class="lineno"> 273 </span>            showToast(<span class="string">"BLE hatası: $message"</span>)
+<span class="lineno"> 274 </span>        }
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:259</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 256 </span>      addLogMessage(<span class="string">"Drone bağlantısı kuruldu - Telemetri simülasyonu başlatıldı"</span>, <span class="string">"DRONE"</span>)
-<span class="lineno"> 257 </span>      showToast(<span class="string">"Drone'a bağlanıldı - Telemetri aktif"</span>)
-<span class="lineno"> 258 </span>  } <span class="keyword">else</span> {
-<span class="caretline"><span class="lineno"> 259 </span>      droneStatusText.text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı değil</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 260 </span>      droneStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
-<span class="lineno"> 261 </span>      droneConnectionButton.text = <span class="string">"Drone'a Bağlan"</span>
-<span class="lineno"> 262 </span>      addLogMessage(<span class="string">"Drone bağlantısı kesildi - Telemetri simülasyonu durduruldu"</span>, <span class="string">"DRONE"</span>)
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:280</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 277 </span>        override <span class="keyword">fun</span> onAdvertisingStopped() {
+<span class="lineno"> 278 </span>            runOnUiThread {
+<span class="lineno"> 279 </span>                isBLEAdvertising = <span class="keyword">false</span>
+<span class="caretline"><span class="lineno"> 280 </span>                statusText.text = <span class="string">"</span><span class="warning"><span class="string">BLE kapalı</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 281 </span>                statusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno"> 282 </span>                bleButton.text = <span class="string">"BLE Advertising Başlat"</span>
+<span class="lineno"> 283 </span>                addLogMessage(<span class="string">"BLE advertising durduruldu"</span>, <span class="string">"BLE"</span>)
 </pre>
 
-<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:261</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 258 </span>  } <span class="keyword">else</span> {
-<span class="lineno"> 259 </span>      droneStatusText.text = <span class="string">"Drone bağlı değil"</span>
-<span class="lineno"> 260 </span>      droneStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
-<span class="caretline"><span class="lineno"> 261 </span>      droneConnectionButton.text = <span class="string">"</span><span class="warning"><span class="string">Drone'a Bağlan</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 262 </span>      addLogMessage(<span class="string">"Drone bağlantısı kesildi - Telemetri simülasyonu durduruldu"</span>, <span class="string">"DRONE"</span>)
-<span class="lineno"> 263 </span>      showToast(<span class="string">"Drone bağlantısı kesildi"</span>)
-<span class="lineno"> 264 </span>  }
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt">../../src/main/kotlin/com/serverapp/BLEDemoActivity.kt</a>:282</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 279 </span>            isBLEAdvertising = <span class="keyword">false</span>
+<span class="lineno"> 280 </span>            statusText.text = <span class="string">"BLE kapalı"</span>
+<span class="lineno"> 281 </span>            statusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="caretline"><span class="lineno"> 282 </span>            bleButton.text = <span class="string">"</span><span class="warning"><span class="string">BLE Advertising Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 283 </span>            addLogMessage(<span class="string">"BLE advertising durduruldu"</span>, <span class="string">"BLE"</span>)
+<span class="lineno"> 284 </span>            showToast(<span class="string">"BLE advertising durduruldu"</span>)
+<span class="lineno"> 285 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:106</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 103 </span>        
+<span class="lineno"> 104 </span>        <span class="comment">// Add BLE Demo button</span>
+<span class="lineno"> 105 </span>        <span class="keyword">val</span> bleDemoButton = Button(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 106 </span>            text = <span class="string">"</span><span class="warning"><span class="string">BLE Demo'yu Aç</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 107 </span>            setPadding(<span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 108 </span>            setOnClickListener {
+<span class="lineno"> 109 </span>                <span class="keyword">val</span> intent = Intent(<span class="keyword">this</span><span class="annotation">@MainActivity</span>, BLEDemoActivity::<span class="keyword">class</span>.java)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:123</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 120 </span>
+<span class="lineno"> 121 </span>        <span class="comment">// Header</span>
+<span class="lineno"> 122 </span>        <span class="keyword">val</span> headerText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 123 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server App</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 124 </span>            textSize = <span class="number">24f</span>
+<span class="lineno"> 125 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">24</span>)
+<span class="lineno"> 126 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:130</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 127 </span>        
+<span class="lineno"> 128 </span>        <span class="comment">// Status</span>
+<span class="lineno"> 129 </span>        statusText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 130 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server hazır</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 131 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">16</span>)
+<span class="lineno"> 132 </span>        }
+<span class="lineno"> 133 </span>        
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:136</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 133 </span>        
+<span class="lineno"> 134 </span>        <span class="comment">// Server control button</span>
+<span class="lineno"> 135 </span>        serverButton = Button(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 136 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 137 </span>        }
+<span class="lineno"> 138 </span>        
+<span class="lineno"> 139 </span>        <span class="comment">// Drone connection section</span></pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:141</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 138 </span>        
+<span class="lineno"> 139 </span>        <span class="comment">// Drone connection section</span>
+<span class="lineno"> 140 </span>        <span class="keyword">val</span> droneLabel = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 141 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone Bağlantısı:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 142 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 143 </span>            textSize = <span class="number">16f</span>
+<span class="lineno"> 144 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:147</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 144 </span>        }
+<span class="lineno"> 145 </span>        
+<span class="lineno"> 146 </span>        droneStatusText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 147 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı değil</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 148 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 149 </span>            setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno"> 150 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:153</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 150 </span>        }
+<span class="lineno"> 151 </span>        
+<span class="lineno"> 152 </span>        droneConnectionButton = Button(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 153 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone'a Bağlan</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 154 </span>            setPadding(<span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 155 </span>        }
+<span class="lineno"> 156 </span>        
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:159</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 156 </span>        
+<span class="lineno"> 157 </span>        <span class="comment">// BLE section</span>
+<span class="lineno"> 158 </span>        <span class="keyword">val</span> bleLabel = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 159 </span>            text = <span class="string">"</span><span class="warning"><span class="string">BLE Advertising:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 160 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 161 </span>            textSize = <span class="number">16f</span>
+<span class="lineno"> 162 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:165</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 162 </span>        }
+<span class="lineno"> 163 </span>        
+<span class="lineno"> 164 </span>        bleStatusText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 165 </span>            text = <span class="string">"</span><span class="warning"><span class="string">BLE kapalı</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 166 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 167 </span>            setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno"> 168 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:171</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 168 </span>        }
+<span class="lineno"> 169 </span>        
+<span class="lineno"> 170 </span>        bleButton = Button(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 171 </span>            text = <span class="string">"</span><span class="warning"><span class="string">BLE Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 172 </span>            setPadding(<span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 173 </span>        }
+<span class="lineno"> 174 </span>        
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:176</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 173 </span>        }
+<span class="lineno"> 174 </span>        
+<span class="lineno"> 175 </span>        bleDeviceInfoText = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 176 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Drone: DJI Mavic 3 | Serial: 1234567890</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 177 </span>            setPadding(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 178 </span>            setTextColor(resources.getColor(android.R.color.holo_blue_dark))
+<span class="lineno"> 179 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:183</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 180 </span>        
+<span class="lineno"> 181 </span>        <span class="comment">// BLE Demo button</span>
+<span class="lineno"> 182 </span>        <span class="keyword">val</span> bleDemoButton = Button(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 183 </span>            text = <span class="string">"</span><span class="warning"><span class="string">BLE Demo'yu Aç</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 184 </span>            setPadding(<span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 185 </span>            setOnClickListener {
+<span class="lineno"> 186 </span>                <span class="keyword">val</span> intent = Intent(<span class="keyword">this</span><span class="annotation">@MainActivity</span>, BLEDemoActivity::<span class="keyword">class</span>.java)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:193</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 190 </span>        
+<span class="lineno"> 191 </span>        <span class="comment">// Messages log section</span>
+<span class="lineno"> 192 </span>        <span class="keyword">val</span> logLabel = TextView(<span class="keyword">this</span>).apply {
+<span class="caretline"><span class="lineno"> 193 </span>            text = <span class="string">"</span><span class="warning"><span class="string">Server Log:</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 194 </span>            setPadding(<span class="number">0</span>, <span class="number">24</span>, <span class="number">0</span>, <span class="number">8</span>)
+<span class="lineno"> 195 </span>            textSize = <span class="number">16f</span>
+<span class="lineno"> 196 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:245</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 242 </span>                    <span class="string">"SUCCESS"</span> -> <span class="string">"✅"</span>
+<span class="lineno"> 243 </span>                    <span class="keyword">else</span> -> <span class="string">"ℹ️"</span>
+<span class="lineno"> 244 </span>                }
+<span class="caretline"><span class="lineno"> 245 </span>                text = <span class="warning"><span class="string">"[$timestamp] $emoji $message"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 246 </span>                setPadding(<span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>)
+<span class="lineno"> 247 </span>                setBackgroundColor(<span class="keyword">when</span> (type) {
+<span class="lineno"> 248 </span>                    <span class="string">"SERVER"</span> -> <span class="number">0xFFE8F5E8.</span>toInt()
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:282</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 279 </span>           
+<span class="lineno"> 280 </span>           withContext(Dispatchers.Main) {
+<span class="lineno"> 281 </span>               isServerRunning = <span class="keyword">true</span>
+<span class="caretline"><span class="lineno"> 282 </span>               statusText.text = <span class="warning"><span class="string">"gRPC Server çalışıyor (Port: $grpcPort)"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 283 </span>               serverButton.text = <span class="string">"Server Durdur"</span>
+<span class="lineno"> 284 </span>               showToast(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>)
+<span class="lineno"> 285 </span>               addLogMessage(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>, <span class="string">"SERVER"</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:282</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 279 </span>           
+<span class="lineno"> 280 </span>           withContext(Dispatchers.Main) {
+<span class="lineno"> 281 </span>               isServerRunning = <span class="keyword">true</span>
+<span class="caretline"><span class="lineno"> 282 </span>               statusText.text = <span class="string">"</span><span class="warning"><span class="string">gRPC Server çalışıyor (Port: </span></span><span class="string">$grpcPort)"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 283 </span>               serverButton.text = <span class="string">"Server Durdur"</span>
+<span class="lineno"> 284 </span>               showToast(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>)
+<span class="lineno"> 285 </span>               addLogMessage(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>, <span class="string">"SERVER"</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:283</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 280 </span>           withContext(Dispatchers.Main) {
+<span class="lineno"> 281 </span>               isServerRunning = <span class="keyword">true</span>
+<span class="lineno"> 282 </span>               statusText.text = <span class="string">"gRPC Server çalışıyor (Port: $grpcPort)"</span>
+<span class="caretline"><span class="lineno"> 283 </span>               serverButton.text = <span class="string">"</span><span class="warning"><span class="string">Server Durdur</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 284 </span>               showToast(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>)
+<span class="lineno"> 285 </span>               addLogMessage(<span class="string">"gRPC Server başlatıldı - Port: $grpcPort"</span>, <span class="string">"SERVER"</span>)
+<span class="lineno"> 286 </span>           }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:305</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 302 </span>                
+<span class="lineno"> 303 </span>                withContext(Dispatchers.Main) {
+<span class="lineno"> 304 </span>                    isServerRunning = <span class="keyword">false</span>
+<span class="caretline"><span class="lineno"> 305 </span>                    statusText.text = <span class="string">"</span><span class="warning"><span class="string">Server durduruldu</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 306 </span>                    serverButton.text = <span class="string">"Server Başlat"</span>
+<span class="lineno"> 307 </span>                    showToast(<span class="string">"Server durduruldu"</span>)
+<span class="lineno"> 308 </span>                    addLogMessage(<span class="string">"Server durduruldu"</span>, <span class="string">"SERVER"</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:306</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 303 </span>                withContext(Dispatchers.Main) {
+<span class="lineno"> 304 </span>                    isServerRunning = <span class="keyword">false</span>
+<span class="lineno"> 305 </span>                    statusText.text = <span class="string">"Server durduruldu"</span>
+<span class="caretline"><span class="lineno"> 306 </span>                    serverButton.text = <span class="string">"</span><span class="warning"><span class="string">Server Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 307 </span>                    showToast(<span class="string">"Server durduruldu"</span>)
+<span class="lineno"> 308 </span>                    addLogMessage(<span class="string">"Server durduruldu"</span>, <span class="string">"SERVER"</span>)
+<span class="lineno"> 309 </span>                }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:343</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 340 </span>  
+<span class="lineno"> 341 </span>  runOnUiThread {
+<span class="lineno"> 342 </span>      <span class="keyword">if</span> (isDroneConnected) {
+<span class="caretline"><span class="lineno"> 343 </span>          droneStatusText.text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı - Telemetri aktif</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 344 </span>          droneStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+<span class="lineno"> 345 </span>          droneConnectionButton.text = <span class="string">"Drone Bağlantısını Kes"</span>
+<span class="lineno"> 346 </span>          addLogMessage(<span class="string">"Drone bağlantısı kuruldu - Telemetri simülasyonu başlatıldı"</span>, <span class="string">"DRONE"</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:345</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 342 </span>  <span class="keyword">if</span> (isDroneConnected) {
+<span class="lineno"> 343 </span>      droneStatusText.text = <span class="string">"Drone bağlı - Telemetri aktif"</span>
+<span class="lineno"> 344 </span>      droneStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+<span class="caretline"><span class="lineno"> 345 </span>      droneConnectionButton.text = <span class="string">"</span><span class="warning"><span class="string">Drone Bağlantısını Kes</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 346 </span>      addLogMessage(<span class="string">"Drone bağlantısı kuruldu - Telemetri simülasyonu başlatıldı"</span>, <span class="string">"DRONE"</span>)
+<span class="lineno"> 347 </span>      showToast(<span class="string">"Drone'a bağlanıldı - Telemetri aktif"</span>)
+<span class="lineno"> 348 </span>  } <span class="keyword">else</span> {
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:349</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 346 </span>      addLogMessage(<span class="string">"Drone bağlantısı kuruldu - Telemetri simülasyonu başlatıldı"</span>, <span class="string">"DRONE"</span>)
+<span class="lineno"> 347 </span>      showToast(<span class="string">"Drone'a bağlanıldı - Telemetri aktif"</span>)
+<span class="lineno"> 348 </span>  } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 349 </span>      droneStatusText.text = <span class="string">"</span><span class="warning"><span class="string">Drone bağlı değil</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 350 </span>      droneStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno"> 351 </span>      droneConnectionButton.text = <span class="string">"Drone'a Bağlan"</span>
+<span class="lineno"> 352 </span>      addLogMessage(<span class="string">"Drone bağlantısı kesildi - Telemetri simülasyonu durduruldu"</span>, <span class="string">"DRONE"</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:351</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 348 </span>  } <span class="keyword">else</span> {
+<span class="lineno"> 349 </span>      droneStatusText.text = <span class="string">"Drone bağlı değil"</span>
+<span class="lineno"> 350 </span>      droneStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="caretline"><span class="lineno"> 351 </span>      droneConnectionButton.text = <span class="string">"</span><span class="warning"><span class="string">Drone'a Bağlan</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 352 </span>      addLogMessage(<span class="string">"Drone bağlantısı kesildi - Telemetri simülasyonu durduruldu"</span>, <span class="string">"DRONE"</span>)
+<span class="lineno"> 353 </span>      showToast(<span class="string">"Drone bağlantısı kesildi"</span>)
+<span class="lineno"> 354 </span>  }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:427</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 424 </span>          serialNumber = <span class="string">"1234567890"</span>
+<span class="lineno"> 425 </span>      )
+<span class="lineno"> 426 </span>      bleManager.updateDroneInfo(mockDroneInfo)
+<span class="caretline"><span class="lineno"> 427 </span>      bleDeviceInfoText.text = <span class="warning"><span class="string">"Drone: ${</span>mockDroneInfo.brand<span class="string">} ${</span>mockDroneInfo.model<span class="string">} | Serial: ${</span>mockDroneInfo.serialNumber<span class="string">}"</span></span></span>
+<span class="lineno"> 428 </span>  }
+<span class="lineno"> 429 </span>  
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:427</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 424 </span>          serialNumber = <span class="string">"1234567890"</span>
+<span class="lineno"> 425 </span>      )
+<span class="lineno"> 426 </span>      bleManager.updateDroneInfo(mockDroneInfo)
+<span class="caretline"><span class="lineno"> 427 </span>      bleDeviceInfoText.text = <span class="string">"</span><span class="warning"><span class="string">Drone: </span></span><span class="string">${</span>mockDroneInfo.brand<span class="string">} ${</span>mockDroneInfo.model<span class="string">} | Serial: ${</span>mockDroneInfo.serialNumber<span class="string">}"</span></span>
+<span class="lineno"> 428 </span>  }
+<span class="lineno"> 429 </span>  
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:427</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 424 </span>          serialNumber = <span class="string">"1234567890"</span>
+<span class="lineno"> 425 </span>      )
+<span class="lineno"> 426 </span>      bleManager.updateDroneInfo(mockDroneInfo)
+<span class="caretline"><span class="lineno"> 427 </span>      bleDeviceInfoText.text = <span class="string">"Drone: ${</span>mockDroneInfo.brand<span class="string">} ${</span>mockDroneInfo.model<span class="string">}</span><span class="warning"><span class="string"> | Serial: </span></span><span class="string">${</span>mockDroneInfo.serialNumber<span class="string">}"</span></span>
+<span class="lineno"> 428 </span>  }
+<span class="lineno"> 429 </span>  
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:488</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 485 </span>   override <span class="keyword">fun</span> onAdvertisingStarted() {
+<span class="lineno"> 486 </span>       runOnUiThread {
+<span class="lineno"> 487 </span>           isBLEAdvertising = <span class="keyword">true</span>
+<span class="caretline"><span class="lineno"> 488 </span>           bleStatusText.text = <span class="string">"</span><span class="warning"><span class="string">BLE aktif - Advertising</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 489 </span>           bleStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+<span class="lineno"> 490 </span>           bleButton.text = <span class="string">"BLE Durdur"</span>
+<span class="lineno"> 491 </span>           addLogMessage(<span class="string">"BLE advertising başlatıldı"</span>, <span class="string">"BLE"</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:490</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 487 </span>       isBLEAdvertising = <span class="keyword">true</span>
+<span class="lineno"> 488 </span>       bleStatusText.text = <span class="string">"BLE aktif - Advertising"</span>
+<span class="lineno"> 489 </span>       bleStatusText.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+<span class="caretline"><span class="lineno"> 490 </span>       bleButton.text = <span class="string">"</span><span class="warning"><span class="string">BLE Durdur</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 491 </span>       addLogMessage(<span class="string">"BLE advertising başlatıldı"</span>, <span class="string">"BLE"</span>)
+<span class="lineno"> 492 </span>       showToast(<span class="string">"BLE advertising başlatıldı"</span>)
+<span class="lineno"> 493 </span>   }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:499</span>: <span class="message">Do not concatenate text displayed with <code>setText</code>. Use resource string with placeholders.</span><br /><pre class="errorlines">
+<span class="lineno"> 496 </span>     override <span class="keyword">fun</span> onAdvertisingFailed(errorCode: Int, message: String) {
+<span class="lineno"> 497 </span>         runOnUiThread {
+<span class="lineno"> 498 </span>             isBLEAdvertising = <span class="keyword">false</span>
+<span class="caretline"><span class="lineno"> 499 </span>             bleStatusText.text = <span class="warning"><span class="string">"BLE hatası: $message"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 500 </span>             bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno"> 501 </span>             bleButton.text = <span class="string">"BLE Başlat"</span>
+<span class="lineno"> 502 </span>             addLogMessage(<span class="string">"BLE advertising hatası: $message"</span>, <span class="string">"ERROR"</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:499</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 496 </span>     override <span class="keyword">fun</span> onAdvertisingFailed(errorCode: Int, message: String) {
+<span class="lineno"> 497 </span>         runOnUiThread {
+<span class="lineno"> 498 </span>             isBLEAdvertising = <span class="keyword">false</span>
+<span class="caretline"><span class="lineno"> 499 </span>             bleStatusText.text = <span class="string">"</span><span class="warning"><span class="string">BLE hatası: </span></span><span class="string">$message"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 500 </span>             bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno"> 501 </span>             bleButton.text = <span class="string">"BLE Başlat"</span>
+<span class="lineno"> 502 </span>             addLogMessage(<span class="string">"BLE advertising hatası: $message"</span>, <span class="string">"ERROR"</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:501</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 498 </span>         isBLEAdvertising = <span class="keyword">false</span>
+<span class="lineno"> 499 </span>         bleStatusText.text = <span class="string">"BLE hatası: $message"</span>
+<span class="lineno"> 500 </span>         bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="caretline"><span class="lineno"> 501 </span>         bleButton.text = <span class="string">"</span><span class="warning"><span class="string">BLE Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 502 </span>         addLogMessage(<span class="string">"BLE advertising hatası: $message"</span>, <span class="string">"ERROR"</span>)
+<span class="lineno"> 503 </span>         showToast(<span class="string">"BLE hatası: $message"</span>)
+<span class="lineno"> 504 </span>     }
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:510</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 507 </span>     override <span class="keyword">fun</span> onAdvertisingStopped() {
+<span class="lineno"> 508 </span>         runOnUiThread {
+<span class="lineno"> 509 </span>             isBLEAdvertising = <span class="keyword">false</span>
+<span class="caretline"><span class="lineno"> 510 </span>             bleStatusText.text = <span class="string">"</span><span class="warning"><span class="string">BLE kapalı</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 511 </span>             bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="lineno"> 512 </span>             bleButton.text = <span class="string">"BLE Başlat"</span>
+<span class="lineno"> 513 </span>             addLogMessage(<span class="string">"BLE advertising durduruldu"</span>, <span class="string">"BLE"</span>)
+</pre>
+
+<span class="location"><a href="../../src/main/kotlin/com/serverapp/MainActivity.kt">../../src/main/kotlin/com/serverapp/MainActivity.kt</a>:512</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 509 </span>         isBLEAdvertising = <span class="keyword">false</span>
+<span class="lineno"> 510 </span>         bleStatusText.text = <span class="string">"BLE kapalı"</span>
+<span class="lineno"> 511 </span>         bleStatusText.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+<span class="caretline"><span class="lineno"> 512 </span>         bleButton.text = <span class="string">"</span><span class="warning"><span class="string">BLE Başlat</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 513 </span>         addLogMessage(<span class="string">"BLE advertising durduruldu"</span>, <span class="string">"BLE"</span>)
+<span class="lineno"> 514 </span>         showToast(<span class="string">"BLE advertising durduruldu"</span>)
+<span class="lineno"> 515 </span>     }
 </pre>
 
 </div>

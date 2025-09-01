@@ -5,6 +5,9 @@
                 <entry
                     name="com.serverapp.MainActivity"
                     boolean="true"/>
+                <entry
+                    name="com.serverapp.BLEDemoActivity"
+                    boolean="true"/>
             </map>
     </map>
     <map id="UnusedResources">

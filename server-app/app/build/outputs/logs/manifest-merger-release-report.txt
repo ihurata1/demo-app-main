@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:2:1-31:12
-INJECTED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:2:1-31:12
-INJECTED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:2:1-31:12
-INJECTED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:2:1-31:12
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:2:1-49:12
 MERGED from [com.google.android.material:material:1.11.0] /Users/ibrahimaydin/.gradle/caches/transforms-3/14476603abd660f01e6a7ce51a66d839/transformed/material-1.11.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/ibrahimaydin/.gradle/caches/transforms-3/3fc24de6985890cbe46b076eb8c6cbff/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/ibrahimaydin/.gradle/caches/transforms-3/f2860b271168e930a17c9cb5eb792cc3/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
@@ -72,9 +72,45 @@ uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:7:5-76
 	android:name
 		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:7:22-73
+uses-permission#android.permission.BLUETOOTH
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:10:5-68
+	android:name
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:10:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:11:5-74
+	android:name
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:11:22-71
+uses-permission#android.permission.BLUETOOTH_ADVERTISE
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:12:5-78
+	android:name
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:12:22-75
+uses-permission#android.permission.BLUETOOTH_CONNECT
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:13:5-76
+	android:name
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:13:22-73
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:14:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:15:5-81
+	android:name
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:15:22-78
+uses-feature#android.hardware.bluetooth_le
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:18:5-90
+	android:required
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:18:64-87
+	android:name
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:18:19-63
+uses-feature#android.hardware.bluetooth
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:19:5-87
+	android:required
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:19:61-84
+	android:name
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:19:19-60
 application
-ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:9:5-29:19
-INJECTED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:9:5-29:19
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:21:5-47:19
+INJECTED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:21:5-47:19
 MERGED from [com.google.android.material:material:1.11.0] /Users/ibrahimaydin/.gradle/caches/transforms-3/14476603abd660f01e6a7ce51a66d839/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] /Users/ibrahimaydin/.gradle/caches/transforms-3/14476603abd660f01e6a7ce51a66d839/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/ibrahimaydin/.gradle/caches/transforms-3/3fc24de6985890cbe46b076eb8c6cbff/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -96,43 +132,53 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ibra
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] /Users/ibrahimaydin/.gradle/caches/transforms-3/0d2bf138f27b96adb8f1f401b76461d0/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:15:9-35
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:27:9-35
 	android:label
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:13:9-41
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:25:9-41
 	android:fullBackupContent
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:12:9-54
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:24:9-54
 	tools:targetApi
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:18:9-29
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:30:9-29
 	android:allowBackup
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:22:9-35
 	android:theme
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:16:9-47
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:28:9-47
 	android:networkSecurityConfig
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:14:9-69
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:26:9-69
 	android:dataExtractionRules
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:11:9-65
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:23:9-65
 	android:usesCleartextTraffic
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:17:9-44
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:29:9-44
 activity#com.serverapp.MainActivity
-ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:19:9-28:20
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:31:9-40:20
 	android:label
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:22:13-45
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:34:13-45
 	android:exported
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:21:13-36
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:33:13-36
 	android:theme
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:23:13-51
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:35:13-51
 	android:name
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:20:13-41
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:32:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:24:13-27:29
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:36:13-39:29
 action#android.intent.action.MAIN
-ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:25:17-69
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:37:17-69
 	android:name
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:25:25-66
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:37:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:26:17-77
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:38:17-77
 	android:name
-		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:26:27-74
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:38:27-74
+activity#com.serverapp.BLEDemoActivity
+ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:42:9-46:54
+	android:label
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:45:13-37
+	android:exported
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:44:13-36
+	android:theme
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:46:13-51
+	android:name
+		ADDED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml:43:13-44
 uses-sdk
 INJECTED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml

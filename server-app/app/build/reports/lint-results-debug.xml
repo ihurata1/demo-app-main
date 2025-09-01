@@ -2,6 +2,246 @@
 <issues format="6" by="lint 8.2.2">
 
     <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="            startActivityForResult(enableBtIntent, ENABLE_BLUETOOTH_REQUEST_CODE)"
+        errorLine2="                                   ~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="179"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="            bleAdvertiser.stopAdvertising(simpleAdvertiseCallback)"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="172"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="            bleAdvertiser.startAdvertising(advertiseSettings, advertiseData, simpleAdvertiseCallback)"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="198"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="            gattServer = bluetoothManager.openGattServer(context, gattServerCallback)"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="373"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="            gattServer?.addService(service)"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="409"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="        gattServer?.close()"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="419"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="                    gattServer?.sendResponse("
+        errorLine2="                    ^">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="494"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="                    gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_FAILURE, 0, null)"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="525"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="                        gattServer?.sendResponse("
+        errorLine2="                        ^">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="546"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="                        gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_FAILURE, 0, null)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="557"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="                    gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, 0, returnValue)"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="577"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="                    gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_FAILURE, 0, null)"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="580"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="                        gattServer?.sendResponse(device, requestId, status, 0, null)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="614"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="                        gattServer?.sendResponse(device, requestId, BluetoothGatt.GATT_FAILURE, 0, null)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/domain/BLEManager.kt"
+            line="619"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with `targetSdkVersion` 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="            startActivityForResult(enableBtIntent, ENABLE_BLUETOOTH_REQUEST_CODE)"
+        errorLine2="                                   ~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="407"
+            column="36"/>
+    </issue>
+
+    <issue
         id="OldTargetApi"
         severity="Warning"
         message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
@@ -31,7 +271,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml"
-            line="22"
+            line="34"
             column="13"/>
     </issue>
 
@@ -47,7 +287,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/build.gradle.kts"
-            line="88"
+            line="92"
             column="21"/>
     </issue>
 
@@ -63,7 +303,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/build.gradle.kts"
-            line="89"
+            line="93"
             column="21"/>
     </issue>
 
@@ -79,7 +319,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/build.gradle.kts"
-            line="90"
+            line="94"
             column="21"/>
     </issue>
 
@@ -95,14 +335,14 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/build.gradle.kts"
-            line="91"
+            line="95"
             column="21"/>
     </issue>
 
     <issue
         id="GradleDependency"
         severity="Warning"
-        message="A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.2"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.3"
         category="Correctness"
         priority="4"
         summary="Obsolete Gradle Dependency"
@@ -111,14 +351,14 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/build.gradle.kts"
-            line="92"
+            line="96"
             column="21"/>
     </issue>
 
     <issue
         id="GradleDependency"
         severity="Warning"
-        message="A newer version of androidx.lifecycle:lifecycle-process than 2.7.0 is available: 2.9.2"
+        message="A newer version of androidx.lifecycle:lifecycle-process than 2.7.0 is available: 2.9.3"
         category="Correctness"
         priority="4"
         summary="Obsolete Gradle Dependency"
@@ -127,14 +367,14 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/build.gradle.kts"
-            line="93"
+            line="97"
             column="21"/>
     </issue>
 
     <issue
         id="GradleDependency"
         severity="Warning"
-        message="A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.9.2"
+        message="A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.9.3"
         category="Correctness"
         priority="4"
         summary="Obsolete Gradle Dependency"
@@ -143,14 +383,14 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/build.gradle.kts"
-            line="94"
+            line="98"
             column="21"/>
     </issue>
 
     <issue
         id="GradleDependency"
         severity="Warning"
-        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.9.2"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.9.3"
         category="Correctness"
         priority="4"
         summary="Obsolete Gradle Dependency"
@@ -159,7 +399,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/build.gradle.kts"
-            line="95"
+            line="99"
             column="21"/>
     </issue>
 
@@ -175,7 +415,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/build.gradle.kts"
-            line="96"
+            line="100"
             column="21"/>
     </issue>
 
@@ -191,7 +431,7 @@
         errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/build.gradle.kts"
-            line="129"
+            line="133"
             column="18"/>
     </issue>
 
@@ -257,8 +497,314 @@
         errorLine2="     ~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/AndroidManifest.xml"
-            line="9"
+            line="21"
             column="6"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;BLE Demo - Server (Peripheral)&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="75"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;BLE hazır&quot;"
+        errorLine2="                    ~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="82"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;BLE Advertising Başlat&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="88"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;Drone: DJI Mavic 3 | Serial: 1234567890&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="94"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;BLE Log:&quot;"
+        errorLine2="                    ~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="101"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                text = &quot;[$timestamp] $emoji $message&quot;"
+        errorLine2="                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="144"
+            column="24"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        deviceInfoText.text = &quot;Drone: ${mockDroneInfo.brand} ${mockDroneInfo.model} | Serial: ${mockDroneInfo.serialNumber}&quot;"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="199"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        deviceInfoText.text = &quot;Drone: ${mockDroneInfo.brand} ${mockDroneInfo.model} | Serial: ${mockDroneInfo.serialNumber}&quot;"
+        errorLine2="                               ~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="199"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        deviceInfoText.text = &quot;Drone: ${mockDroneInfo.brand} ${mockDroneInfo.model} | Serial: ${mockDroneInfo.serialNumber}&quot;"
+        errorLine2="                                                                                   ~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="199"
+            column="84"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                statusText.text = &quot;BLE aktif - Advertising&quot;"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="258"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                bleButton.text = &quot;BLE Advertising Durdur&quot;"
+        errorLine2="                                  ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="260"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                statusText.text = &quot;BLE hatası: $message&quot;"
+        errorLine2="                                  ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="269"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                statusText.text = &quot;BLE hatası: $message&quot;"
+        errorLine2="                                   ~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="269"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                bleButton.text = &quot;BLE Advertising Başlat&quot;"
+        errorLine2="                                  ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="271"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                statusText.text = &quot;BLE kapalı&quot;"
+        errorLine2="                                   ~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="280"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                bleButton.text = &quot;BLE Advertising Başlat&quot;"
+        errorLine2="                                  ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/BLEDemoActivity.kt"
+            line="282"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;BLE Demo&apos;yu Aç&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="106"
+            column="21"/>
     </issue>
 
     <issue
@@ -275,7 +821,7 @@
         errorLine2="                    ~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="65"
+            line="123"
             column="21"/>
     </issue>
 
@@ -293,7 +839,7 @@
         errorLine2="                    ~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="72"
+            line="130"
             column="21"/>
     </issue>
 
@@ -311,7 +857,7 @@
         errorLine2="                    ~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="78"
+            line="136"
             column="21"/>
     </issue>
 
@@ -329,7 +875,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="83"
+            line="141"
             column="21"/>
     </issue>
 
@@ -347,7 +893,7 @@
         errorLine2="                    ~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="89"
+            line="147"
             column="21"/>
     </issue>
 
@@ -365,7 +911,97 @@
         errorLine2="                    ~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="95"
+            line="153"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;BLE Advertising:&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="159"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;BLE kapalı&quot;"
+        errorLine2="                    ~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="165"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;BLE Başlat&quot;"
+        errorLine2="                    ~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="171"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;Drone: DJI Mavic 3 | Serial: 1234567890&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="176"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="            text = &quot;BLE Demo&apos;yu Aç&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="183"
             column="21"/>
     </issue>
 
@@ -383,7 +1019,7 @@
         errorLine2="                    ~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="103"
+            line="193"
             column="21"/>
     </issue>
 
@@ -401,7 +1037,7 @@
         errorLine2="                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="150"
+            line="245"
             column="24"/>
     </issue>
 
@@ -419,7 +1055,7 @@
         errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="187"
+            line="282"
             column="39"/>
     </issue>
 
@@ -437,7 +1073,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="187"
+            line="282"
             column="40"/>
     </issue>
 
@@ -455,7 +1091,7 @@
         errorLine2="                                         ~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="188"
+            line="283"
             column="42"/>
     </issue>
 
@@ -473,7 +1109,7 @@
         errorLine2="                                       ~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="210"
+            line="305"
             column="40"/>
     </issue>
 
@@ -491,7 +1127,7 @@
         errorLine2="                                         ~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="211"
+            line="306"
             column="42"/>
     </issue>
 
@@ -509,7 +1145,7 @@
         errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="253"
+            line="343"
             column="41"/>
     </issue>
 
@@ -527,7 +1163,7 @@
         errorLine2="                                              ~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="255"
+            line="345"
             column="47"/>
     </issue>
 
@@ -545,7 +1181,7 @@
         errorLine2="                                        ~~~~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="259"
+            line="349"
             column="41"/>
     </issue>
 
@@ -563,8 +1199,188 @@
         errorLine2="                                              ~~~~~~~~~~~~~~">
         <location
             file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
-            line="261"
+            line="351"
             column="47"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        bleDeviceInfoText.text = &quot;Drone: ${mockDroneInfo.brand} ${mockDroneInfo.model} | Serial: ${mockDroneInfo.serialNumber}&quot;"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="427"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        bleDeviceInfoText.text = &quot;Drone: ${mockDroneInfo.brand} ${mockDroneInfo.model} | Serial: ${mockDroneInfo.serialNumber}&quot;"
+        errorLine2="                                  ~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="427"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="        bleDeviceInfoText.text = &quot;Drone: ${mockDroneInfo.brand} ${mockDroneInfo.model} | Serial: ${mockDroneInfo.serialNumber}&quot;"
+        errorLine2="                                                                                      ~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="427"
+            column="87"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                bleStatusText.text = &quot;BLE aktif - Advertising&quot;"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="488"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                bleButton.text = &quot;BLE Durdur&quot;"
+        errorLine2="                                  ~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="490"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                bleStatusText.text = &quot;BLE hatası: $message&quot;"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="499"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                bleStatusText.text = &quot;BLE hatası: $message&quot;"
+        errorLine2="                                      ~~~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="499"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                bleButton.text = &quot;BLE Başlat&quot;"
+        errorLine2="                                  ~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="501"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                bleStatusText.text = &quot;BLE kapalı&quot;"
+        errorLine2="                                      ~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="510"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`&#xA;* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.&#xA;* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.&#xA;* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="https://developer.android.com/guide/topics/resources/localization.html"
+        urls="https://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="                bleButton.text = &quot;BLE Başlat&quot;"
+        errorLine2="                                  ~~~~~~~~~~">
+        <location
+            file="/Users/ibrahimaydin/Desktop/apps/server-app/app/src/main/kotlin/com/serverapp/MainActivity.kt"
+            line="512"
+            column="35"/>
     </issue>
 
 </issues>

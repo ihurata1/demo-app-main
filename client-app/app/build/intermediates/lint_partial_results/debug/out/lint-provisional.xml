@@ -10,19 +10,502 @@
             replacement="">
             <range
                 file="${:app*debug*MAIN*sourceProvider*0*manifest*0}"
-                startOffset="799"
-                endOffset="819"/>
+                startOffset="1492"
+                endOffset="1512"/>
         </fix-replace>
         <location
             file="${:app*debug*MAIN*sourceProvider*0*manifest*0}"
-            line="18"
+            line="30"
             column="9"
-            startOffset="799"
-            endLine="18"
+            startOffset="1492"
+            endLine="30"
             endColumn="29"
-            endOffset="819"/>
+            endOffset="1512"/>
         <map>
             <condition minGE="ffffffffc0000000"/>
+        </map>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/BLEDemoActivity.kt"
+            line="244"
+            column="30"
+            startOffset="8112"
+            endLine="244"
+            endColumn="41"
+            endOffset="8123"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/BLEDemoActivity.kt"
+            line="251"
+            column="30"
+            startOffset="8479"
+            endLine="251"
+            endColumn="41"
+            endOffset="8490"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/BLEDemoActivity.kt"
+            line="258"
+            column="30"
+            startOffset="8851"
+            endLine="258"
+            endColumn="41"
+            endOffset="8862"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/BLEDemoActivity.kt"
+            line="265"
+            column="30"
+            startOffset="9252"
+            endLine="265"
+            endColumn="41"
+            endOffset="9263"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/BLEDemoActivity.kt"
+            line="301"
+            column="30"
+            startOffset="10899"
+            endLine="301"
+            endColumn="41"
+            endOffset="10910"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/BLEDemoActivity.kt"
+            line="177"
+            column="36"
+            startOffset="5702"
+            endLine="177"
+            endColumn="50"
+            endOffset="5716"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/MainActivity.kt"
+            line="1002"
+            column="30"
+            startOffset="36442"
+            endLine="1002"
+            endColumn="41"
+            endOffset="36453"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/MainActivity.kt"
+            line="1009"
+            column="30"
+            startOffset="36810"
+            endLine="1009"
+            endColumn="41"
+            endOffset="36821"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/MainActivity.kt"
+            line="1016"
+            column="30"
+            startOffset="37182"
+            endLine="1016"
+            endColumn="41"
+            endOffset="37193"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/MainActivity.kt"
+            line="1023"
+            column="30"
+            startOffset="37583"
+            endLine="1023"
+            endColumn="41"
+            endOffset="37594"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/MainActivity.kt"
+            line="1059"
+            column="30"
+            startOffset="39249"
+            endLine="1059"
+            endColumn="41"
+            endOffset="39260"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/MainActivity.kt"
+            line="935"
+            column="36"
+            startOffset="34034"
+            endLine="935"
+            endColumn="50"
+            endOffset="34048"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="178"
+            column="30"
+            startOffset="6030"
+            endLine="178"
+            endColumn="41"
+            endOffset="6041"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_SCAN" requirement="android.permission.BLUETOOTH_SCAN"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="204"
+            column="17"
+            startOffset="7321"
+            endLine="204"
+            endColumn="42"
+            endOffset="7346"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="293"
+            column="17"
+            startOffset="10690"
+            endLine="293"
+            endColumn="40"
+            endOffset="10713"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="315"
+            column="29"
+            startOffset="11987"
+            endLine="315"
+            endColumn="46"
+            endOffset="12004"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="322"
+            column="25"
+            startOffset="12291"
+            endLine="322"
+            endColumn="86"
+            endOffset="12352"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="325"
+            column="30"
+            startOffset="12463"
+            endLine="325"
+            endColumn="73"
+            endOffset="12506"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="327"
+            column="29"
+            startOffset="12619"
+            endLine="327"
+            endColumn="46"
+            endOffset="12636"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="331"
+            column="25"
+            startOffset="12801"
+            endLine="331"
+            endColumn="42"
+            endOffset="12818"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="335"
+            column="21"
+            startOffset="12961"
+            endLine="335"
+            endColumn="38"
+            endOffset="12978"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="339"
+            column="17"
+            startOffset="13106"
+            endLine="339"
+            endColumn="34"
+            endOffset="13123"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="348"
+            column="17"
+            startOffset="13533"
+            endLine="348"
+            endColumn="34"
+            endOffset="13550"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_SCAN" requirement="android.permission.BLUETOOTH_SCAN"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="143"
+            column="13"
+            startOffset="4920"
+            endLine="143"
+            endColumn="46"
+            endOffset="4953"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_SCAN" requirement="android.permission.BLUETOOTH_SCAN"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="168"
+            column="9"
+            startOffset="5638"
+            endLine="168"
+            endColumn="62"
+            endOffset="5691"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="244"
+            column="25"
+            startOffset="8937"
+            endLine="244"
+            endColumn="73"
+            endOffset="8985"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="259"
+            column="17"
+            startOffset="9390"
+            endLine="259"
+            endColumn="34"
+            endOffset="9407"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="260"
+            column="17"
+            startOffset="9424"
+            endLine="260"
+            endColumn="29"
+            endOffset="9436"/>
+    </incident>
+
+    <incident
+        id="MissingPermission"
+        severity="error"
+        message="Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with `checkPermission`) or explicitly handle a potential `SecurityException`">
+        <fix-data missing="android.permission.BLUETOOTH_CONNECT" requirement="android.permission.BLUETOOTH_CONNECT"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="441"
+            column="13"
+            startOffset="17779"
+            endLine="441"
+            endColumn="30"
+            endOffset="17796"/>
+    </incident>
+
+    <incident
+        id="InlinedApi"
+        severity="warning"
+        message="">
+        <fix-data minSdk="fffffffffe000000" requiresApi="ffffffffc0000000"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="584"
+            column="65"
+            startOffset="22635"
+            endLine="584"
+            endColumn="102"
+            endOffset="22672"/>
+        <map>
+            <api-levels id="minSdk"
+                value="fffffffffe000000"/>
+            <api-levels id="requiresApi"
+                value="ffffffffc0000000"/>
+            <entry
+                name="message"
+                string="Field requires API level 31 (current min is %1$s): `android.Manifest.permission#BLUETOOTH_CONNECT`"/>
+        </map>
+    </incident>
+
+    <incident
+        id="InlinedApi"
+        severity="warning"
+        message="">
+        <fix-data minSdk="fffffffffe000000" requiresApi="ffffffffc0000000"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/clientapp/domain/BLEManager.kt"
+            line="585"
+            column="60"
+            startOffset="22773"
+            endLine="585"
+            endColumn="94"
+            endOffset="22807"/>
+        <map>
+            <api-levels id="minSdk"
+                value="fffffffffe000000"/>
+            <api-levels id="requiresApi"
+                value="ffffffffc0000000"/>
+            <entry
+                name="message"
+                string="Field requires API level 31 (current min is %1$s): `android.Manifest.permission#BLUETOOTH_SCAN`"/>
         </map>
     </incident>
 

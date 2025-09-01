@@ -3,6 +3,9 @@
     <map id="UnsafeIntentLaunch">
             <map id="unprotected">
                 <entry
+                    name="com.clientapp.BLEDemoActivity"
+                    boolean="true"/>
+                <entry
                     name="com.clientapp.MainActivity"
                     boolean="true"/>
             </map>

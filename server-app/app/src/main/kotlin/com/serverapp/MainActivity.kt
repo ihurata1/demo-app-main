@@ -18,6 +18,7 @@ import androidx.lifecycle.lifecycleScope
 import com.serverapp.domain.BLEManager
 import com.serverapp.domain.CoreServiceImpl
 import com.serverapp.domain.TelemetryServiceImpl
+import com.serverapp.domain.InfoServiceImpl
 import io.grpc.Grpc
 import io.grpc.InsecureServerCredentials
 import kotlinx.coroutines.*
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
     // Drone connection management
     private lateinit var coreService: CoreServiceImpl
     private lateinit var telemetryService: TelemetryServiceImpl
+    private lateinit var infoService: InfoServiceImpl
     private var isDroneConnected = false
     private var grpcServer: io.grpc.Server? = null
     private val grpcPort = 50051
@@ -70,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         // Initialize Services
         coreService = CoreServiceImpl()
         telemetryService = TelemetryServiceImpl()
+        infoService = InfoServiceImpl()
         
         // Initialize BLE Manager
         bleManager = BLEManager(this)
@@ -357,6 +360,7 @@ class MainActivity : AppCompatActivity() {
             grpcServer = Grpc.newServerBuilderForPort(grpcPort, InsecureServerCredentials.create())
                 .addService(coreService)
                 .addService(telemetryService)
+                .addService(infoService)
                 .keepAliveTime(30, java.util.concurrent.TimeUnit.SECONDS)
                 .keepAliveTimeout(5, java.util.concurrent.TimeUnit.SECONDS)
                 .permitKeepAliveWithoutCalls(true)
@@ -422,6 +426,8 @@ class MainActivity : AppCompatActivity() {
         bleManager.updateDroneInfo(mockDroneInfo)
         bleDeviceInfoText.text = "Drone: ${mockDroneInfo.brand} ${mockDroneInfo.model} | Serial: ${mockDroneInfo.serialNumber}"
     }
+    
+
     
     private fun hasBluetoothPermissions(): Boolean {
         val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
