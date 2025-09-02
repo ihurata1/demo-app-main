@@ -629,3 +629,4 @@ class BLEManager(private val context: Context) {
         Log.d(TAG, "BLEManager cleaned up")
     }
 }
+

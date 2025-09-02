@@ -314,3 +314,4 @@ class BLEDemoActivity : AppCompatActivity() {
         bleManager.cleanup()
     }
 }
+

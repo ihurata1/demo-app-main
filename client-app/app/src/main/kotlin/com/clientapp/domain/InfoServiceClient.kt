@@ -139,3 +139,4 @@ class InfoServiceClient(private val serverHost: String, private val serverPort: 
         return channel != null && !channel!!.isShutdown
     }
 }
+
