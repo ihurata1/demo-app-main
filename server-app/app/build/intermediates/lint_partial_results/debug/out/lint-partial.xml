@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.2.2" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.serverapp.MainActivity"
+                    boolean="true"/>
+                <entry
+                    name="com.serverapp.BLEDemoActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.drawable.ic_launcher_foreground"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_launcher_foreground.xml"
+            line="1"
+            column="1"
+            startOffset="0"
+            endLine="10"
+            endColumn="10"
+            endOffset="380"/>
+        <location id="R.color.purple_200"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="4"
+            column="12"
+            startOffset="119"
+            endLine="4"
+            endColumn="29"
+            endOffset="136"/>
+        <entry
+            name="model"
+            string="attr[colorPrimaryVariant(R)],color[purple_200(D),black(U),teal_200(U),white(U),teal_700(U),ic_launcher_background(D),purple_700(U),purple_500(U)],drawable[ic_launcher_foreground(D)],string[app_name(U)],style[Theme_AppCompat_Light_NoActionBar(R),Theme_ServerApp(U)],xml[network_security_config(U),data_extraction_rules(U),backup_rules(U)];c^b^8^7^4^3^5^2^0;;;"/>
+        <location id="R.color.ic_launcher_background"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="3"
+            column="12"
+            startOffset="62"
+            endLine="3"
+            endColumn="41"
+            endOffset="91"/>
+    </map>
+
+</incidents>

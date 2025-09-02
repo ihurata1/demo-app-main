@@ -1,0 +1,534 @@
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:177: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            startActivityForResult(enableBtIntent, ENABLE_BLUETOOTH_REQUEST_CODE)
+                                   ~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:244: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:251: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:258: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:265: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:301: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:143: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            bleScanner.stopScan(scanCallback)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:168: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+        bleScanner.startScan(filters, settings, scanCallback)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:178: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:204: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                bleScanner.stopScan(this)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:244: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+        connectedGatt = device.connectGatt(context, false, gattCallback)
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:259: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                gatt.disconnect()
+                ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:260: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                gatt.close()
+                ~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:293: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                gatt.discoverServices()
+                ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:315: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                            gatt.disconnect()
+                            ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:322: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                        gatt.setCharacteristicNotification(readCharacteristic, false)
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:325: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                        if (!gatt.readCharacteristic(readCharacteristic)) {
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:327: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                            gatt.disconnect()
+                            ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:331: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                        gatt.disconnect()
+                        ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:335: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                    gatt.disconnect()
+                    ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:339: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                gatt.disconnect()
+                ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:348: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+                gatt.disconnect()
+                ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:441: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            gatt.disconnect()
+            ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:935: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            startActivityForResult(enableBtIntent, ENABLE_BLUETOOTH_REQUEST_CODE)
+                                   ~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1002: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1009: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1016: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1023: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1059: Error: Call requires permission which may be rejected by user: code should explicitly check to see if permission is available (with checkPermission) or explicitly handle a potential SecurityException [MissingPermission]
+            val deviceName = device.name ?: "Unknown Device"
+                             ~~~~~~~~~~~
+
+   Explanation for issues of type "MissingPermission":
+   This check scans through your code and libraries and looks at the APIs
+   being used, and checks this against the set of permissions required to
+   access those APIs. If the code using those APIs is called at runtime, then
+   the program will crash.
+
+   Furthermore, for permissions that are revocable (with targetSdkVersion 23),
+   client code must also be prepared to handle the calls throwing an exception
+   if the user rejects the request for permission at runtime.
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:584: Warning: Field requires API level 31 (current min is 26): android.Manifest.permission#BLUETOOTH_CONNECT [InlinedApi]
+        val result = ContextCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED &&
+                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/domain/BLEManager.kt:585: Warning: Field requires API level 31 (current min is 26): android.Manifest.permission#BLUETOOTH_SCAN [InlinedApi]
+                ContextCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED &&
+                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "InlinedApi":
+   This check scans through all the Android API field references in the
+   application and flags certain constants, such as static final integers and
+   Strings, which were introduced in later versions. These will actually be
+   copied into the class files rather than being referenced, which means that
+   the value is available even when running on older devices. In some cases
+   that's fine, and in other cases it can result in a runtime crash or
+   incorrect behavior. It depends on the context, so consider the code
+   carefully and decide whether it's safe and can be suppressed or whether the
+   code needs to be guarded.
+
+   If you really want to use this API and don't need to support older devices
+   just set the minSdkVersion in your build.gradle or AndroidManifest.xml
+   files.
+
+   If your code is deliberately accessing newer APIs, and you have ensured
+   (e.g. with conditional execution) that this code will only ever be called
+   on a supported platform, then you can annotate your class or method with
+   the @TargetApi annotation specifying the local minimum SDK to apply, such
+   as @TargetApi(11), such that this check considers 11 rather than your
+   manifest file's minimum SDK as the required API level.
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:14: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk = 34
+        ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/AndroidManifest.xml:34: Warning: Redundant label can be removed [RedundantLabel]
+            android:label="@string/app_name"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RedundantLabel":
+   When an activity does not have a label attribute, it will use the one from
+   the application tag. Since the application has already specified the same
+   label, the label on this activity can be omitted.
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:92: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.17.0 [GradleDependency]
+    implementation("androidx.core:core-ktx:1.12.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:93: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation("androidx.appcompat:appcompat:1.6.1")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:94: Warning: A newer version of com.google.android.material:material than 1.11.0 is available: 1.12.0 [GradleDependency]
+    implementation("com.google.android.material:material:1.11.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:95: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1 [GradleDependency]
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:96: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.3 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:97: Warning: A newer version of androidx.lifecycle:lifecycle-process than 2.7.0 is available: 2.9.3 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-process:2.7.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:98: Warning: A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.9.3 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:99: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.9.3 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:100: Warning: A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.8.1 [GradleDependency]
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/build.gradle.kts:133: Warning: A newer version of com.google.protobuf:protobuf-java than 3.25.3 is available: 4.28.1 [GradleDependency]
+    compileOnly("com.google.protobuf:protobuf-java:3.25.3")
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/res/values/colors.xml:3: Warning: The resource R.color.ic_launcher_background appears to be unused [UnusedResources]
+    <color name="ic_launcher_background">#FFFFFF</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/res/values/colors.xml:4: Warning: The resource R.color.purple_200 appears to be unused [UnusedResources]
+    <color name="purple_200">#FFBB86FC</color>
+           ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/res/drawable/ic_launcher_foreground.xml:1: Warning: The resource R.drawable.ic_launcher_foreground appears to be unused [UnusedResources]
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+^
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/AndroidManifest.xml:21: Warning: Should explicitly set android:icon, there is no default [MissingApplicationIcon]
+    <application
+     ~~~~~~~~~~~
+
+   Explanation for issues of type "MissingApplicationIcon":
+   You should set an icon for the application as whole because there is no
+   default. This attribute must be set as a reference to a drawable resource
+   containing the image (for example @drawable/icon).
+
+   https://developer.android.com/studio/publish/preparing#publishing-configure
+
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:71: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "BLE Demo - Client (Central)"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:78: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "BLE hazır"
+                    ~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:84: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "BLE Taramayı Başlat"
+                    ~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:90: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Henüz cihaz bulunamadı"
+                    ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:97: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "BLE Log:"
+                    ~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:141: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                text = "[$timestamp] $emoji $message"
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:247: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            deviceInfoText.text = "Bulunan: $deviceName$info"
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:247: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            deviceInfoText.text = "Bulunan: $deviceName$info"
+                                   ~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:253: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            statusText.text = "BLE bağlı - $deviceName"
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:253: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusText.text = "BLE bağlı - $deviceName"
+                               ~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:260: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusText.text = "BLE kapalı"
+                               ~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:267: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            deviceInfoText.text = "Drone: ${droneInfo.brand} ${droneInfo.model} | Serial: ${droneInfo.serialNumber}"
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:267: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            deviceInfoText.text = "Drone: ${droneInfo.brand} ${droneInfo.model} | Serial: ${droneInfo.serialNumber}"
+                                   ~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:267: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            deviceInfoText.text = "Drone: ${droneInfo.brand} ${droneInfo.model} | Serial: ${droneInfo.serialNumber}"
+                                                                               ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:273: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.text = "BLE aktif - Tarama"
+                                   ~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:275: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                bleButton.text = "BLE Taramayı Durdur"
+                                  ~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:283: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.text = "BLE kapalı"
+                                   ~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:285: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                bleButton.text = "BLE Taramayı Başlat"
+                                  ~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:293: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                statusText.text = "BLE hatası: $message"
+                                  ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:293: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                statusText.text = "BLE hatası: $message"
+                                   ~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:295: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                bleButton.text = "BLE Taramayı Başlat"
+                                  ~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/BLEDemoActivity.kt:303: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusText.text = "BLE bağlantı hatası"
+                               ~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:126: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Client App"
+                    ~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:133: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            text = "Server IP: $serverHost | Bağlantı bekleniyor..."
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:133: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Server IP: $serverHost | Bağlantı bekleniyor..."
+                    ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:133: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Server IP: $serverHost | Bağlantı bekleniyor..."
+                                          ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:139: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Server'a Bağlan"
+                    ~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:144: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Server IP Değiştir"
+                    ~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:153: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "BLE Scanning:"
+                    ~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:159: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "BLE kapalı"
+                    ~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:165: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "BLE Taramayı Başlat"
+                    ~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:170: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Henüz cihaz bulunamadı"
+                    ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:177: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "BLE Demo'yu Aç"
+                    ~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:196: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "System Log:"
+                    ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:238: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                text = "[$timestamp] $prefix: $message"
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:263: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    connectButton.text = "Bağlantıyı Kes"
+                                          ~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:287: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    connectButton.text = "Server'a Bağlan"
+                                          ~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:302: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    connectButton.text = "Server'a Bağlan"
+                                          ~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:443: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        statusText.text = "Server IP: $serverHost | $currentStatus"
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:443: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        statusText.text = "Server IP: $serverHost | $currentStatus"
+                           ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:482: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Drone Bağlantısı"
+                    ~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:488: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "Bağlantı bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:508: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                droneStatusText.text = "Drone Bağlı"
+                                        ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:509: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                droneConnectionDetails.text = "Bağlantı aktif - Veri alınıyor"
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:513: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                droneStatusText.text = "Drone Bağlı Değil"
+                                        ~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:514: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                droneConnectionDetails.text = "Bağlantı bekleniyor..."
+                                               ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:590: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "🛸 Drone Telemetri"
+                    ~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:598: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "📍 Konum: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:605: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "⬆️ Yükseklik: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:612: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "🔄 Açı: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:619: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "💨 Hız: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:626: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "✈️ Uçuş: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:657: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "ℹ️ Drone Bilgileri"
+                    ~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:665: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "📱 Model: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:672: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "🔢 Seri No: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:679: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "⏱️ Uçuş Süresi: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:686: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "📋 Versiyon: Bekleniyor..."
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:693: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            text = "🔄 Bilgileri Yenile"
+                    ~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:757: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            productText?.text = "📱 Model: ${product.vendorName} ${product.productName}"
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:757: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            productText?.text = "📱 Model: ${product.vendorName} ${product.productName}"
+                                 ~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:761: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            serialText?.text = "🔢 Seri No: ${identification.hardwareUid}"
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:761: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            serialText?.text = "🔢 Seri No: ${identification.hardwareUid}"
+                                ~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:767: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            flightTimeText?.text = "⏱️ Uçuş Süresi: ${flightTimeMinutes}:${String.format("%02d", flightTimeSeconds)}"
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:767: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            flightTimeText?.text = "⏱️ Uçuş Süresi: ${flightTimeMinutes}:${String.format("%02d", flightTimeSeconds)}"
+                                    ~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:771: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            versionText?.text = "📋 Versiyon: ${version.flightSwMajor}.${version.flightSwMinor}.${version.flightSwPatch}"
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:771: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            versionText?.text = "📋 Versiyon: ${version.flightSwMajor}.${version.flightSwMinor}.${version.flightSwPatch}"
+                                 ~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:848: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            flightTimeText?.text = "⏱️ Uçuş Süresi: ${flightTimeMinutes}:${String.format("%02d", flightTimeSeconds)}"
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:848: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            flightTimeText?.text = "⏱️ Uçuş Süresi: ${flightTimeMinutes}:${String.format("%02d", flightTimeSeconds)}"
+                                    ~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:857: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    positionText.text = "📍 Konum: ${String.format("%.6f", position.latitudeDeg)}, ${String.format("%.6f", position.longitudeDeg)}"
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:857: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    positionText.text = "📍 Konum: ${String.format("%.6f", position.latitudeDeg)}, ${String.format("%.6f", position.longitudeDeg)}"
+                                         ~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:870: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    altitudeText.text = "⬆️ Yükseklik: ${String.format("%.1f", altitude.altitudeAmslM)} m"
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:870: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    altitudeText.text = "⬆️ Yükseklik: ${String.format("%.1f", altitude.altitudeAmslM)} m"
+                                         ~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:883: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    attitudeText.text = "🔄 Açı: R:${String.format("%.1f", attitude.rollDeg)}° P:${String.format("%.1f", attitude.pitchDeg)}° Y:${String.format("%.1f", attitude.yawDeg)}°"
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:897: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    velocityText.text = "💨 Hız: ${String.format("%.1f", speed)} m/s"
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:910: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    inAirText.text = "✈️ Uçuş: ${if (inAir) "Havada ✅" else "Yerde ❌"}"
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:919: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        positionText.text = "📍 Konum: Bekleniyor..."
+                             ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:920: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        altitudeText.text = "⬆️ Yükseklik: Bekleniyor..."
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:921: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        attitudeText.text = "🔄 Açı: Bekleniyor..."
+                             ~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:922: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        velocityText.text = "💨 Hız: Bekleniyor..."
+                             ~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:923: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        inAirText.text = "✈️ Uçuş: Bekleniyor..."
+                          ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1005: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            bleDeviceInfoText.text = "Bulunan: $deviceName$info"
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1005: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            bleDeviceInfoText.text = "Bulunan: $deviceName$info"
+                                      ~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1011: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            bleStatusText.text = "BLE bağlı - $deviceName"
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1011: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            bleStatusText.text = "BLE bağlı - $deviceName"
+                                  ~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1018: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            bleStatusText.text = "BLE kapalı"
+                                  ~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1025: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            bleDeviceInfoText.text = "Drone: ${droneInfo.brand} ${droneInfo.model} | Serial: ${droneInfo.serialNumber}"
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1025: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            bleDeviceInfoText.text = "Drone: ${droneInfo.brand} ${droneInfo.model} | Serial: ${droneInfo.serialNumber}"
+                                      ~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1025: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            bleDeviceInfoText.text = "Drone: ${droneInfo.brand} ${droneInfo.model} | Serial: ${droneInfo.serialNumber}"
+                                                                                  ~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1031: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                bleStatusText.text = "BLE aktif - Tarama"
+                                      ~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1033: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                bleButton.text = "BLE Taramayı Durdur"
+                                  ~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1041: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                bleStatusText.text = "BLE kapalı"
+                                      ~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1043: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                bleButton.text = "BLE Taramayı Başlat"
+                                  ~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1051: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                bleStatusText.text = "BLE hatası: $message"
+                                     ~~~~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1051: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                bleStatusText.text = "BLE hatası: $message"
+                                      ~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1053: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                bleButton.text = "BLE Taramayı Başlat"
+                                  ~~~~~~~~~~~~~~~~~~~
+/Users/ibrahimaydin/Desktop/apps/client-app/app/src/main/kotlin/com/clientapp/MainActivity.kt:1061: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            bleStatusText.text = "BLE bağlantı hatası"
+                                  ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+29 errors, 114 warnings

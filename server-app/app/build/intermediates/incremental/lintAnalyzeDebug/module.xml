@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="/Users/ibrahimaydin/Desktop/apps/server-app/app"
+    name=":app"
+    type="APP"
+    maven="server-app:app:"
+    agpVersion="8.2.2"
+    buildFolder="build"
+    bootClassPath="/Users/ibrahimaydin/Library/Android/sdk/platforms/android-34/android.jar:/Users/ibrahimaydin/Library/Android/sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34"
+    neverShrinking="true">
+  <lintOptions
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="debug"/>
+</lint-module>

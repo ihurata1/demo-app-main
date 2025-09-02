@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/xml_network_security_config.xml.flat",
+        "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-37:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/xml_backup_rules.xml.flat",
+        "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-37:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.serverapp-merged_res-35:/xml_network_security_config.xml.flat",
+        "source": "com.serverapp-main-37:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-37:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-merged_res-35:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/ibrahimaydin/.gradle/daemon/8.5-rc-4/com.serverapp-main-37:/drawable/ic_launcher_foreground.xml"
+    }
+]

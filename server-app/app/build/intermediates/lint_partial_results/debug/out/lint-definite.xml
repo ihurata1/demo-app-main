@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.2.2" type="incidents">
+
+    <incident
+        id="RedundantLabel"
+        severity="warning"
+        message="Redundant label can be removed">
+        <fix-attribute
+            description="Delete label"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="label"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*manifest*0}"
+            line="34"
+            column="13"
+            startOffset="1626"
+            endLine="34"
+            endColumn="45"
+            endOffset="1658"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="258"
+            column="36"
+            startOffset="8590"
+            endLine="258"
+            endColumn="59"
+            endOffset="8613"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="260"
+            column="35"
+            startOffset="8742"
+            endLine="260"
+            endColumn="57"
+            endOffset="8764"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="269"
+            column="35"
+            startOffset="9105"
+            endLine="269"
+            endColumn="57"
+            endOffset="9127"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="269"
+            column="36"
+            startOffset="9106"
+            endLine="269"
+            endColumn="48"
+            endOffset="9118"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="271"
+            column="35"
+            startOffset="9253"
+            endLine="271"
+            endColumn="57"
+            endOffset="9275"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="280"
+            column="36"
+            startOffset="9585"
+            endLine="280"
+            endColumn="46"
+            endOffset="9595"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="282"
+            column="35"
+            startOffset="9722"
+            endLine="282"
+            endColumn="57"
+            endOffset="9744"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="75"
+            column="21"
+            startOffset="2349"
+            endLine="75"
+            endColumn="51"
+            endOffset="2379"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="82"
+            column="21"
+            startOffset="2545"
+            endLine="82"
+            endColumn="30"
+            endOffset="2554"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="88"
+            column="21"
+            startOffset="2694"
+            endLine="88"
+            endColumn="43"
+            endOffset="2716"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="94"
+            column="21"
+            startOffset="2863"
+            endLine="94"
+            endColumn="60"
+            endOffset="2902"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="101"
+            column="21"
+            startOffset="3125"
+            endLine="101"
+            endColumn="29"
+            endOffset="3133"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="144"
+            column="24"
+            startOffset="4501"
+            endLine="144"
+            endColumn="54"
+            endOffset="4531"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="199"
+            column="31"
+            startOffset="6376"
+            endLine="199"
+            endColumn="125"
+            endOffset="6470"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="199"
+            column="32"
+            startOffset="6377"
+            endLine="199"
+            endColumn="39"
+            endOffset="6384"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/BLEDemoActivity.kt"
+            line="199"
+            column="84"
+            startOffset="6429"
+            endLine="199"
+            endColumn="95"
+            endOffset="6440"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="488"
+            column="39"
+            startOffset="16692"
+            endLine="488"
+            endColumn="62"
+            endOffset="16715"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="490"
+            column="35"
+            startOffset="16847"
+            endLine="490"
+            endColumn="45"
+            endOffset="16857"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="499"
+            column="38"
+            startOffset="17197"
+            endLine="499"
+            endColumn="60"
+            endOffset="17219"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="499"
+            column="39"
+            startOffset="17198"
+            endLine="499"
+            endColumn="51"
+            endOffset="17210"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="501"
+            column="35"
+            startOffset="17348"
+            endLine="501"
+            endColumn="45"
+            endOffset="17358"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="510"
+            column="39"
+            startOffset="17671"
+            endLine="510"
+            endColumn="49"
+            endOffset="17681"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="512"
+            column="35"
+            startOffset="17811"
+            endLine="512"
+            endColumn="45"
+            endOffset="17821"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="106"
+            column="21"
+            startOffset="3448"
+            endLine="106"
+            endColumn="35"
+            endOffset="3462"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="123"
+            column="21"
+            startOffset="3945"
+            endLine="123"
+            endColumn="31"
+            endOffset="3955"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="130"
+            column="21"
+            startOffset="4121"
+            endLine="130"
+            endColumn="33"
+            endOffset="4133"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="136"
+            column="21"
+            startOffset="4287"
+            endLine="136"
+            endColumn="34"
+            endOffset="4300"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="141"
+            column="21"
+            startOffset="4425"
+            endLine="141"
+            endColumn="38"
+            endOffset="4442"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="147"
+            column="21"
+            startOffset="4595"
+            endLine="147"
+            endColumn="38"
+            endOffset="4612"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="153"
+            column="21"
+            startOffset="4817"
+            endLine="153"
+            endColumn="35"
+            endOffset="4831"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="159"
+            column="21"
+            startOffset="4976"
+            endLine="159"
+            endColumn="37"
+            endOffset="4992"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="165"
+            column="21"
+            startOffset="5143"
+            endLine="165"
+            endColumn="31"
+            endOffset="5153"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="171"
+            column="21"
+            startOffset="5346"
+            endLine="171"
+            endColumn="31"
+            endOffset="5356"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="176"
+            column="21"
+            startOffset="5483"
+            endLine="176"
+            endColumn="60"
+            endOffset="5522"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="183"
+            column="21"
+            startOffset="5751"
+            endLine="183"
+            endColumn="35"
+            endOffset="5765"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="193"
+            column="21"
+            startOffset="6088"
+            endLine="193"
+            endColumn="32"
+            endOffset="6099"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="245"
+            column="24"
+            startOffset="7818"
+            endLine="245"
+            endColumn="54"
+            endOffset="7848"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="282"
+            column="39"
+            startOffset="9103"
+            endLine="282"
+            endColumn="80"
+            endOffset="9144"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="282"
+            column="40"
+            startOffset="9104"
+            endLine="282"
+            endColumn="69"
+            endOffset="9133"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="283"
+            column="42"
+            startOffset="9186"
+            endLine="283"
+            endColumn="55"
+            endOffset="9199"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="305"
+            column="40"
+            startOffset="9995"
+            endLine="305"
+            endColumn="57"
+            endOffset="10012"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="306"
+            column="42"
+            startOffset="10055"
+            endLine="306"
+            endColumn="55"
+            endOffset="10068"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="343"
+            column="41"
+            startOffset="11088"
+            endLine="343"
+            endColumn="70"
+            endOffset="11117"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="345"
+            column="47"
+            startOffset="11263"
+            endLine="345"
+            endColumn="69"
+            endOffset="11285"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="349"
+            column="41"
+            startOffset="11516"
+            endLine="349"
+            endColumn="58"
+            endOffset="11533"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="351"
+            column="47"
+            startOffset="11677"
+            endLine="351"
+            endColumn="61"
+            endOffset="11691"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="427"
+            column="34"
+            startOffset="14473"
+            endLine="427"
+            endColumn="128"
+            endOffset="14567"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="427"
+            column="35"
+            startOffset="14474"
+            endLine="427"
+            endColumn="42"
+            endOffset="14481"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*1}/com/serverapp/MainActivity.kt"
+            line="427"
+            column="87"
+            startOffset="14526"
+            endLine="427"
+            endColumn="98"
+            endOffset="14537"/>
+    </incident>
+
+    <incident
+        id="OldTargetApi"
+        severity="warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.">
+        <fix-replace
+            description="Update targetSdkVersion to 35"
+            oldString="34"
+            replacement="35"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="14"
+            column="9"
+            startOffset="267"
+            endLine="14"
+            endColumn="23"
+            endOffset="281"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.17.0">
+        <fix-replace
+            description="Change to 1.17.0"
+            family="Update versions"
+            oldString="1.12.0"
+            replacement="1.17.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="92"
+            column="21"
+            startOffset="2317"
+            endLine="92"
+            endColumn="50"
+            endOffset="2346"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1">
+        <fix-replace
+            description="Change to 1.7.1"
+            family="Update versions"
+            oldString="1.6.1"
+            replacement="1.7.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="93"
+            column="21"
+            startOffset="2369"
+            endLine="93"
+            endColumn="55"
+            endOffset="2403"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.11.0 is available: 1.12.0">
+        <fix-replace
+            description="Change to 1.12.0"
+            family="Update versions"
+            oldString="1.11.0"
+            replacement="1.12.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="94"
+            column="21"
+            startOffset="2426"
+            endLine="94"
+            endColumn="64"
+            endOffset="2469"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1">
+        <fix-replace
+            description="Change to 2.2.1"
+            family="Update versions"
+            oldString="2.1.4"
+            replacement="2.2.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="95"
+            column="21"
+            startOffset="2492"
+            endLine="95"
+            endColumn="69"
+            endOffset="2540"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.3">
+        <fix-replace
+            description="Change to 2.9.3"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.3"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="96"
+            column="21"
+            startOffset="2563"
+            endLine="96"
+            endColumn="67"
+            endOffset="2609"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-process than 2.7.0 is available: 2.9.3">
+        <fix-replace
+            description="Change to 2.9.3"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.3"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="97"
+            column="21"
+            startOffset="2632"
+            endLine="97"
+            endColumn="63"
+            endOffset="2674"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.9.3">
+        <fix-replace
+            description="Change to 2.9.3"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.3"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="98"
+            column="21"
+            startOffset="2697"
+            endLine="98"
+            endColumn="68"
+            endOffset="2744"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.9.3">
+        <fix-replace
+            description="Change to 2.9.3"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.3"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="99"
+            column="21"
+            startOffset="2767"
+            endLine="99"
+            endColumn="69"
+            endOffset="2815"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.8.1">
+        <fix-replace
+            description="Change to 1.8.1"
+            family="Update versions"
+            oldString="1.7.3"
+            replacement="1.8.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="100"
+            column="21"
+            startOffset="2838"
+            endLine="100"
+            endColumn="75"
+            endOffset="2892"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.protobuf:protobuf-java than 3.25.3 is available: 4.28.1">
+        <fix-replace
+            description="Change to 4.28.1"
+            family="Update versions"
+            oldString="3.25.3"
+            replacement="4.28.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="133"
+            column="18"
+            startOffset="4263"
+            endLine="133"
+            endColumn="58"
+            endOffset="4303"/>
+    </incident>
+
+</incidents>
